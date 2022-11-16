@@ -73,3 +73,31 @@ class RequestsData:
 
         with open("./whattowatch/api/fixtures/genres.json", "w", encoding="UTF-8") as outfile:
             json.dump(genre_json, outfile, indent=4, ensure_ascii=False)
+
+    # credit API 요청
+    def load_credit(self):
+        with open("./whattowatch/api/fixtures/movie_list.json", "r", encoding="UTF-8") as f:
+            movie_list_json = json.load(f)
+
+        credit_json = []
+        for movie in movie_list_json:
+            movie_id = movie['id']
+
+            CREDIT_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={self.API_KEY}&language=ko-KR'
+
+            credit_res = requests.get(CREDIT_API_URL)
+            credit_dict = json.loads(credit_res.text)
+
+            credit_json.append(credit_dict)
+            print(movie_id)
+            sleep(2)
+        print('end call')
+
+        with open("./whattowatch/api/fixtures/credit.json", "w", encoding="UTF-8") as outfile:
+            json.dump(credit_json, outfile, indent=4, ensure_ascii=False)
+
+
+RequestsData().load_movie_list()
+RequestsData().load_movie_detail()
+RequestsData().load_genre()
+RequestsData().load_credit()
