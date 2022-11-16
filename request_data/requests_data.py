@@ -25,3 +25,29 @@ class RequestsData:
         print('end call')
         with open("./whattowatch/api/fixtures/movie_list.json", "w", encoding="UTF-8") as outfile:
             json.dump(movie_list_json, outfile, indent=4, ensure_ascii=False)
+
+
+    # 저장해둔 movie_list.json에서 id를 읽어와 detail 요청을 보내기
+    def load_movie_detail(self):
+        with open("./whattowatch/api/fixtures/movie_list.json", "r", encoding="UTF-8") as f:
+            movie_list_json = json.load(f)
+
+        movies_detail_json = []
+        for movie in movie_list_json:
+            movie_id = movie['id']
+
+            MOVIE_DETAIL_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={self.API_KEY}&language=ko-KR'
+
+            movie_detail_res = requests.get(MOVIE_DETAIL_API_URL)
+            movie_detail_dict = json.loads(movie_detail_res.text)
+
+            popular_movie_data = {"model": "api.movie"}
+            popular_movie_data['fields'] = movie_detail_dict
+            movies_detail_json.append(popular_movie_data)
+
+            sleep(2)
+            print(movie_id)
+        print('end call')
+
+        with open("./whattowatch/api/fixtures/movie_detail.json", "w", encoding="UTF-8") as outfile:
+            json.dump(movies_detail_json, outfile, indent=4, ensure_ascii=False)
