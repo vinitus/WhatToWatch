@@ -114,7 +114,9 @@ class RequestsData:
             movie_detail_json[idx]['fields'].pop('imdb_id')
             movie_detail_json[idx]['fields'].pop('original_title')
             movie_detail_json[idx]['fields'].pop('production_companies')
-            movie_detail_json[idx]['fields']['country'] = movie_detail_json[idx]['fields'].pop('production_countries')[0]['name']
+            production_countries = movie_detail_json[idx]['fields'].pop('production_countries')
+            if production_countries:
+                movie_detail_json[idx]['fields']['country'] = production_countries[0]['name']
             movie_detail_json[idx]['fields'].pop('revenue')
             movie_detail_json[idx]['fields'].pop('spoken_languages')
             movie_detail_json[idx]['fields'].pop('status')

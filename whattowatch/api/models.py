@@ -7,7 +7,7 @@ class Genre(models.Model):
 class Movie(models.Model):
     title = models.TextField()
     overview = models.TextField()
-    poster_path = models.TextField()
+    poster_path = models.TextField(null=True)
     popularity = models.FloatField()
     release_date = models.TextField()
     runtime = models.IntegerField()
