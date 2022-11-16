@@ -19,3 +19,13 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre)
     country = models.CharField(max_length=30)
     belongs_to_collection = models.IntegerField(null=True)
+
+class NetflixTop10(models.Model):
+    rank = models.IntegerField()
+    title = models.TextField()
+    release_date = models.TextField()
+    
+class WatchaTop10(models.Model):
+    rank = models.IntegerField()
+    title = models.TextField()
+    release_date = models.TextField()

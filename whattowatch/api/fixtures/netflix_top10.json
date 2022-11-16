@@ -1,0 +1,82 @@
+[
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 1,
+            "title": "에놀라 홈즈 2",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 2,
+            "title": "폴링 포 크리스마스",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 3,
+            "title": "사라진 탄환 2",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 4,
+            "title": "에놀라 홈즈",
+            "release_date": "2020"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 5,
+            "title": "20세기 소녀",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 6,
+            "title": "나의 사랑 나의 신부",
+            "release_date": "2014"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 7,
+            "title": "서부 전선 이상 없다",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 8,
+            "title": "배드 가이즈",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 9,
+            "title": "아델라인 : 멈춰진 시간",
+            "release_date": "2015"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 10,
+            "title": "선과 악의 학교",
+            "release_date": "2022"
+        }
+    }
+]

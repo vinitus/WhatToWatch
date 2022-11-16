@@ -47,9 +47,9 @@ for i in range(1, 3):
             release_date = elem_2.text[:4]
             sleep(0.5)
         if i == 2:
-            netflix.append({'model':'api.netflixtop10', 'pk':j+1, 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
+            netflix.append({'model':'api.netflixtop10', 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
         else:
-            watcha.append({'model':'api.watchatop10', 'pk':j+1, 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
+            watcha.append({'model':'api.watchatop10', 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
 
     sleep(2)
     ActionChains(driver).click(driver.find_element(By.CSS_SELECTOR	, f'#root > div > div.css-1xm32e0 > section > div > section > div:nth-child({i+1}) > div.css-1qq59e8 > div > div.arrow_button.css-147ng4f > div')).perform()
@@ -66,9 +66,9 @@ for i in range(1, 3):
             sleep(0.5)
         
         if i == 2:
-            netflix.append({'model':'NetflixTop10', 'pk':j+1, 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
+            netflix.append({'model':'api.NetflixTop10', 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
         else:
-            watcha.append({'model':'api.watchatop10', 'pk':j+1, 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
+            watcha.append({'model':'api.watchatop10', 'fields' : {'rank': rank, 'title': title, 'release_date': release_date}})
 
 # json파일로 top10 추출
 with open('./whattowatch/api/fixtures/netflix_top10.json', 'w', encoding="UTF-8") as f:
