@@ -51,3 +51,25 @@ class RequestsData:
 
         with open("./whattowatch/api/fixtures/movie_detail.json", "w", encoding="UTF-8") as outfile:
             json.dump(movies_detail_json, outfile, indent=4, ensure_ascii=False)
+
+    
+    # 장르 가져오기
+    def load_genre(self):
+        GENRE_URL = f'https://api.themoviedb.org/3/genre/movie/list?api_key={self.API_KEY}&language=ko-KR'
+
+        genres_res = requests.get(GENRE_URL)
+        genres_res = json.loads(genres_res.text)
+
+        genre_json = []
+        # 원하는 JSON 형식으로 만들기 위한 가공
+        for genre in genres_res['genres']:
+            genre_data = {"model": "api.genre"}
+            genre_data['id'] = genre['id']
+            genre_data["fields"] = {}
+            genre_data["fields"]["name"] = genre['name']
+            genre_json.append(genre_data)
+        
+        print('end call')
+
+        with open("./whattowatch/api/fixtures/genres.json", "w", encoding="UTF-8") as outfile:
+            json.dump(genre_json, outfile, indent=4, ensure_ascii=False)
