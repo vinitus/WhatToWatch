@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,pycharm,python,django,vuejs,vue,node,venv
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,pycharm,python,django,vuejs,vue,node,venv
 
+### HIDE_API_KEY ###
+secret.py
+
 ### Django ###
 *.log
 *.pot
