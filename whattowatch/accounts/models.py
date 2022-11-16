@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    email = models.TextField()
     gender = models.TextField()
-    birthday = models.DateField()
-    phone_number = models.IntegerField()
+    birthday = models.DateField(null=True)
+    phone_number = models.IntegerField(null=True)
