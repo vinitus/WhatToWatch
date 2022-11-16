@@ -21,9 +21,9 @@ class Movie(models.Model):
     belongs_to_collection = models.IntegerField(null=True)
 
 class Director(models.Model):
-    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
 
 class Actor(models.Model):
-    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
