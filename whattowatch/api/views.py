@@ -159,6 +159,12 @@ def genre_list(request):
     genres = get_list_or_404(Genre)
     serializer = GenreListSerializer(genres, many=True)
     return Response(serializer.data)
+    # genres = get_list_or_404(Genre)
+    # date = {}
+    # for genre in genres:
+    #     # print(dir(genre))
+    #     print(genre.movie_set.count(), genre.name)
+    
 
 @api_view(['GET'])
 def genre_detail(request, genre_pk):
@@ -190,3 +196,8 @@ def director_detail(request, director_pk):
     serializer = DirectorListSerializer(director)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def search(request, keyword):
+    movies = get_list_or_404(Movie, title__contains=keyword)
+    serializer = MovieListSerializer(movies, many=True)
+    return Response(serializer.data)
