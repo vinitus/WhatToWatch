@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+from django.urls import path
+from . import views
+
+app_name = 'api'
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+=======
 from django.urls import path, include
 from . import views
 
@@ -14,3 +23,4 @@ urlpatterns = [
     path('directors/', views.director_list, name='director_list'),
     path('directors/<int:director_pk>/', views.director_detail, name='director_detail'),
 ]
+>>>>>>> bf8c2e7808de8f109bd4d7ecd084d718e924e923
