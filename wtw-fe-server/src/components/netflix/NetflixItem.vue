@@ -1,11 +1,15 @@
 <template>
   <div>
+    {{ netflixItem }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'WatchaItem'
+  name: 'NetflixItem',
+  props: {
+    netflixItem: Object
+  }
 }
 </script>
 

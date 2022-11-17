@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div v-if="watchaList.length != 0">
     <h1>watcha</h1>
-    <watch-item v-for="(watcha, index) in watchaList" :key="index"></watch-item>
+    <watcha-item v-for="(watchaItem, index) in watchaList" :key="index" :watchaItem="watchaItem"></watcha-item>
   </div>
 </template>
 
 <script>
-import WatchItem from './WatchItem.vue'
 import axiosCall from '@/axiosCall/axiosCall.js'
+import WatchaItem from '@/components/watcha/WatchaItem.vue'
 
 export default {
   name: 'WatchaTop10',
   components: {
-    WatchItem
+    WatchaItem
   },
   data() {
     return {
@@ -21,8 +21,8 @@ export default {
   },
   methods: {
     getWatchaData() {
-      this.watchaList = axiosCall('api/watcha/', 'get')
-      console.log(this.watchaList)
+      const promiseRes = axiosCall('api/watcha/', 'get')
+      promiseRes.then((data) => this.watchaList = data)
     }
   },
   created() {

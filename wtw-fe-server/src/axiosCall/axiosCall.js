@@ -9,7 +9,5 @@ export default async function axiosCall(path, method, data = "") {
     data: data,
   }).then((res) => res.data)
 
-  console.log(result)
-
   return result
 }

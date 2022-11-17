@@ -32,6 +32,7 @@ def netflix(request):
                 # print(tmdb_movie.title, end='')
                 # print('(이름 달라서 db 수정)')
             except:
+                tmdb_id = R.find_id(title=netflix_title)
                 tmdb_movie = R.request_movie_data(tmdb_id)
                 tmdb_genres = []
                 for i in range(len(tmdb_movie['genres'])):
@@ -59,7 +60,13 @@ def netflix(request):
     netflix = get_list_or_404(NetflixTop10)
     data = []
     for i in range(10):        
-        movie = Movie.objects.get(Q(title=netflix[i].title) & Q(release_date__startswith=netflix[i].release_date))
+        movie_list = Movie.objects.filter(title=netflix[i].title)
+        if len(movie_list) != 1:
+            for movie in movie_list:
+                if movie.release_date[:4] == netflix[i].release_date:
+                    break
+        else:
+            movie = movie_list[0]
         movie_info = {
             'poster_path': movie.poster_path,
             'title': netflix[i].title,
