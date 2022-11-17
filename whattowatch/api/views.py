@@ -57,13 +57,9 @@ def netflix(request):
                 # print('(db에 없어서 TMDB에서 가져와 추가)')
 
     netflix = get_list_or_404(NetflixTop10)
-    print(netflix)
-    # serializer = NetflixListSerializer(netflix, many=True)
     data = []
-    for i in range(10):
-        
+    for i in range(10):        
         movie = Movie.objects.get(Q(title=netflix[i].title) & Q(release_date__startswith=netflix[i].release_date))
-        print(Movie.objects.get(Q(title=netflix[i].title) & Q(release_date__startswith=netflix[i].release_date)))
         movie_info = {
             'poster_path': movie.poster_path,
             'title': netflix[i].title,
@@ -74,7 +70,7 @@ def netflix(request):
         data.append(movie_info)
     return Response(data)
 
-
+@api_view(['GET'])
 def watcha(request):
     watcha_contents = WatchaTop10.objects.all()
 
@@ -82,7 +78,7 @@ def watcha(request):
         watcha_title = watcha_contents[i].title
         try:
             wat_title = Movie.objects.get(title=watcha_title).title
-            print(wat_title)
+            # print(wat_title)
 
         except:
             try:
@@ -90,8 +86,8 @@ def watcha(request):
                 tmdb_movie = Movie.objects.get(id=tmdb_id)
                 tmdb_movie.title = watcha_title
                 tmdb_movie.save()
-                print(tmdb_movie.title, end='')
-                print('(이름 달라서 db 수정)')
+                # print(tmdb_movie.title, end='')
+                # print('(이름 달라서 db 수정)')
             
             except:
                 tmdb_movie = R.request_movie_data(tmdb_id)
@@ -115,12 +111,28 @@ def watcha(request):
                 )
                 movie.genres.set(tmdb_genres)
                 movie.save()
-                print(movie.title, end='')
-                print('(db에 없어서 TMDB에서 가져와 추가)')             
+                # print(movie.title, end='')
+                # print('(db에 없어서 TMDB에서 가져와 추가)')             
 
     watcha = get_list_or_404(WatchaTop10)
-    serializer = WatchaListSerializer(watcha)
-    return Response(serializer.data)   
+    data = []
+    for i in range(10):
+        movie_list = Movie.objects.filter(title=watcha[i].title)
+        if len(movie_list) != 1:
+            for movie in movie_list:
+                if movie.release_date[:4] == watcha[i].release_date:
+                    break
+        else:
+            movie = movie_list[0]
+        movie_info = {
+            'poster_path': movie.poster_path,
+            'title': watcha[i].title,
+            'country': movie.country,
+            'year': watcha[i].release_date,
+            'rank': watcha[i].rank
+        }
+        data.append(movie_info)
+    return Response(data)
             
 
 @api_view(['GET'])
