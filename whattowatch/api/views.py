@@ -5,23 +5,22 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.shortcuts import get_object_or_404, get_list_or_404
-from .serializers import GenreListSerializer, MovieListSerializer, ActorListSerializer, DirectorListSerializer
+from .serializers import GenreListSerializer, MovieListSerializer, ActorListSerializer, DirectorListSerializer, NetflixListSerializer, WatchaListSerializer
+from django.db.models import Q
 
-def index(request):
+
+@api_view(['GET'])
+def netflix(request):
     netflix_contents = NetflixTop10.objects.all()
-    watcha_contents = WatchaTop10.objects.all()
-    context = {
-        'netflix_contents': netflix_contents,
-        'watcha_contents': watcha_contents,
-    }
+
     for i in range(10):
         netflix_title = netflix_contents[i].title
-        watcha_title = watcha_contents[i].title
-        print('OTT', i+1, '위')
-        print('Netflix: ', end='')
+
+        # print('OTT', i+1, '위')
+        # print('Netflix: ', end='')
         try:
             net_title = Movie.objects.get(title=netflix_title).title
-            print(net_title)
+            # print(net_title)
 
         except:
 
@@ -30,8 +29,8 @@ def index(request):
                 tmdb_movie = Movie.objects.get(id=tmdb_id)
                 tmdb_movie.title = netflix_title
                 tmdb_movie.save()
-                print(tmdb_movie.title, end='')
-                print('(이름 달라서 db 수정)')
+                # print(tmdb_movie.title, end='')
+                # print('(이름 달라서 db 수정)')
             except:
                 tmdb_movie = R.request_movie_data(tmdb_id)
                 tmdb_genres = []
@@ -54,9 +53,33 @@ def index(request):
                 )
                 movie.genres.set(tmdb_genres)
                 movie.save()
-                print(movie.title, end='')
-                print('(db에 없어서 TMDB에서 가져와 추가)')
+                # print(movie.title, end='')
+                # print('(db에 없어서 TMDB에서 가져와 추가)')
 
+    netflix = get_list_or_404(NetflixTop10)
+    print(netflix)
+    # serializer = NetflixListSerializer(netflix, many=True)
+    data = []
+    for i in range(10):
+        
+        movie = Movie.objects.get(Q(title=netflix[i].title) & Q(release_date__startswith=netflix[i].release_date))
+        print(Movie.objects.get(Q(title=netflix[i].title) & Q(release_date__startswith=netflix[i].release_date)))
+        movie_info = {
+            'poster_path': movie.poster_path,
+            'title': netflix[i].title,
+            'country': movie.country,
+            'year': netflix[i].release_date,
+            'rank': netflix[i].rank
+        }
+        data.append(movie_info)
+    return Response(data)
+
+
+def watcha(request):
+    watcha_contents = WatchaTop10.objects.all()
+
+    for i in range(10):
+        watcha_title = watcha_contents[i].title
         try:
             wat_title = Movie.objects.get(title=watcha_title).title
             print(wat_title)
@@ -93,8 +116,11 @@ def index(request):
                 movie.genres.set(tmdb_genres)
                 movie.save()
                 print(movie.title, end='')
-                print('(db에 없어서 TMDB에서 가져와 추가)')
-                
+                print('(db에 없어서 TMDB에서 가져와 추가)')             
+
+    watcha = get_list_or_404(WatchaTop10)
+    serializer = WatchaListSerializer(watcha)
+    return Response(serializer.data)   
             
 
 @api_view(['GET'])

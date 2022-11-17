@@ -3,7 +3,8 @@ from . import views
 
 app_name='api'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('netflix/', views.netflix, name='netflix'),
+    path('watcha/', views.watcha, name='watcha'),
     path('movies/', views.movie_list, name='movie_list'),
     path('movies/<int:movie_pk>/', views.movie_detail, name='movie_detail'),
     path('genres/', views.genre_list, name='genre_list'),

@@ -6,6 +6,7 @@
       <router-link :to="{name:'series'}">시리즈</router-link> |
       <router-link :to="{name:'login'}">로그인</router-link> |
       <router-link :to="{name:'signup'}">회원가입</router-link>
+      <MovieItem/>
     </nav>
     <router-view/>
   </div>
