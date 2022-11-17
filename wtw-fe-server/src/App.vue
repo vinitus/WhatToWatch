@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{name:'home'}">뭐봄</router-link> |
+      <router-link :to="{name:'movies'}">영화</router-link> |
+      <router-link :to="{name:'series'}">시리즈</router-link> |
+      <router-link :to="{name:'login'}">로그인</router-link> |
+      <router-link :to="{name:'signup'}">회원가입</router-link>
     </nav>
     <router-view/>
   </div>
