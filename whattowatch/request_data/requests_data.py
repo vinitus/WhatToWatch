@@ -3,6 +3,7 @@ import requests
 from time import sleep
 from .secret import TMDB_API_KEY
 
+
 class RequestsData:
     def __init__(self):
         self.API_KEY = TMDB_API_KEY
