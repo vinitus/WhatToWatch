@@ -64,7 +64,7 @@ class RequestsData:
         # 원하는 JSON 형식으로 만들기 위한 가공
         for genre in genres_res['genres']:
             genre_data = {"model": "api.genre"}
-            genre_data['id'] = genre['id']
+            genre_data['pk'] = genre['id']
             genre_data["fields"] = {}
             genre_data["fields"]["name"] = genre['name']
             genre_json.append(genre_data)
@@ -96,8 +96,76 @@ class RequestsData:
         with open("./whattowatch/api/fixtures/credit.json", "w", encoding="UTF-8") as outfile:
             json.dump(credit_json, outfile, indent=4, ensure_ascii=False)
 
+    # TMDB movie detail response 형식 바꾸기
+    def transform_movie_detail_json(self):
+        with open("./whattowatch/api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
+            movie_detail_json = json.load(f)
 
-RequestsData().load_movie_list()
-RequestsData().load_movie_detail()
-RequestsData().load_genre()
-RequestsData().load_credit()
+        for idx in range(len(movie_detail_json)):
+            movie_detail_json[idx]['fields'].pop('backdrop_path')
+            if movie_detail_json[idx]['fields']['belongs_to_collection']:
+                movie_detail_json[idx]['fields']['belongs_to_collection'] = movie_detail_json[idx]['fields']['belongs_to_collection']['id']
+            movie_detail_json[idx]['fields'].pop('budget')
+            movie_detail_json[idx]['fields'].pop('homepage')
+            genre_list = movie_detail_json[idx]['fields'].pop('genres')
+            movie_detail_json[idx]['fields']['genres'] = []
+            for genre in genre_list:
+                movie_detail_json[idx]['fields']['genres'].append(genre['id'])
+            movie_detail_json[idx]['fields'].pop('imdb_id')
+            movie_detail_json[idx]['fields'].pop('original_title')
+            movie_detail_json[idx]['fields'].pop('production_companies')
+            production_countries = movie_detail_json[idx]['fields'].pop('production_countries')
+            if production_countries:
+                movie_detail_json[idx]['fields']['country'] = production_countries[0]['name']
+            movie_detail_json[idx]['fields'].pop('revenue')
+            movie_detail_json[idx]['fields'].pop('spoken_languages')
+            movie_detail_json[idx]['fields'].pop('status')
+            movie_detail_json[idx]['fields'].pop('tagline')
+            movie_detail_json[idx]['fields'].pop('video')
+
+        with open("./whattowatch/api/fixtures/reform_movie_detail.json", "w", encoding="UTF-8") as outfile:
+            json.dump(movie_detail_json, outfile, indent=4, ensure_ascii=False)
+    
+    def transform_credit(self):
+        with open("./whattowatch/api/fixtures/credit.json", "r", encoding="UTF-8") as f:
+            credit_json = json.load(f)
+        
+        actor_json = []
+        director_json = []
+
+        for credit in credit_json:
+            movie_id = credit['id']
+
+            actor_list = credit['cast'][:9]
+            for actor in actor_list:
+                actor_dict = {
+                    'model': 'api.actor',
+                    'fields': {
+                        'movie_id': movie_id,
+                        'name': actor['name']
+                    }
+                }
+                actor_json.append(actor_dict)
+
+            crew_list = credit['crew']
+            for crew in crew_list:
+                if crew['job'] == 'Director':
+                    director_dict = {
+                        'model': 'api.director',
+                        'fields': {
+                            'movie_id': movie_id,
+                            'name': crew['name']
+                        }
+                    }
+                    break
+            director_json.append(director_dict)
+
+        with open("./whattowatch/api/fixtures/actor.json", "w", encoding="UTF-8") as f:
+            json.dump(actor_json, f, indent=4, ensure_ascii=False)
+
+        with open("./whattowatch/api/fixtures/director.json", "w", encoding="UTF-8") as f:
+            json.dump(director_json, f, indent=4, ensure_ascii=False)
+
+
+
+RequestsData().transform_credit()
