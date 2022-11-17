@@ -126,6 +126,7 @@ class RequestsData:
 
         with open("./whattowatch/api/fixtures/reform_movie_detail.json", "w", encoding="UTF-8") as outfile:
             json.dump(movie_detail_json, outfile, indent=4, ensure_ascii=False)
+    
 
     # OTT 사이트 title을 TMDB data의 id로 변환
     def find_id(title):
@@ -142,4 +143,44 @@ class RequestsData:
         tmdb_data_res = requests.get(movie_detail_url)
         tmdb_data_dict = json.loads(tmdb_data_res.content)
         return tmdb_data_dict
+
+    def transform_credit(self):
+        with open("./whattowatch/api/fixtures/credit.json", "r", encoding="UTF-8") as f:
+            credit_json = json.load(f)
+        
+        actor_json = []
+        director_json = []
+        for credit in credit_json:
+            movie_id = credit['id']
+
+            actor_list = credit['cast'][:9]
+            for actor in actor_list:
+                actor_dict = {
+                    'model': 'api.actor',
+                    'fields': {
+                        'movie_id': movie_id,
+                        'name': actor['name']
+                    }
+                }
+                actor_json.append(actor_dict)
+
+            crew_list = credit['crew']
+            for crew in crew_list:
+                if crew['job'] == 'Director':
+                    director_dict = {
+                        'model': 'api.director',
+                        'fields': {
+                            'movie_id': movie_id,
+                            'name': crew['name']
+                        }
+                    }
+                    break
+            director_json.append(director_dict)
+
+        with open("./whattowatch/api/fixtures/actor.json", "w", encoding="UTF-8") as f:
+            json.dump(actor_json, f, indent=4, ensure_ascii=False)
+
+        with open("./whattowatch/api/fixtures/director.json", "w", encoding="UTF-8") as f:
+            json.dump(director_json, f, indent=4, ensure_ascii=False)
+
 

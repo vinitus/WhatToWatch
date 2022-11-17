@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from .models import NetflixTop10, WatchaTop10, Movie
+from .models import NetflixTop10, WatchaTop10, Movie, Genre, Actor, Director
 from request_data.requests_data import RequestsData as R
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+from django.shortcuts import get_object_or_404, get_list_or_404
+from .serializers import GenreListSerializer, MovieListSerializer, ActorListSerializer, DirectorListSerializer
 
-# Create your views here.
-
-# try except 지양, 현재 무비 모델과 장르 모델의 many to many field 처리 못해서 에러 나는 중..
 def index(request):
     netflix_contents = NetflixTop10.objects.all()
     watcha_contents = WatchaTop10.objects.all()
@@ -95,6 +97,51 @@ def index(request):
                 
             
 
+@api_view(['GET'])
+def movie_list(request):
+    movies = get_list_or_404(Movie)
+    serializer = MovieListSerializer(movies, many=True)
+    return Response(serializer.data)
 
-    # return render(request, 'index.html', context)
+@api_view(['GET'])
+def movie_detail(request, movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    serializer = MovieListSerializer(movie)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def genre_list(request):
+    genres = get_list_or_404(Genre)
+    serializer = GenreListSerializer(genres, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def genre_detail(request, genre_pk):
+    genre = get_object_or_404(Genre, pk=genre_pk)
+    serializer = GenreListSerializer(genre)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def actor_list(request):
+    actors = get_list_or_404(Actor)
+    serializer = ActorListSerializer(actors, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def actor_detail(request, actor_pk):
+    actor = get_object_or_404(Actor, pk=actor_pk)
+    serializer = ActorListSerializer(actor)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def director_list(request):
+    directors = get_list_or_404(Director)
+    serializer = DirectorListSerializer(directors, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def director_detail(request, director_pk):
+    director = get_object_or_404(Director, pk=director_pk)
+    serializer = DirectorListSerializer(director)
+    return Response(serializer.data)
 
