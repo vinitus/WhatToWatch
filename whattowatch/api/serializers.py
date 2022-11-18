@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Movie, Genre, Actor, Director
+from .models import Movie, Genre, Actor, Director, NetflixTop10, WatchaTop10
 
 
 class GenreListSerializer(serializers.ModelSerializer):
@@ -27,4 +27,18 @@ class DirectorListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Director
+        fields = '__all__'
+
+
+class NetflixListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = NetflixTop10
+        fields = '__all__'
+
+
+class WatchaListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = WatchaTop10
         fields = '__all__'

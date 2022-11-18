@@ -11,6 +11,22 @@
         "model": "api.watchatop10",
         "fields": {
             "rank": 2,
+            "title": "타짜",
+            "release_date": "2006"
+        }
+    },
+    {
+        "model": "api.watchatop10",
+        "fields": {
+            "rank": 3,
+            "title": "뽀로로 극장판 드래곤캐슬 대모험",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.watchatop10",
+        "fields": {
+            "rank": 4,
             "title": "극한직업",
             "release_date": "2018"
         }
@@ -18,25 +34,9 @@
     {
         "model": "api.watchatop10",
         "fields": {
-            "rank": 3,
-            "title": "반지의 제왕 : 반지 원정대",
-            "release_date": "2001"
-        }
-    },
-    {
-        "model": "api.watchatop10",
-        "fields": {
-            "rank": 4,
-            "title": "반지의 제왕 : 왕의 귀환",
-            "release_date": "2003"
-        }
-    },
-    {
-        "model": "api.watchatop10",
-        "fields": {
             "rank": 5,
-            "title": "타짜",
-            "release_date": "2006"
+            "title": "굿 윌 헌팅",
+            "release_date": "1997"
         }
     },
     {
@@ -51,32 +51,32 @@
         "model": "api.watchatop10",
         "fields": {
             "rank": 7,
-            "title": "대부",
-            "release_date": "1972"
+            "title": "러브레터",
+            "release_date": "1995"
         }
     },
     {
         "model": "api.watchatop10",
         "fields": {
             "rank": 8,
-            "title": "범죄와의 전쟁 : 나쁜놈들 전성시대",
-            "release_date": "2012"
+            "title": "반지의 제왕 : 두 개의 탑",
+            "release_date": "2002"
         }
     },
     {
         "model": "api.watchatop10",
         "fields": {
             "rank": 9,
-            "title": "베테랑",
-            "release_date": "2014"
+            "title": "화차",
+            "release_date": "2012"
         }
     },
     {
         "model": "api.watchatop10",
         "fields": {
             "rank": 10,
-            "title": "아가씨",
-            "release_date": "2016"
+            "title": "반지의 제왕 : 왕의 귀환",
+            "release_date": "2003"
         }
     }
 ]
