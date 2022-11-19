@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="createReview">
+    <form @focusin="checkLogin" @submit.prevent="createReview">
       <input type="text" v-model="content">
       <br>
       <input type="text" v-model="score">
@@ -35,15 +35,25 @@ export default {
         watched,
         movie_id: this.$route.params.movieId
       }
-      console.log(this.token)
       const headers = { Authorization: `Bearer ${this.token.access_token}` }
       const res = axiosCall(`feed/reviews/`, 'post', data, headers)
       res
+    },
+    checkLogin(event) {
+      if (this.isLogin) {
+        event.target.dispatch(new Event('focusin'))
+      } else {
+        alert("리뷰는 로그인 후 작성 가능합니다!")
+        event.target.blur()
+      }
     }
   },
   computed: {
     token() {
       return this.$store.state.user.token
+    },
+    isLogin() {
+      return this.$store.getters["isLogin"]
     }
   }
 }

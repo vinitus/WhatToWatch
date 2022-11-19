@@ -1,7 +1,7 @@
 import axiosCall from "@/axiosCall/axiosCall"
 import router from "@/router"
 
-const User = {
+const user = {
   state: {
     token: null,
   },
@@ -43,10 +43,10 @@ const User = {
       res.then(() => context.commit("DELETE_TOKEN"))
     },
   },
-  //   getters: {
-  //     token(state) {
-  //       return state.token
-  //   }
-  // },
+  getters: {
+    isLogin(state) {
+      return state.token ? true : false
+    },
+  },
 }
-export default User
+export default user

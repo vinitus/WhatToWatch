@@ -31,6 +31,9 @@ export default {
   computed: {
     token() {
       return this.$store.state.user.token
+    },
+    isLogin() {
+      return this.$store.getters.user.isLogin
     }
   }
 }
