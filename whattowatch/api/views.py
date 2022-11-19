@@ -202,13 +202,19 @@ def director_detail(request, director_pk):
     serializer = DirectorListSerializer(director)
     return Response(serializer.data)
 
-# request.data['tmp'] == 'before': 유저에게 영화 선택지 보내기(popularity 높은 영화목록)
-# request.data['tmp'] == 'after': 유저가 본 영화 정보 가져오기
-@api_view(['POST'])
+# 
+# GET: 유저에게 영화 선택지 보내기(popularity 높은 영화목록)
+# POST: 유저가 본 영화 정보 가져오기
+@api_view(['POST', 'GET'])
 def user_interection(request):
-    user = User.objects.get(id=request.data['user_pk'])
-    watch_movies = user.watched.split()
-    if request.data['tmp'] == 'before':          
+
+    user = User.objects.get(id=request.user.id)
+    if user.watched:
+        watch_movies = user.watched.split()
+    else:
+        watch_movies = []
+
+    if request.method == 'GET':          
         data = defaultdict(list)
         movies = Movie.objects.filter(popularity__gte=150)
         movies = movies.filter(vote_count__gte=50)
@@ -226,20 +232,19 @@ def user_interection(request):
         return Response(data)
 
 
-    elif request.data['tmp'] == 'after':          
+    elif request.method == 'POST':          
         like_genre = defaultdict(int)
         like_actor = defaultdict(int)
-        watch_movies += request.data[movie_id]
-        for movie_id, stat in zip(request.data['movie_id'], request.data['status']):
-            
-            if stat == 'watched':
-                movie = Movie.objects.get(id=movie_id)
-                for genre_instance in movie.genres.all():
-                    like_genre[genre_instance.id] += 1
-                    
-                actors = Actor.objects.filter(movie=movie_id)
-                for actor in actors:
-                    like_actor[actor.pk] += 1
+        watch_movies += request.data['movie_id']
+        for movie_id in request.data['movie_id']:
+            movie = Movie.objects.get(id=movie_id)
+            for genre_instance in movie.genres.all():
+                like_genre[genre_instance.id] += 1
+                
+            print('-'*30)   
+            actors = Actor.objects.filter(movies=movie_id)
+            for actor in actors:
+                like_actor[actor.pk] += 1
             
         like_genre_to_lst = []
         like_actor_to_lst = []
@@ -258,8 +263,7 @@ def user_interection(request):
 
         for v, k in like_actor_to_lst:
             like_actor_to_str += f'{k}:{v} '
-        
-        user.watched = ' '.join(watch_movies)
+        user.watched = ' '.join(map(str, watch_movies))
         user.like_genres = like_genre_to_str
         user.like_actors = like_actor_to_str
         user.save()
@@ -267,41 +271,62 @@ def user_interection(request):
         return HttpResponse(status.HTTP_200_OK)
 
 # 유저 선택 정보에 따른 동일 장르 영화 추천
-@api_view(['POST'])
+@api_view(['GET'])
 def recommend_based_genres(request):
-    user = User.objects.get(id=request.data['user_pk'])
+    user = User.objects.get(id=request.user.id)
     like_genres = []
-
-    for genres in user.like_genres.split()[:2]:
+    for genres in user.like_genres.split()[:3]:
         genre = genres.split(':')[0]
         like_genres.append(genre)
     movies = Movie.objects.filter(genres__in=[like_genres[0]])
-    movies = movies.filter(genres__in=[like_genres[1]])
-    movies = movies.filter(~Q(id__in=user.watched))
     movies = movies.filter(popularity__gte=100)
-    movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
-    return Response(movies)
-
-# 유저 선택 정보에 따른 좋아하는 배우가 출연한 영화 추천
-@api_view(['POST'])
-def recommend_based_actors(request):
-    user = User.objects.get(id=request.data['user_pk'])
-    like_actors = []
-    for actor in user.like_actors.split()[:2]:
-        actor = actor.split(':')[0]
-        like_actors.append(actor)
-    movies = Movie.objects.filter(actors__in=[like_actors[0]])
-    movies = movies.filter(~Q(id__in=user.watched))
-    movies1 = movies.filter(actors__in=[like_actors[1]])
+    movies = movies.filter(genres__in=[like_genres[1]])
+    user_watched = user.watched.split()
+    movies = movies.filter(~Q(id__in=user_watched))
+    movies1 = movies.filter(genres__in=[like_genres[2]])
     if len(movies1) < 10:
-        movies = json.load(serializers.serialize('json', movies, ensure_ascii=False))
+        movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
         return Response(movies)
     else:
-        movies1 = json.load(serializers.serialize('json', movies, ensure_ascii=False))
+        print(len(movies1))
+        movies1 = json.loads(serializers.serialize('json', movies1, ensure_ascii=False))
+        print(movies1)
         return Response(movies1)
 
+
+# 유저 선택 정보에 따른 좋아하는 배우가 출연한 영화 추천
+@api_view(['GET'])
+def recommend_based_actors(request):
+    user = User.objects.get(id=request.user.id)
+    like_actors = []
+    for actor in user.like_actors.split()[:3]:
+        actor = actor.split(':')[0]
+        like_actors.append(actor)
+    print(Movie.objects.filter(actor=11207))
+    movies = Movie.objects.filter(actor__in=[like_actors[0]])
+    user_watched = user.watched.split()
+    print('-'*40)
+    movies = movies.filter(~Q(id__in=user_watched))
+    movies1 = movies.filter(actor__in=[like_actors[1]])
+    movies2 = movies1.filter(actor__in=[like_actors[2]])
+    if len(movies2) < 10:
+        movies = movies1.filter(popularity__gte=50)
+        movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
+        return Response(movies)
+    else:
+        movies2 = json.loads(serializers.serialize('json', movies2, ensure_ascii=False))
+        return Response(movies2)
+
+        
 @api_view(['GET'])
 def search(request, keyword):
     movies = get_list_or_404(Movie, title__contains=keyword)
     serializer = MovieListSerializer(movies, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def movie_add(request):
+    movie = Movie()
+    print(request.text)
+    return HttpResponse(status.HTTP_201_CREATED)
