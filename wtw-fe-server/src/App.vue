@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link :to="{name:'home'}">뭐봄</router-link> |
-      <router-link :to="{name:'movies'}">영화</router-link> |
-      <router-link :to="{name:'series'}">시리즈</router-link> |
-      <router-link :to="{name:'login'}">로그인</router-link> |
-      <router-link :to="{name:'signup'}">회원가입</router-link>
-    </nav>
-    <router-view/>
+    <navigation-bar></navigation-bar>
+    <router-view />
   </div>
 </template>
+
+<script>
+import NavigationBar from './components/NavigationBar.vue';
+
+export default {
+  components: {
+    NavigationBar
+  }
+}
+</script>
 
 <style>
 #app {

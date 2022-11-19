@@ -13,6 +13,8 @@ from django.http.response import HttpResponse
 from django.core import serializers
 import json
 
+
+
 @api_view(['GET'])
 def netflix(request):
     netflix_contents = NetflixTop10.objects.all()
@@ -163,6 +165,12 @@ def genre_list(request):
     genres = get_list_or_404(Genre)
     serializer = GenreListSerializer(genres, many=True)
     return Response(serializer.data)
+    # genres = get_list_or_404(Genre)
+    # date = {}
+    # for genre in genres:
+    #     # print(dir(genre))
+    #     print(genre.movie_set.count(), genre.name)
+    
 
 @api_view(['GET'])
 def genre_detail(request, genre_pk):
@@ -292,3 +300,8 @@ def recommend_based_actors(request):
         movies1 = json.load(serializers.serialize('json', movies, ensure_ascii=False))
         return Response(movies1)
 
+@api_view(['GET'])
+def search(request, keyword):
+    movies = get_list_or_404(Movie, title__contains=keyword)
+    serializer = MovieListSerializer(movies, many=True)
+    return Response(serializer.data)
