@@ -1,6 +1,9 @@
 <template>
   <div>
-    {{ searchItem.title }}
+    <router-link :to="{ name: 'MovieDetail', params: { movieId: searchItem.id } }">
+      {{ searchItem.title }}
+
+    </router-link>
   </div>
 </template>
 

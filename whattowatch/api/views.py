@@ -68,6 +68,7 @@ def netflix(request):
         else:
             movie = movie_list[0]
         movie_info = {
+            'movie_id': movie.id,
             'poster_path': movie.poster_path,
             'title': netflix[i].title,
             'country': movie.country,
@@ -132,6 +133,7 @@ def watcha(request):
         else:
             movie = movie_list[0]
         movie_info = {
+            'movie_id': movie.id,
             'poster_path': movie.poster_path,
             'title': watcha[i].title,
             'country': movie.country,

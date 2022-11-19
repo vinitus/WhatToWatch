@@ -8,7 +8,11 @@ const User = {
   mutations: {
     SAVE_TOKEN(state, token) {
       state.token = token
-      router.push({ name: "home" })
+      router.push({ name: "Home" })
+    },
+    DELETE_TOKEN(state) {
+      state.token = null
+      // router.push({ name: "Home" })
     },
   },
   actions: {
@@ -30,9 +34,19 @@ const User = {
       }
       const res = axiosCall("accounts/login/", "post", data)
       res.then((res) => {
-        context.commit("SAVE_TOKEN", res.key)
+        console.log(res)
+        context.commit("SAVE_TOKEN", res)
       })
     },
+    logout(context) {
+      const res = axiosCall("accounts/logout/", "post")
+      res.then(() => context.commit("DELETE_TOKEN"))
+    },
   },
+  //   getters: {
+  //     token(state) {
+  //       return state.token
+  //   }
+  // },
 }
 export default User

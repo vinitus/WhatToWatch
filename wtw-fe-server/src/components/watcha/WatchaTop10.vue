@@ -22,7 +22,10 @@ export default {
   methods: {
     getWatchaData() {
       const promiseRes = axiosCall('api/watcha/', 'get')
-      promiseRes.then((data) => this.watchaList = data)
+      promiseRes.then((data) => {
+        this.watchaList = data
+        console.log(this.watchaList)
+      })
     }
   },
   created() {
