@@ -15,7 +15,11 @@ export default {
   methods: {
     navInputSubmit(event) {
       const keyword = event.target.value
-      this.$router.push({ name: 'search', params: { keyword: keyword } })
+      if (this.$route.name === 'search') {
+        if (this.$route.params.keyword != keyword) {
+          this.$router.push({ name: 'search', params: { keyword: keyword } })
+        }
+      }
     }
   }
 }

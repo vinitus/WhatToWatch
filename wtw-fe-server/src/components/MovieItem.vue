@@ -1,14 +1,14 @@
 <template>
   <div>
-    {{ netflixItem }}
+    {{ movieItem.title }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NetflixItem',
+  name: 'MovieItem',
   props: {
-    netflixItem: Object
+    movieItem: Object
   }
 }
 </script>

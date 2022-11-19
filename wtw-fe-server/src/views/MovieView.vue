@@ -1,16 +1,10 @@
 <template>
   <div>
-    Detail
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MovieDetailView',
-
+  name: 'MovieView',
 }
 </script>
-
-<style>
-
-</style>

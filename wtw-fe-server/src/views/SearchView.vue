@@ -18,9 +18,19 @@ export default {
       searchDataArr: []
     }
   },
-  created() {
-    const res = axiosCall(`api/movies/search/${this.$route.params.keyword}/`, 'get')
-    res.then((data) => this.searchDataArr = data)
+  methods: {
+    loadData() {
+      const res = axiosCall(`api/movies/search/${this.$route.params.keyword}/`, 'get')
+      res.then((data) => this.searchDataArr = data)
+    }
+  },
+  mounted() {
+    this.loadData()
+  },
+  watch: {
+    '$route'() {
+      this.loadData()
+    }
   }
 }
 

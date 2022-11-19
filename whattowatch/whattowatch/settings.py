@@ -70,7 +70,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 REST_FRAMEWORK = {
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     ],
 
     # permission
@@ -83,6 +84,10 @@ REST_FRAMEWORK = {
     # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+REST_USE_JWT = True
+
+JWT_AUTH_COOKIE = 'accounts-auth'
+JWT_AUTH_REFRESH_COOKIE = 'accounts-token'
 
 ROOT_URLCONF = 'whattowatch.urls'
 

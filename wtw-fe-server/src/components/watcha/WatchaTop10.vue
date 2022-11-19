@@ -1,18 +1,18 @@
 <template>
   <div v-if="watchaList.length != 0">
     <h1>watcha</h1>
-    <watcha-item v-for="(watchaItem, index) in watchaList" :key="index" :watchaItem="watchaItem"></watcha-item>
+    <movie-item v-for="(movieItem, index) in watchaList" :key="index" :movieItem="movieItem"></movie-item>
   </div>
 </template>
 
 <script>
 import axiosCall from '@/axiosCall/axiosCall.js'
-import WatchaItem from '@/components/watcha/WatchaItem.vue'
+import MovieItem from '@/components/MovieItem.vue'
 
 export default {
   name: 'WatchaTop10',
   components: {
-    WatchaItem
+    MovieItem
   },
   data() {
     return {
