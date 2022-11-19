@@ -11,20 +11,23 @@ from api.models import Movie
 @api_view(['GET', 'POST'])
 def review_list(request):
     if request.method == 'GET':
-        # reviews = Review.objects.all()
         reviews = get_list_or_404(Review)
         serializer = ReviewListSerializer(reviews, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = ReviewSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            # serializer.save()
             movie_id = request.data.get('movie_id')
-            print(movie_id)
             movie = Movie.objects.get(pk=movie_id)
-            print(movie)
             serializer.save(user=request.user, movie=movie)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def movie_review_list(request, movie_pk):
+    reviews = get_list_or_404(Review, movie=movie_pk)
+    serializer = ReviewListSerializer(reviews, many=True)
+    return Response(serializer.data)
+            
 @api_view(['GET', 'DELETE', 'PUT'])
 def review_detail(request, review_pk):
     # Review = Review.objects.get(pk=review_pk)
