@@ -13,7 +13,7 @@ class Movie(models.Model):
     runtime = models.IntegerField()
     vote_average = models.FloatField()
     vote_count = models.IntegerField()
-    backdrop_path = models.TextField()
+    backdrop_path = models.TextField(null=True)
     original_language = models.TextField()
     adult = models.BooleanField()
     genres = models.ManyToManyField(Genre)
@@ -31,9 +31,9 @@ class WatchaTop10(models.Model):
     release_date = models.TextField()
 
 class Director(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movies = models.ManyToManyField(Movie)
     name = models.CharField(max_length=50)
 
 class Actor(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movies = models.ManyToManyField(Movie)
     name = models.CharField(max_length=50)

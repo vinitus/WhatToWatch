@@ -59,16 +59,16 @@
         "model": "api.NetflixTop10",
         "fields": {
             "rank": 8,
-            "title": "배드 가이즈",
-            "release_date": "2022"
+            "title": "투사부일체",
+            "release_date": "2006"
         }
     },
     {
         "model": "api.NetflixTop10",
         "fields": {
             "rank": 9,
-            "title": "아델라인 : 멈춰진 시간",
-            "release_date": "2015"
+            "title": "배드 가이즈",
+            "release_date": "2022"
         }
     },
     {
