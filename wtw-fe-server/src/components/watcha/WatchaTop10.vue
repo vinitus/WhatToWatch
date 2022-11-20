@@ -1,7 +1,10 @@
 <template>
-  <div v-if="watchaList.length != 0">
+  <div v-if="watchaList.length != 0" class="container">
     <h1>watcha</h1>
-    <movie-item v-for="(movieItem, index) in watchaList" :key="index" :movieItem="movieItem"></movie-item>
+    <b-card-group deck>
+      <movie-item class="child" v-for="(movieItem, index) in watchaList" :key="index" :movieItem="movieItem">
+      </movie-item>
+    </b-card-group>
   </div>
 </template>
 
@@ -35,5 +38,13 @@ export default {
 </script>
 
 <style>
+.container {
+  scroll-snap-type: x mandatory;
+  overflow: scroll;
+  height: 500px;
+}
 
+.child {
+  scroll-snap-align: start;
+}
 </style>

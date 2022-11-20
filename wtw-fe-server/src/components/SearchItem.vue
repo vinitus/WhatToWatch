@@ -2,7 +2,6 @@
   <div>
     <router-link :to="{ name: 'MovieDetail', params: { movieId: searchItem.id } }">
       {{ searchItem.title }}
-
     </router-link>
   </div>
 </template>
@@ -17,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+a {
+  text-decoration: none;
+  color: black;
+}
 </style>
