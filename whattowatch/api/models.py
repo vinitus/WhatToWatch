@@ -20,6 +20,16 @@ class Movie(models.Model):
     country = models.CharField(max_length=30)
     belongs_to_collection = models.IntegerField(null=True)
 
+class NetflixTop10(models.Model):
+    rank = models.IntegerField()
+    title = models.TextField()
+    release_date = models.TextField()
+    
+class WatchaTop10(models.Model):
+    rank = models.IntegerField()
+    title = models.TextField()
+    release_date = models.TextField()
+
 class Director(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)

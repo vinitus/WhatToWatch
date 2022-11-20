@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "vue": "^3.2.45",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0"
+  },
+  "name": "whattowatch",
+  "description": "OTT 플랫폼을 종합한 컨텐츠 추천 웹 사이트",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinitus/WhatToWatch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinitus/WhatToWatch/issues"
+  },
+  "homepage": "https://github.com/vinitus/WhatToWatch#readme"
+}

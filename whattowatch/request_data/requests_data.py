@@ -1,7 +1,8 @@
 import json
 import requests
 from time import sleep
-from secret import TMDB_API_KEY
+from .secret import TMDB_API_KEY
+
 
 class RequestsData:
     def __init__(self):
@@ -126,13 +127,29 @@ class RequestsData:
         with open("./whattowatch/api/fixtures/reform_movie_detail.json", "w", encoding="UTF-8") as outfile:
             json.dump(movie_detail_json, outfile, indent=4, ensure_ascii=False)
     
+
+    # OTT 사이트 title을 TMDB data의 id로 변환
+    def find_id(title):
+        search_movie_url = f'https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&language=ko-KR&query={title}&page=1&include_adult=false'
+        tmdb_data_res = requests.get(search_movie_url)
+        tmdb_data_dict = json.loads(tmdb_data_res.content)
+        movie_json = tmdb_data_dict['results'][0]
+
+        return movie_json['id']
+
+    # TMDB에 MOVIE데이터 요청
+    def request_movie_data(id):
+        movie_detail_url = f'https://api.themoviedb.org/3/movie/{id}?api_key={TMDB_API_KEY}&language=ko-KR'
+        tmdb_data_res = requests.get(movie_detail_url)
+        tmdb_data_dict = json.loads(tmdb_data_res.content)
+        return tmdb_data_dict
+
     def transform_credit(self):
         with open("./whattowatch/api/fixtures/credit.json", "r", encoding="UTF-8") as f:
             credit_json = json.load(f)
         
         actor_json = []
         director_json = []
-
         for credit in credit_json:
             movie_id = credit['id']
 
@@ -167,5 +184,3 @@ class RequestsData:
             json.dump(director_json, f, indent=4, ensure_ascii=False)
 
 
-
-RequestsData().transform_credit()
