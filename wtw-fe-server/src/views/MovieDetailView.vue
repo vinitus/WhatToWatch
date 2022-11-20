@@ -1,7 +1,13 @@
 <template>
   <div>
     <h3>Detail</h3>
-    <div>{{ movieInfo }}</div>
+    <!-- <div class="img-div" :style="{ backgroundImage: 'url(' + this.imgURL + ')' }">
+    </div> -->
+    <!-- <div>{{ movieInfo }}</div> -->
+    <!-- background-image: linear-gradient(to top, rgb(0, 0, 0) 2%, rgba(0, 0, 0, 0) 50%), linear-gradient(to right, rgb(0, 0, 0)
+    20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1) 100%),
+    url("https://img.coupangstreaming.com/titles/c9fc3bc8-de1d-45e8-9347-adf1514487ff/hero-largescreen/5fc3aa26-bcf6-4bd1-9598-a619f9387f71.jpeg?imwidth=1200&imheight=300&imscalingMode=aspectFit"); -->
+    <img :src="imgURL" alt="">
     <review-form></review-form>
     <review-item v-for="(review, reviewIndex) in reviewList" :key="reviewIndex" :review="review"></review-item>
   </div>
@@ -37,14 +43,23 @@ export default {
       res.then((data) => this.reviewList = data)
     }
   },
+  computed: {
+    imgURL() {
+      return `https://image.tmdb.org/t/p/w300/${this.movieInfo.poster_path}`
+    }
+  },
   created() {
     this.getMovieDetail()
     this.getReviewList()
   },
-
 }
 </script>
 
 <style>
-
+.img-div {
+  width: 100vw;
+  height: 20vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 </style>
