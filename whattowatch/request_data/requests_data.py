@@ -270,8 +270,7 @@ class RequestsData:
             json.dump(new_movie_ids, f, indent=4, ensure_ascii=False)
         with open("./whattowatch/api/fixtures/actor.json", "w", encoding="UTF-8") as f:
             json.dump(data_actor_movie, f, indent=4, ensure_ascii=False)
-        # 안쓰일 듯
-        # with open("./whattowatch/api/fixtures/actor_based_movies.json", "w", encoding="UTF-8") as f:
-        #     json.dump(movie_datas, f, indent=4, ensure_ascii=False)
+        with open("./whattowatch/api/fixtures/actor_based_movies.json", "w", encoding="UTF-8") as f:
+            json.dump(movie_datas, f, indent=4, ensure_ascii=False)
 
 # RequestsData.actor_conect_movie(TMDB_API_KEY)
