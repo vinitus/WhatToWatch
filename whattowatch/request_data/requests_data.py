@@ -27,13 +27,13 @@ class RequestsData:
             sleep(1.2)
             print(page)
         print('end call')
-        with open("./whattowatch/api/fixtures/movie_list.json", "w", encoding="UTF-8") as outfile:
+        with open("./whattowatch/api/fixtures/raw_movie_list.json", "w", encoding="UTF-8") as outfile:
             json.dump(movie_list_json, outfile, indent=4, ensure_ascii=False)
 
 
-    # 저장해둔 movie_list.json에서 id를 읽어와 detail 요청을 보내기
+    # 저장해둔 raw_movie_list.json에서 id를 읽어와 detail 요청을 보내기
     def load_movie_detail(self):
-        with open("./whattowatch/api/fixtures/movie_list.json", "r", encoding="UTF-8") as f:
+        with open("./whattowatch/api/fixtures/raw_movie_list.json", "r", encoding="UTF-8") as f:
             movie_list_json = json.load(f)
 
         movies_detail_json = []
@@ -53,7 +53,7 @@ class RequestsData:
             print(movie_id)
         print('end call')
 
-        with open("./whattowatch/api/fixtures/movie_detail.json", "w", encoding="UTF-8") as outfile:
+        with open("./whattowatch/api/fixtures/raw_movie_detail.json", "w", encoding="UTF-8") as outfile:
             json.dump(movies_detail_json, outfile, indent=4, ensure_ascii=False)
 
     
@@ -80,7 +80,7 @@ class RequestsData:
 
     # credit API 요청
     def load_credit(self):
-        with open("./whattowatch/api/fixtures/movie_list.json", "r", encoding="UTF-8") as f:
+        with open("./whattowatch/api/fixtures/raw_movie_list.json", "r", encoding="UTF-8") as f:
             movie_list_json = json.load(f)
 
         credit_json = []
@@ -97,12 +97,12 @@ class RequestsData:
             sleep(2)
         print('end call')
 
-        with open("./whattowatch/api/fixtures/credit.json", "w", encoding="UTF-8") as outfile:
+        with open("./whattowatch/api/fixtures/raw_credit.json", "w", encoding="UTF-8") as outfile:
             json.dump(credit_json, outfile, indent=4, ensure_ascii=False)
 
     # TMDB movie detail response 형식 바꾸기
     def transform_movie_detail_json(self):
-        with open("./whattowatch/api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
+        with open("./whattowatch/api/fixtures/raw_movie_detail.json", "r", encoding="UTF-8") as f:
             movie_detail_json = json.load(f)
 
         for idx in range(len(movie_detail_json)):
@@ -127,7 +127,7 @@ class RequestsData:
             movie_detail_json[idx]['fields'].pop('tagline')
             movie_detail_json[idx]['fields'].pop('video')
 
-        with open("./whattowatch/api/fixtures/reform_movie_detail.json", "w", encoding="UTF-8") as outfile:
+        with open("./whattowatch/api/fixtures/movie_detail.json", "w", encoding="UTF-8") as outfile:
             json.dump(movie_detail_json, outfile, indent=4, ensure_ascii=False)
     
 
@@ -148,7 +148,7 @@ class RequestsData:
         return tmdb_data_dict
 
     def transform_credit(self):
-        with open("./whattowatch/api/fixtures/credit.json", "r", encoding="UTF-8") as f:
+        with open("./whattowatch/api/fixtures/raw_credit.json", "r", encoding="UTF-8") as f:
             credit_json = json.load(f)
         
         actor_json = []
@@ -189,7 +189,7 @@ class RequestsData:
             json.dump(director_json, f, indent=4, ensure_ascii=False)
 
     def movie_ids_to_json(self):
-        with open("./whattowatch/api/fixtures/reform_movie_detail.json", "r", encoding="UTF-8") as f:
+        with open("./whattowatch/api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
             movie_json = json.load(f)
         
         movie_ids = []
@@ -270,7 +270,8 @@ class RequestsData:
             json.dump(new_movie_ids, f, indent=4, ensure_ascii=False)
         with open("./whattowatch/api/fixtures/actor.json", "w", encoding="UTF-8") as f:
             json.dump(data_actor_movie, f, indent=4, ensure_ascii=False)
-        with open("./whattowatch/api/fixtures/actor_based_movies.json", "w", encoding="UTF-8") as f:
-            json.dump(movie_datas, f, indent=4, ensure_ascii=False)
+        # 안쓰일 듯
+        # with open("./whattowatch/api/fixtures/actor_based_movies.json", "w", encoding="UTF-8") as f:
+        #     json.dump(movie_datas, f, indent=4, ensure_ascii=False)
 
 # RequestsData.actor_conect_movie(TMDB_API_KEY)
