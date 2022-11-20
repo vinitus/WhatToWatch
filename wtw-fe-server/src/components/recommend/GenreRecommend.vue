@@ -24,7 +24,7 @@ export default {
     getGenreBasedData() {
       const reco_data = {
       }
-      const promiseRes = axiosCall('api/recommend_based_genres/', 'post', reco_data)
+      const promiseRes = axiosCall('api/recommend_based_genres/', 'get', reco_data)
       promiseRes.then((data) => this.netflixList = data)
     }
   },
