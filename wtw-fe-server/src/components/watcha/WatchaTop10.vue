@@ -1,10 +1,13 @@
 <template>
-  <div v-if="watchaList.length != 0" class="container">
+  <div>
+
     <h1>watcha</h1>
-    <b-card-group deck>
-      <movie-item class="child" v-for="(movieItem, index) in watchaList" :key="index" :movieItem="movieItem">
-      </movie-item>
-    </b-card-group>
+    <div v-if="watchaList.length != 0" class="horizontal_scroll">
+      <b-row>
+        <movie-item class="child" v-for="(movieItem, index) in watchaList" :key="index" :movieItem="movieItem">
+        </movie-item>
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -38,13 +41,26 @@ export default {
 </script>
 
 <style>
-.container {
+.horizontal_scroll {
   scroll-snap-type: x mandatory;
-  overflow: scroll;
-  height: 500px;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+  overflow: auto;
 }
 
-.child {
-  scroll-snap-align: start;
+.row {
+  flex-wrap: nowrap !important;
 }
+
+/* .container { */
+/* display: flex; */
+/* scroll-snap-type: x mandatory;
+  overflow: scroll;
+  height: 500px; */
+/* } */
+
+/* .child {
+  scroll-snap-align: start;
+} */
 </style>

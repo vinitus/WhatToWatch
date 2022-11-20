@@ -41,7 +41,7 @@
           <b-nav-form @submit.prevent="navInputSubmit">
             <b-form-input size="sm" class="mr-sm-2" placeholder="Search">
             </b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit">
+            <b-button size="sm" class="my-2 my-sm-0 mr-2" type="submit">
               <b-icon icon="search"></b-icon>
             </b-button>
           </b-nav-form>
@@ -61,6 +61,20 @@
           <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
           <!-- <b-dropdown-item href="#">Sign Out</b-dropdown-item> -->
           <!-- </b-nav-item-dropdown> -->
+        </b-navbar-nav>
+        <b-navbar-nav class="align-items-center">
+          <b-nav-item v-if="!token">
+            <router-link class="text-danger" :to="{ name: 'Login' }">로그인</router-link>
+          </b-nav-item>
+          <b-nav-item v-else>
+            <a class="text-danger" @click.prevent="logout">로그아웃</a>
+          </b-nav-item>
+          <b-nav-item v-if="!token">
+            <router-link class="text-danger" :to="{ name: 'SignUp' }">회원가입</router-link>
+          </b-nav-item>
+          <b-nav-item v-else>
+            <router-link class="text-danger" :to="{ name: 'Profile' }">나</router-link>
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

@@ -1,7 +1,12 @@
 <template>
-  <div v-if="netflixList.length != 0">
-    <h1>netflix</h1>
-    <movie-item v-for="(movieItem, index) in netflixList" :key="index" :movieItem="movieItem"></movie-item>
+  <div>
+    <h1>Nexflix</h1>
+    <div v-if="netflixList.length != 0" class="horizontal_scroll">
+      <b-row>
+        <movie-item class="child" v-for="(movieItem, index) in netflixList" :key="index" :movieItem="movieItem">
+        </movie-item>
+      </b-row>
+    </div>
   </div>
 </template>
 
