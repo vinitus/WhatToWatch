@@ -3,7 +3,7 @@
         "model": "api.director",
         "fields": {
             "id": 1056121,
-            "movie_id": 505642,
+            "movies": [505642],
             "name": "Ryan Coogler"
         }
     },
@@ -11,7 +11,7 @@
         "model": "api.director",
         "fields": {
             "id": 59521,
-            "movie_id": 436270,
+            "movies": [436270],
             "name": "Jaume Collet-Serra"
         }
     },
@@ -19,7 +19,7 @@
         "model": "api.director",
         "fields": {
             "id": 933176,
-            "movie_id": 663712,
+            "movies": [663712],
             "name": "Damien Leone"
         }
     },
@@ -27,7 +27,7 @@
         "model": "api.director",
         "fields": {
             "id": 173847,
-            "movie_id": 829280,
+            "movies": [829280],
             "name": "Harry Bradbeer"
         }
     },
@@ -35,7 +35,7 @@
         "model": "api.director",
         "fields": {
             "id": 964826,
-            "movie_id": 675054,
+            "movies": [675054],
             "name": "Chava Cartas"
         }
     },
@@ -43,7 +43,7 @@
         "model": "api.director",
         "fields": {
             "id": 2218465,
-            "movie_id": 882598,
+            "movies": [882598],
             "name": "Parker Finn"
         }
     },
@@ -51,7 +51,7 @@
         "model": "api.director",
         "fields": {
             "id": 221522,
-            "movie_id": 49046,
+            "movies": [49046],
             "name": "Edward Berger"
         }
     },
@@ -59,7 +59,7 @@
         "model": "api.director",
         "fields": {
             "id": 61703,
-            "movie_id": 732459,
+            "movies": [732459],
             "name": "Ron Yuan"
         }
     },
@@ -67,7 +67,7 @@
         "model": "api.director",
         "fields": {
             "id": 3518356,
-            "movie_id": 966220,
+            "movies": [966220],
             "name": "Marian Bushan"
         }
     },
@@ -75,7 +75,7 @@
         "model": "api.director",
         "fields": {
             "id": 90812,
-            "movie_id": 985939,
+            "movies": [985939],
             "name": "Scott Mann"
         }
     },
@@ -83,7 +83,7 @@
         "model": "api.director",
         "fields": {
             "id": 62768,
-            "movie_id": 760161,
+            "movies": [760161],
             "name": "William Brent Bell"
         }
     },
@@ -91,7 +91,7 @@
         "model": "api.director",
         "fields": {
             "id": 1564258,
-            "movie_id": 979924,
+            "movies": [979924],
             "name": "Romuald Boulanger"
         }
     },
@@ -99,7 +99,7 @@
         "model": "api.director",
         "fields": {
             "id": 66212,
-            "movie_id": 717728,
+            "movies": [717728],
             "name": "Timo Vuorensola"
         }
     },
@@ -107,7 +107,7 @@
         "model": "api.director",
         "fields": {
             "id": 3744992,
-            "movie_id": 1033107,
+            "movies": [1033107],
             "name": "Fabian Medea"
         }
     },
@@ -115,7 +115,7 @@
         "model": "api.director",
         "fields": {
             "id": 1282094,
-            "movie_id": 944864,
+            "movies": [944864],
             "name": "Annemarie van de Mond"
         }
     },
@@ -123,7 +123,7 @@
         "model": "api.director",
         "fields": {
             "id": 1657527,
-            "movie_id": 856245,
+            "movies": [856245],
             "name": "Agustina San Martín"
         }
     },
@@ -131,7 +131,7 @@
         "model": "api.director",
         "fields": {
             "id": 29214,
-            "movie_id": 642885,
+            "movies": [642885],
             "name": "Anne Fletcher"
         }
     },
@@ -139,7 +139,7 @@
         "model": "api.director",
         "fields": {
             "id": 52342,
-            "movie_id": 896485,
+            "movies": [896485],
             "name": "Olivier Marchal"
         }
     },
@@ -147,7 +147,7 @@
         "model": "api.director",
         "fields": {
             "id": 1709460,
-            "movie_id": 830788,
+            "movies": [830788],
             "name": "Jessica M. Thompson"
         }
     },
@@ -155,7 +155,7 @@
         "model": "api.director",
         "fields": {
             "id": 55934,
-            "movie_id": 616037,
+            "movies": [616037],
             "name": "Taika Waititi"
         }
     }
