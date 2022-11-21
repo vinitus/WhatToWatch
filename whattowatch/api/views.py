@@ -209,6 +209,7 @@ def director_detail(request, director_pk):
 # POST: 유저가 본 영화 정보 가져오기
 @api_view(['POST', 'GET'])
 def user_interection(request):
+    print(request.user)
     user = User.objects.get(id=request.user.id)
     watch_movies = []
     for movie in user.watched.all():
@@ -230,6 +231,7 @@ def user_interection(request):
             data['popularity'] = movie.popularity
             datas.append(data)
         datas.sort(key=lambda x: x['popularity'], reverse=True)
+
         return Response(datas)
 
 

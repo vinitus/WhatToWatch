@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: black !important;
+}
+
 a {
   text-decoration: none;
   color: black;
