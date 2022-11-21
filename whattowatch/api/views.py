@@ -12,7 +12,7 @@ from collections import defaultdict
 from django.http.response import HttpResponse
 from django.core import serializers
 import json
-
+import random
 
 
 @api_view(['GET'])
@@ -320,6 +320,7 @@ def recommend_based_actors(request):
 @api_view(['GET'])
 def search(request, keyword):
     movies = get_list_or_404(Movie, title__contains=keyword)
+    movies.sort(key=lambda x: x.popularity, reverse=True)
     serializer = MovieListSerializer(movies, many=True)
     return Response(serializer.data)
 
