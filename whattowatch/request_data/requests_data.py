@@ -1,7 +1,7 @@
 import json
 import requests
 from time import sleep
-from .secret import TMDB_API_KEY
+from secret import TMDB_API_KEY
 from tqdm import tqdm
 import os
 
@@ -293,7 +293,8 @@ class RequestsData:
 
     def actor_director_add():
         with open("../api/fixtures/movie_ids.json", "r", encoding="UTF-8") as f:
-            movie_ids = json.load(f)
+            movies_ids = json.load(f)
+            movie_ids = set(movies_ids['movie_ids'])
         with open("../api/fixtures/actor_ids.json", "r", encoding="UTF-8") as f:
             actor_ids = json.load(f)
             actor_ids = set(actor_ids['actor_ids'])
@@ -307,12 +308,12 @@ class RequestsData:
         with open("../api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
             movie_details = json.load(f)
             
-        for movie_id in movie_ids['movie_ids']:
+        for movie_id in tqdm(movies_ids['movie_ids']):
             CREDIT_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={TMDB_API_KEY}&language=ko-KR'
             credit_res = requests.get(CREDIT_API_URL)
             credit_json = json.loads(credit_res.text)
             for actor in credit_json['cast'][:9]:
-                if actor_ids.intersection({actor['id']}):
+                if actor_ids.intersection({actor['id']}) or actor['popularity'] < 1:
                     continue
                 actor_ids.add(actor['id'])
                 ACTOR_MOVIE_LIST = f'https://api.themoviedb.org/3/person/{actor["id"]}/movie_credits?api_key={TMDB_API_KEY}&language=ko-KR'
@@ -322,6 +323,8 @@ class RequestsData:
                 for act_movie in actor_res['cast']:
                     if act_movie['order'] > 8:
                         break
+                    if act_movie.get('popularity') == None or act_movie.get('popularity') < 2:
+                        continue
                     actor_movie_list.append(act_movie['id'])
                 data = {"model": "api.actor"}
                 data['fields'] = {    
@@ -345,6 +348,8 @@ class RequestsData:
             for director_movie in director_res['cast']:
                 if director_movie['order'] > 0:
                     break
+                if director_movie.get('popularity') == None or director_movie['popularity'] < 5:
+                    continue
                 director_movie_list.append(director_movie['id'])
             director_data = {"model":"api.director"}
             director_data['fields'] = {
@@ -353,13 +358,16 @@ class RequestsData:
                 'name' : director_name
             }
             directors.append(director_data)
-        
+        movie_ids = set(movie_ids)
         need_movie_ids = list(set(actor_movie_list + director_movie_list) - movie_ids)
-        movie_ids.add(set(actor_movie_list + director_movie_list))
-        for mv_id in need_movie_ids:
+        movie_ids |= set(actor_movie_list) | set(director_movie_list)
+        # assert 1 == 0
+        for mv_id in tqdm(need_movie_ids):
             MOVIE_DETAIL_API_URL = f'https://api.themoviedb.org/3/movie/{mv_id}?api_key={TMDB_API_KEY}&language=ko-KR'
             movie_detail = requests.get(MOVIE_DETAIL_API_URL)
             movie_detail_json = json.loads(movie_detail.text)
+            if movie_detail_json['popularity'] < 20:
+                continue
             movie_detail_dict = {"model": "api.movie"}
             genre_lst = []
             for mv_genre in movie_detail_json['genres']:
@@ -383,14 +391,19 @@ class RequestsData:
             }
             movie_details.append(movie_detail_dict)
 
+        movie_ids_data = {'movie_ids': list(movie_ids)}
+        print(movie_ids_data)
+        actor_ids_data = {'actor_ids' : list(actor_ids)}
+        director_ids_data = {'director_ids' : list(director_ids)}
+
         with open("../api/fixtures/movie_ids.json", "w", encoding="UTF-8") as f:
-            json.dump(list(movie_ids), f, indent=4, ensure_ascii=False)
+            json.dump(movie_ids_data, f, indent=4, ensure_ascii=False)
         with open("../api/fixtures/actor_ids.json", "w", encoding="UTF-8") as f:
-            json.dump(list(actor_ids), f, indent=4, ensure_ascii=False)
+            json.dump(actor_ids_data, f, indent=4, ensure_ascii=False)
         with open("../api/fixtures/actor.json", "w", encoding="UTF-8") as f:
             json.dump(actors, f, indent=4, ensure_ascii=False)
         with open("../api/fixtures/director_ids.json", "w", encoding="UTF-8") as f:
-            json.dump(list(director_ids), f, indent=4, ensure_ascii=False)
+            json.dump(director_ids_data, f, indent=4, ensure_ascii=False)
         with open("../api/fixtures/director.json", "w", encoding="UTF-8") as f:
             json.dump(directors, f, indent=4, ensure_ascii=False)
         with open("../api/fixtures/movie_detail.json", "w", encoding="UTF-8") as f:
@@ -408,4 +421,4 @@ class RequestsData:
 
 # RequestsData.actor_conect_movie(TMDB_API_KEY)
 
-# RequestsData.actor_director_add()
+RequestsData.actor_director_add()
