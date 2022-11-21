@@ -209,13 +209,13 @@ def director_detail(request, director_pk):
 # POST: 유저가 본 영화 정보 가져오기
 @api_view(['POST', 'GET'])
 def user_interection(request):
+    print(request.user)
     user = User.objects.get(id=request.user.id)
     watch_movies = []
     for movie in user.watched.all():
         watch_movies.append(movie.id)
     if request.method == 'GET':          
         datas = []
-        data = {}
         movies = Movie.objects.filter(popularity__gte=150)
         movies = movies.filter(vote_count__gte=50)
         
@@ -224,10 +224,13 @@ def user_interection(request):
             movies = movies.filter(~Q(id__in=watch_movies))
 
         for movie in movies:
+            data = {}
             data['id'] = movie.id
             data['poster_path'] = movie.poster_path
             data['title'] = movie.title
+            data['popularity'] = movie.popularity
             datas.append(data)
+        datas.sort(key=lambda x: x['popularity'], reverse=True)
 
         return Response(datas)
 
