@@ -302,19 +302,25 @@ def recommend_based_actors(request):
     movies = Movie.objects.filter(actor__in=[like_actors[0].actor_id])
     user_watched = []
     for movie in user.watched.all():
-        user_watched.append(movie.id) 
+        user_watched.append(movie.id)
     movies = movies.filter(~Q(id__in=user_watched))
     movies1 = movies.filter(actor__in=[like_actors[1].actor_id])
     movies2 = movies1.filter(actor__in=[like_actors[2].actor_id])
+    movie_dict = {'actor':Actor.objects.get(id=like_actors[0].actor_id).name}
     if len(movies1) < 10:
-        print(like_actors[0].actor_id)
-        print(Actor.objects.get(id=like_actors[0].actor_id).name)
         movies = movies.filter(popularity__gte=50)
         movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
-        return Response(movies)
+        movie_dict['movies'] = movies
     else:
         movies2 = json.loads(serializers.serialize('json', movies1, ensure_ascii=False))
-        return Response(movies2)
+        movie_dict['movies'] = movies2
+    for movie in movie_dict['movies']:
+        movie['postter_path'] = Movie.objects.get(pk=movie['pk']).poster_path
+        movie['movie_id'] = movie.pop('pk')
+        movie_field = movie.pop('fields')
+        movie['title'] = movie_field['title']
+        movie['poster_path'] = movie_field['poster_path']
+    return Response(movie_dict)
 
         
 @api_view(['GET'])

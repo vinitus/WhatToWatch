@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'ActorRecommend',
+  name: 'RecommendGenreView'
 }
 </script>
 
