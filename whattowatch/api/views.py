@@ -12,7 +12,7 @@ from collections import defaultdict
 from django.http.response import HttpResponse
 from django.core import serializers
 import json
-
+import random
 
 
 @api_view(['GET'])
@@ -215,7 +215,6 @@ def user_interection(request):
         watch_movies.append(movie.id)
     if request.method == 'GET':          
         datas = []
-        data = {}
         movies = Movie.objects.filter(popularity__gte=150)
         movies = movies.filter(vote_count__gte=50)
         
@@ -224,11 +223,13 @@ def user_interection(request):
             movies = movies.filter(~Q(id__in=watch_movies))
 
         for movie in movies:
+            data = {}
             data['id'] = movie.id
             data['poster_path'] = movie.poster_path
             data['title'] = movie.title
+            data['popularity'] = movie.popularity
             datas.append(data)
-
+        datas.sort(key=lambda x: x['popularity'], reverse=True)
         return Response(datas)
 
 
@@ -317,6 +318,7 @@ def recommend_based_actors(request):
 @api_view(['GET'])
 def search(request, keyword):
     movies = get_list_or_404(Movie, title__contains=keyword)
+    movies.sort(key=lambda x: x.popularity, reverse=True)
     serializer = MovieListSerializer(movies, many=True)
     return Response(serializer.data)
 
