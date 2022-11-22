@@ -1,7 +1,7 @@
 import json
 import requests
 from time import sleep
-from secret import TMDB_API_KEY
+from .secret import TMDB_API_KEY
 from tqdm import tqdm
 import os
 
@@ -453,4 +453,4 @@ class RequestsData:
 
 # RequestsData.actor_conect_movie(TMDB_API_KEY)
 
-RequestsData.actor_director_add()
+# RequestsData.actor_director_add()
