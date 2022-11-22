@@ -41,7 +41,7 @@ export default {
     },
     checkLogin(event) {
       if (this.isLogin) {
-        event.target.dispatch(new Event('focusin'))
+        console.log('keepgoing')
       } else {
         alert("리뷰는 로그인 후 작성 가능합니다!")
         event.target.blur()

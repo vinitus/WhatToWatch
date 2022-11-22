@@ -201,6 +201,24 @@ class RequestsData:
         with open("./whattowatch/api/fixtures/movie_ids.json", "w", encoding="UTF-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
+    def movie_titles_to_json(self):
+        with open("./whattowatch/api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
+            movie_json = json.load(f)
+
+        with open("./whattowatch/api/fixtures/actor_based_movies.json", "r", encoding="UTF-8") as f:
+            more_movie_json = json.load(f)
+        
+        movie_titles = []
+        for movie in movie_json:
+            movie_titles.append(movie['fields']['title'])
+        for movie in more_movie_json:
+            movie_titles.append(movie['fields']['title'])
+        data = {
+            'movie_titles': movie_titles
+        }
+        with open("./whattowatch/api/fixtures/movie_titles.json", "w", encoding="UTF-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+
 
     def actor_conect_movie(self):
         with open("./whattowatch/api/fixtures/movie_ids.json", "r", encoding="UTF-8") as f:
@@ -272,5 +290,3 @@ class RequestsData:
             json.dump(data_actor_movie, f, indent=4, ensure_ascii=False)
         with open("./whattowatch/api/fixtures/actor_based_movies.json", "w", encoding="UTF-8") as f:
             json.dump(movie_datas, f, indent=4, ensure_ascii=False)
-
-# RequestsData.actor_conect_movie(TMDB_API_KEY)

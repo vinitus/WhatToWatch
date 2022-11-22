@@ -11,6 +11,9 @@ import NavigationBar from './components/NavigationBar.vue';
 export default {
   components: {
     NavigationBar
+  },
+  created() {
+    this.$store.dispatch('appCreated', '', { root: true })
   }
 }
 </script>
