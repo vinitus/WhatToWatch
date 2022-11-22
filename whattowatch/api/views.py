@@ -156,11 +156,64 @@ def movie_list(request):
     serializer = MovieListSerializer(movies, many=True)
     return Response(serializer.data)
 
-@api_view(['GET'])
+@api_view(['GET','POST'])
 def movie_detail(request, movie_pk):
-    movie = get_object_or_404(Movie, pk=movie_pk)
-    serializer = MovieListSerializer(movie)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        serializer = MovieListSerializer(movie)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        user = User.objects.get(id=request.user.id)
+        movie = Movie.objects.get(id=movie_pk)
+        if not user.watched.filter(pk=movie_pk):
+            user.watched.add(movie)
+            for genre_instance in movie.genres.all():
+                # print('#'*40)
+                # print(genre_instance.id)
+                user_like_genres = UserLikeGenres.objects.filter(genre_like_user=request.user, genre=genre_instance)
+                if len(user_like_genres) == 0:
+                    user_like_genres = UserLikeGenres.objects.create(genre_like_user=request.user, genre=genre_instance)
+                else:
+                    user_like_genres = user_like_genres[0]
+                # print(user_like_genres)
+                # print('#'*40)
+                user_like_genres.score += 1
+                user_like_genres.save()
+            actors = Actor.objects.filter(movies=movie_pk)
+            for actor in actors:
+                # print(actor)
+                # print('#'*40)
+                user_like_actor = UserLikeActors.objects.filter(actor_like_user=request.user, actor=actor)
+                if len(user_like_actor) == 0:
+                    user_like_actor = UserLikeActors.objects.create(actor_like_user=request.user, actor=actor)
+                    user_like_actor.score = 1
+                else:
+                    user_like_actor = user_like_actor[0]
+                    # print(user_like_actor)
+                    user_like_actor.score += 1
+                # print(user_like_actor.score)
+                user_like_actor.save()
+            user.save()
+            return Response({movie_pk:True})
+        else:
+            user.watched.remove(movie)
+            for genre_instance in movie.genres.all():
+                user_like_genres = UserLikeGenres.objects.get(genre_like_user=request.user, genre=genre_instance)
+                user_like_genres.score -= 1    
+                user_like_genres.save()
+            actors = Actor.objects.filter(movies=movie_pk)
+            for actor in actors:
+                user_like_actor = UserLikeActors.objects.get(actor_like_user=request.user, actor=actor)
+                user_like_actor.score -= 1    
+                user_like_actor.save()
+            user.save()
+            return Response({movie_pk:False})
+
+@api_view(['GET'])
+def movie_title(request):
+    with open("./api/fixtures/movie_titles.json", "r", encoding="UTF-8") as f:
+        data = json.load(f)
+    return Response(data)
 
 @api_view(['GET'])
 def genre_list(request):
@@ -209,6 +262,7 @@ def director_detail(request, director_pk):
 # POST: 유저가 본 영화 정보 가져오기
 @api_view(['POST', 'GET'])
 def user_interection(request):
+    print(request.user)
     user = User.objects.get(id=request.user.id)
     watch_movies = []
     for movie in user.watched.all():
@@ -230,6 +284,7 @@ def user_interection(request):
             data['popularity'] = movie.popularity
             datas.append(data)
         datas.sort(key=lambda x: x['popularity'], reverse=True)
+
         return Response(datas)
 
 
@@ -279,7 +334,7 @@ def recommend_based_genres(request):
     movies = movies.filter(genres__in=[like_genres[1].genre_id])
     user_watched = []
     for movie in user.watched.all():
-        user_watched.append(movie.id) 
+        user_watched.append(movie.id)
     movies = movies.filter(~Q(id__in=user_watched))
     movies1 = movies.filter(genres__in=[like_genres[2].genre_id])
 
@@ -308,7 +363,7 @@ def recommend_based_actors(request):
     movies = Movie.objects.filter(actor__in=[like_actors[0].actor_id])
     user_watched = []
     for movie in user.watched.all():
-        user_watched.append(movie.id) 
+        user_watched.append(movie.id)
     movies = movies.filter(~Q(id__in=user_watched))
     movies1 = movies.filter(actor__in=[like_actors[1].actor_id])
     movies2 = movies1.filter(actor__in=[like_actors[2].actor_id])

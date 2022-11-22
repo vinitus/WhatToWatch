@@ -8,6 +8,7 @@ import SignupView from "../views/SignupView.vue"
 import SearchView from "../views/SearchView.vue"
 import MovieDetailView from "../views/MovieDetailView.vue"
 import ProfileView from "../views/ProfileView.vue"
+import WatchedView from "../views/WatchedView.vue"
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,11 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: ProfileView,
+  },
+  {
+    path: "/watched",
+    name: "Watched",
+    component: WatchedView,
   },
 ]
 

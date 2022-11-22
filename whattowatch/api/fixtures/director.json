@@ -56663,5 +56663,157 @@
             "movies": [],
             "name": "Ben Howling"
         }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 59521,
+        "movies": [436270],
+        "name": "Jaume Collet-Serra"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 933176,
+        "movies": [663712],
+        "name": "Damien Leone"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 173847,
+        "movies": [829280],
+        "name": "Harry Bradbeer"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 964826,
+        "movies": [675054],
+        "name": "Chava Cartas"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 2218465,
+        "movies": [882598],
+        "name": "Parker Finn"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 221522,
+        "movies": [49046],
+        "name": "Edward Berger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 61703,
+        "movies": [732459],
+        "name": "Ron Yuan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 3518356,
+        "movies": [966220],
+        "name": "Marian Bushan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 90812,
+        "movies": [985939],
+        "name": "Scott Mann"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 62768,
+        "movies": [760161],
+        "name": "William Brent Bell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 1564258,
+        "movies": [979924],
+        "name": "Romuald Boulanger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 66212,
+        "movies": [717728],
+        "name": "Timo Vuorensola"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 3744992,
+        "movies": [1033107],
+        "name": "Fabian Medea"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 1282094,
+        "movies": [944864],
+        "name": "Annemarie van de Mond"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 1657527,
+        "movies": [856245],
+        "name": "Agustina San Martín"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 29214,
+        "movies": [642885],
+        "name": "Anne Fletcher"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 52342,
+        "movies": [896485],
+        "name": "Olivier Marchal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 1709460,
+        "movies": [830788],
+        "name": "Jessica M. Thompson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+        "id": 55934,
+        "movies": [616037],
+        "name": "Taika Waititi"
+        }
     }
 ]
