@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import NetflixTop10, WatchaTop10, Movie, Genre, Actor, Director
-from accounts.models import User, UserLikeActors, UserLikeGenres
+from accounts.models import User, UserLikeActors, UserLikeGenres, UserLikeDirectors, UserReviewScore
 from request_data.requests_data import RequestsData as R
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -367,7 +367,7 @@ def recommend_based_actors(request):
     movies = movies.filter(~Q(id__in=user_watched))
     movies1 = movies.filter(actor__in=[like_actors[1].actor_id])
     movies2 = movies1.filter(actor__in=[like_actors[2].actor_id])
-    movie_dict = {'actor':Actor.objects.get(id=like_actors[0].actor_id).name}
+    movie_dict = {'actor': Actor.objects.get(id=like_actors[0].actor_id).name}
     if len(movies1) < 10:
         movies = movies.filter(popularity__gte=50)
         movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
@@ -383,7 +383,34 @@ def recommend_based_actors(request):
         movie['poster_path'] = movie_field['poster_path']
     return Response(movie_dict)
 
-        
+@api_view(['GET'])
+def recommend_based_directors(request):
+    user = User.objects.get(id=request.user.id)
+    like_director = UserLikeDirectors.objects.filter(director_like_user=user).order_by('-score')
+    movies = Movie.objects.filter(director__in=[like_director[0].director_id])
+    user_watched = []
+    for movie in user.watched.all():
+        user_watched.append(movie.id) 
+    movies = movies.filter(~Q(id__in=user_watched))
+    movies = movies.filter(actor__in=[like_director[1].director_id])
+    movies = movies.filter(popularity__gte=50)
+    movie_dict = {'director': Director.objects.get(id=like_director[0].director_id).name}
+    movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
+    movie_dict['movies'] = movies
+    for movie in movie_dict['movies']:
+        movie['postter_path'] = Movie.objects.get(pk=movie['pk']).poster_path
+        movie['movie_id'] = movie.pop('pk')
+        movie_field = movie.pop('fields')
+        movie['title'] = movie_field['title']
+        movie['poster_path'] = movie_field['poster_path']
+    return Response(movie_dict)
+
+@api_view(['GET'])
+def recommend_based_users(request):
+    
+    return Response()
+
+
 @api_view(['GET'])
 def search(request, keyword):
     movies = get_list_or_404(Movie, title__contains=keyword)

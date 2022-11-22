@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .serializers import ReviewListSerializer, ReviewSerializer
 from .models import Review
 from api.models import Movie
+from accounts.models import UserReviewScore, UserLikeActors, UserLikeDirectors, UserLikeGenres
 
 @api_view(['GET', 'POST'])
 def review_list(request):
@@ -15,6 +16,8 @@ def review_list(request):
         serializer = ReviewListSerializer(reviews, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
+        UserReviewScore.objects.create(review_user=request.user, review_movie=Movie.objects.get(id=request.data['movie_id']), score=request.data['score'])
+        UserLikeGenres.objects.get()
         serializer = ReviewSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             movie_id = request.data.get('movie_id')
@@ -38,11 +41,17 @@ def review_detail(request, review_pk):
         return Response(serializer.data)
     
     elif request.method == 'DELETE':
+        user_review_instance = UserReviewScore.objects.get(review_user=request.user, review_movie=request.data.movie_id)
+        user_review_instance.delete()
         review.delete()
         return Response({review_pk:'delete is success'}, status=status.HTTP_204_NO_CONTENT)
 
     elif request.method == 'PUT':
+        user_review_instance = UserReviewScore.objects.get(review_user=request.user.id, review_movie=request.data.movie_id)
+        user_review_instance.score = request.data.score
+        user_review_instance.save()
         serializer = ReviewSerializer(review, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
+
