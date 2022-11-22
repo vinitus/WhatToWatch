@@ -17,6 +17,7 @@ urlpatterns = [
     path('recommend_based_genres/', views.recommend_based_genres, name='recommend_based_genres'),
     path('recommend_based_actors/', views.recommend_based_actors, name='recommend_based_actors'),
     path('recommend_based_directors/', views.recommend_based_directors, name='recommend_based_directors'),
+    path('recommend_based_users/', views.recommend_based_users, name='recommend_based_users'),
     path('movies/search/<str:keyword>/', views.search, name='search'),
     path('movie_add/', views.movie_add, name='movie_add'),
     path('movie_title/', views.movie_title, name='movie_title'),

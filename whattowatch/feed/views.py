@@ -8,10 +8,11 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .serializers import ReviewListSerializer, ReviewSerializer
 from .models import Review
 from api.models import Movie
-from accounts.models import UserReviewScore, UserLikeActors, UserLikeDirectors, UserLikeGenres
+from accounts.models import UserReviewScore, UserLikeActors, UserLikeDirectors, UserLikeGenres, UserSimilar, User
 import numpy as np
 from numpy import dot
 from numpy.linalg import norm
+import pandas as pd
 from django.db.models import Q
 
 
@@ -44,19 +45,38 @@ def review_list(request):
             movie = Movie.objects.get(pk=movie_id)
             serializer.save(user=request.user, movie=movie)
 
-            # 유저 유사도 계산 들어갈 자리
-            user_eval = defaultdict(dict)
-            # for reviewer in UserReviewScore.objects.all().distinct().values('review_user', 'score', 'review_movie'):
-            for movie_id, score in UserReviewScore.objects.filter(review_user=request.user).distinct().values_list('review_movie', 'score'):
-                print(movie_id, score,request.user.id )
-                user_eval[request.user.id][movie_id] = score
-            movie_ids = user_eval[request.user.id].keys()
-            target_querys = UserReviewScore.objects.filter(~Q(review_user=request.user), review_movie__in=movie_ids)
-            
-            
+            # # 유저 유사도 계산 들어갈 자리
+            # user_eval = defaultdict(dict)
+            # # for reviewer in UserReviewScore.objects.all().distinct().values('review_user', 'score', 'review_movie'):
+            # for movie_id, score in UserReviewScore.objects.filter(review_user=request.user).distinct().values_list('review_movie', 'score'):
+            #     user_eval[request.user.id][movie_id] = score
+            # movie_ids = user_eval[request.user.id].keys()
+            # target_querys = UserReviewScore.objects.filter(~Q(review_user=request.user), review_movie__in=movie_ids)
+            # # print(target_querys)
+            # for reviewer in target_querys.distinct().values('review_user'):
+            #     target_user_cos = []
+            #     user_cos = []
+            #     both_reviews = target_querys.filter(review_user=reviewer['review_user']).distinct().values('review_movie', 'score')
+            #     if len(both_reviews) > 5:
+            #         for both_review in both_reviews:
+            #             target_user_cos.append(both_review['score'])
+            #             user_cos.append(user_eval[request.user.id][both_review['review_movie']])
+            #         target_user_cos = np.array(target_user_cos)
+            #         user_cos = np.array(user_cos)
+            #         user_similar = dot(target_user_cos, user_cos)/(norm(target_user_cos)*norm(user_cos))
+            #         if request.user.id < reviewer['review_user']:
+            #             user_sim = UserSimilar.objects.filter(user_1=request.user, user_2=User.objects.get(id=reviewer['review_user']))
+            #         else:
+            #             user_sim = UserSimilar.objects.filter(user_2=request.user, user_1=User.objects.get(id=reviewer['review_user']))
 
+            #         if len(user_sim) > 0:
+            #             user_sim[0].score = user_similar
+            #             user_sim[0].save()
 
-
+            #         elif request.user.id < reviewer['review_user']:
+            #             UserSimilar.objects.create(user_1=request.user, user_2=User.objects.get(id=reviewer['review_user']), score=user_similar)
+            #         else:
+            #             UserSimilar.objects.create(user_2=request.user, user_1=User.objects.get(id=reviewer['review_user']), score=user_similar)
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -81,8 +101,7 @@ def review_detail(request, review_pk):
         review.delete()
 
         # 유저 유사도 계산 들어갈 자리
-
-
+        
         return Response({review_pk:'delete is success'}, status=status.HTTP_204_NO_CONTENT)
 
     elif request.method == 'PUT':
