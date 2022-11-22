@@ -441,16 +441,27 @@ class RequestsData:
         with open("../api/fixtures/movie_detail.json", "w", encoding="UTF-8") as f:
             json.dump(movie_details, f, indent=4, ensure_ascii=False)
 
+    def get_provider(self):
+        with open("./whattowatch/api/fixtures/movie_ids.json", "r", encoding="UTF-8") as f:
+            movies_ids = json.load(f)
+            movie_ids = set(movies_ids['movie_ids'])
+        
+        provider_json = []
+        for movie_id in movie_ids:
+            API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key={self.API_KEY}'
+            provider_res = requests.get(API_URL)
+            provider_res_dict = json.loads(provider_res.text)
+            if provider_res_dict['results'].get('kr'):
+                provider_dict = {
+                    'id': provider_res_dict['id'],
+                    'results' : provider_res_dict['results']['KR']
+                }
+            else:
+                provider_dict = {
+                    'id': provider_res_dict['id'],
+                    'results' : []
+                }
+            provider_json.append(provider_dict)
 
-
-
-
-
-
-
-
-
-
-# RequestsData.actor_conect_movie(TMDB_API_KEY)
-
-# RequestsData.actor_director_add()
+        with open("./whattowatch/api/fixtures/provider.json", "w", encoding="UTF-8") as f:
+            json.dump(provider_dict, f, indent=4, ensure_ascii=False)

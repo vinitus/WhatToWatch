@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.shortcuts import get_object_or_404, get_list_or_404
-from .serializers import GenreListSerializer, MovieListSerializer, ActorListSerializer, DirectorListSerializer, NetflixListSerializer, WatchaListSerializer
+from .serializers import GenreListSerializer, MovieListSerializer, ActorListSerializer, DirectorListSerializer
 from django.db.models import Q
 from collections import defaultdict
 from django.http.response import HttpResponse
@@ -208,6 +208,17 @@ def movie_detail(request, movie_pk):
                 user_like_actor.save()
             user.save()
             return Response({movie_pk:False})
+
+@api_view(['POST'])
+def movie_wishes(request, movie_pk):
+    user = User.objects.get(id=request.user.id)
+    movie = Movie.objects.get(pk=movie_pk)
+    if not user.wishes.filter(pk=movie_pk):
+        user.wishes.add(movie)
+    else:
+        user.wishes.remove(movie)
+    user.save()
+    return Response({movie_pk:True})
 
 @api_view(['GET'])
 def movie_title(request):
@@ -424,3 +435,33 @@ def movie_add(request):
     movie = Movie()
     print(request.text)
     return HttpResponse(status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def watched(request):
+    user = User.objects.get(id=request.user.id)
+    watched_movie_pk_list = user.watched.all()
+    data_to_res = {
+        'movies':[]
+    }
+    for movie in watched_movie_pk_list:
+        data = {}
+        data['title'] = movie.title
+        data['poster_path'] = movie.poster_path
+        data['movie_id'] = movie.pk
+        data_to_res['movies'].append(data)
+    return Response(data_to_res)
+
+@api_view(['GET'])
+def wishes(request):
+    user = User.objects.get(id=request.user.id)
+    wishes_movie_pk_list = user.wishes.all()
+    data_to_res = {
+        'movies':[]
+    }
+    for movie in wishes_movie_pk_list:
+        data = {}
+        data['title'] = movie.title
+        data['poster_path'] = movie.poster_path
+        data['movie_id'] = movie.pk
+        data_to_res['movies'].append(data)
+    return Response(data_to_res)

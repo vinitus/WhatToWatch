@@ -8,7 +8,8 @@
     20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1) 100%),
     url("https://img.coupangstreaming.com/titles/c9fc3bc8-de1d-45e8-9347-adf1514487ff/hero-largescreen/5fc3aa26-bcf6-4bd1-9598-a619f9387f71.jpeg?imwidth=1200&imheight=300&imscalingMode=aspectFit"); -->
     <img :src="imgURL" alt="">
-    <button @click="clickButton">본영화</button>
+    <button @click="makeWatched">본영화</button>
+    <button @click="makeWishes">볼영화</button>
     <review-form></review-form>
     <review-item v-for="(review, reviewIndex) in reviewList" :key="reviewIndex" :review="review"></review-item>
   </div>
@@ -43,10 +44,16 @@ export default {
       const res = axiosCall(`feed/reviews/movie/${movieId}/`)
       res.then((data) => this.reviewList = data)
     },
-    clickButton() {
+    makeWatched() {
       const movieId = this.$route.params.movieId
       const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
       const res = axiosCall(`api/movies/${movieId}/`, 'post', '', headers)
+      res.then((data) => console.log(data))
+    },
+    makeWishes() {
+      const movieId = this.$route.params.movieId
+      const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
+      const res = axiosCall(`api/movies/${movieId}/wishes/`, 'post', '', headers)
       res.then((data) => console.log(data))
     }
   },
