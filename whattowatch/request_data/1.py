@@ -55,7 +55,7 @@ for movie_id in tqdm(need_movie_ids):
     except:
         continue
 
-movie_ids['movie_id'] += need_movie_ids
+movie_ids['movie_ids'] += need_movie_ids
 
 
 with open("../api/fixtures/movie_ids_new.json", "w", encoding="UTF-8") as f:

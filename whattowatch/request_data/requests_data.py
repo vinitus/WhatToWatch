@@ -1,7 +1,7 @@
 import json
 import requests
 from time import sleep
-from secret import TMDB_API_KEY
+from .secret import TMDB_API_KEY
 from tqdm import tqdm
 import os
 
@@ -339,8 +339,8 @@ class RequestsData:
             directors = json.load(f)
         with open("../api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
             movie_details = json.load(f)
-            
-        for movie_id in tqdm(movies_ids['movie_ids'][:30]):
+        actor_movie_list_for_add = []
+        for movie_id in tqdm(movies_ids['movie_ids']):
             CREDIT_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={TMDB_API_KEY}&language=ko-KR'
             credit_res = requests.get(CREDIT_API_URL)
             credit_json = json.loads(credit_res.text)
@@ -365,6 +365,8 @@ class RequestsData:
                         "name": actor['name']
                 }
                 actors.append(data)
+                actor_movie_list_for_add += actor_movie_list
+
             for crew in credit_json['crew']:
                 if crew['job'] == 'Director':
                     director_id = crew['id']
@@ -402,26 +404,30 @@ class RequestsData:
                 continue
             movie_detail_dict = {"model": "api.movie"}
             genre_lst = []
-            for mv_genre in movie_detail_json['genres']:
-                genre_lst.append(mv_genre['id'])
-            country = movie_detail_json['production_countries'][0]['name']
-            movie_detail_dict['fields'] = {
-                "adult": False,
-                "belongs_to_collection": movie_detail_json['belongs_to_collection']['id'] if movie_detail_json['belongs_to_collection'] else None,
-                "id": movie_detail_json['id'],
-                "original_language": movie_detail_json['original_language'],
-                "overview": movie_detail_json['overview'],
-                "popularity": movie_detail_json["popularity"],
-                "poster_path": movie_detail_json["poster_path"],
-                "release_date": movie_detail_json["release_date"],
-                "runtime": movie_detail_json[ "runtime"],
-                "title": movie_detail_json["title"],
-                "vote_average": movie_detail_json["vote_average"],
-                "vote_count": movie_detail_json["vote_count"],
-                "genres": genre_lst,
-                "country": country
-            }
-            movie_details.append(movie_detail_dict)
+            try:
+                for mv_genre in movie_detail_json['genres']:
+                    genre_lst.append(mv_genre['id'])
+                
+                country = movie_detail_json['production_countries'][0]['name'] if movie_detail_json['production_countries'] else None
+                movie_detail_dict['fields'] = {
+                    "adult": False,
+                    "belongs_to_collection": movie_detail_json['belongs_to_collection']['id'] if movie_detail_json['belongs_to_collection'] else None,
+                    "id": movie_detail_json['id'],
+                    "original_language": movie_detail_json['original_language'],
+                    "overview": movie_detail_json['overview'],
+                    "popularity": movie_detail_json["popularity"],
+                    "poster_path": movie_detail_json["poster_path"],
+                    "release_date": movie_detail_json["release_date"],
+                    "runtime": movie_detail_json[ "runtime"],
+                    "title": movie_detail_json["title"],
+                    "vote_average": movie_detail_json["vote_average"],
+                    "vote_count": movie_detail_json["vote_count"],
+                    "genres": genre_lst,
+                    "country": country
+                }
+                movie_details.append(movie_detail_dict)
+            except:
+                continue
 
         movie_ids_data = {'movie_ids': list(movie_ids)}
         print(movie_ids_data)
@@ -453,4 +459,4 @@ class RequestsData:
 
 # RequestsData.actor_conect_movie(TMDB_API_KEY)
 
-RequestsData.actor_director_add()
+# RequestsData.actor_director_add()
