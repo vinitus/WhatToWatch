@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <h1>watcha</h1>
     <div v-if="watchaList.length != 0" class="horizontal_scroll">
       <b-row>

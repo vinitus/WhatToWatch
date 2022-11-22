@@ -16,77 +16,68 @@
 <template>
   <div>
     <!-- <b-navbar toggleable="lg"> -->
-    <b-navbar>
+    <nav>
+      <router-link class="text-danger" :to="{ name: 'Home' }">
+        <img :src="logoURL" id="logo">
+      </router-link>
+      <router-link class="text-danger" :to="{ name: 'Movies' }">영화</router-link>
+      <router-link class="text-danger" :to="{ name: 'Series' }">시리즈</router-link>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <!-- Right aligned nav items -->
+      <div @submit.prevent="navInputSubmit">
+        <input @input="autoComplete" size="sm" class="mr-sm-2" placeholder="Search" id="search-bar">
+        <button size="sm" class="my-2 my-sm-0 mr-2" type="submit"></button>
+        <div id="search-bar-div" style="width:250px; background-color: white;">
+          <ul style="list-style:none; padding:0px;">
+            <li v-for="(autoCompleteEx, searchBarIndex) in autoCompleteArr" :key="searchBarIndex">
+              {{
+                  autoCompleteEx
+              }}
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="align-items-center">
-          <b-nav-item>
-            <router-link class="text-danger" :to="{ name: 'Home' }">
-              <img :src="logoURL" id="logo">
-            </router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link class="text-danger" :to="{ name: 'Movies' }">영화</router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link class="text-danger" :to="{ name: 'Series' }">시리즈</router-link>
-          </b-nav-item>
-          <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
-        </b-navbar-nav>
-
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-form @submit.prevent="navInputSubmit">
-            <b-form-input size="sm" class="mr-sm-2" placeholder="Search">
-            </b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0 mr-2" type="submit">
-              <b-icon icon="search"></b-icon>
-            </b-button>
-          </b-nav-form>
-
-          <!-- <b-nav-item-dropdown text="Lang" right>
+      <!-- <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item href="#">EN</b-dropdown-item>
             <b-dropdown-item href="#">ES</b-dropdown-item>
             <b-dropdown-item href="#">RU</b-dropdown-item>
             <b-dropdown-item href="#">FA</b-dropdown-item>
           </b-nav-item-dropdown> -->
 
-          <!-- <b-nav-item-dropdown right> -->
-          <!-- Using 'button-content' slot -->
-          <!-- <template #button-content>
+      <!-- <b-nav-item-dropdown right> -->
+      <!-- Using 'button-content' slot -->
+      <!-- <template #button-content>
               <em>User</em>
             </template> -->
-          <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
-          <!-- <b-dropdown-item href="#">Sign Out</b-dropdown-item> -->
-          <!-- </b-nav-item-dropdown> -->
-        </b-navbar-nav>
-        <b-navbar-nav class="align-items-center">
-          <b-nav-item v-if="!token">
-            <router-link class="text-danger" :to="{ name: 'Login' }">로그인</router-link>
-          </b-nav-item>
-          <b-nav-item v-else>
-            <a class="text-danger" @click.prevent="logout">로그아웃</a>
-          </b-nav-item>
-          <b-nav-item v-if="!token">
-            <router-link class="text-danger" :to="{ name: 'SignUp' }">회원가입</router-link>
-          </b-nav-item>
-          <b-nav-item v-else>
-            <router-link class="text-danger" :to="{ name: 'Profile' }">나</router-link>
-          </b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+      <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
+      <!-- <b-dropdown-item href="#">Sign Out</b-dropdown-item> -->
+      <!-- </b-nav-item-dropdown> -->
+      <div v-if="!token">
+        <router-link class="text-danger" :to="{ name: 'Login' }">로그인</router-link>
+      </div>
+      <div v-else>
+        <a class="text-danger" @click.prevent="logout">로그아웃</a>
+      </div>
+      <div v-if="!token">
+        <router-link class="text-danger" :to="{ name: 'SignUp' }">회원가입</router-link>
+      </div>
+      <div v-else>
+        <router-link class="text-danger" :to="{ name: 'Profile' }">나</router-link>
+      </div>
+    </nav>
   </div>
 </template>
 
 <script>
+import createFuzzyMatcher from "@/algorithm/autoComplete.js"
+
 export default {
   name: 'NavigationBar',
   data() {
     return {
-      logoURL: require('@/assets/logo.png')
+      logoURL: require('@/assets/logo.png'),
+      autoCompleteArr: []
     }
   },
   methods: {
@@ -102,6 +93,24 @@ export default {
     },
     logout() {
       this.$store.dispatch('logout', '', { root: true })
+    },
+    autoComplete(event) {
+      // const searchBarDiv = this.$el.querySelecter('#search-bar-div')
+      // console.log(searchBarDiv)
+      const query = event.target.value
+      if (query.length > 0) {
+        const regex = createFuzzyMatcher(query)
+        const words = this.movieList
+        const result = []
+        // console.log(searchBarDiv.classList.contains('deactive'))
+        for (let i = 0; i < words.length; i++) {
+          if (regex.test(words[i].toLowerCase())) result.push(words[i])
+          if (result.length === 10) break
+        }
+        this.autoCompleteArr = result
+      } else {
+        this.autoCompleteArr = []
+      }
     }
   },
   computed: {
@@ -109,7 +118,10 @@ export default {
       return this.$store.state.user.token
     },
     isLogin() {
-      return this.$store.getters.user.isLogin
+      return this.$store.getters.isLogin
+    },
+    movieList() {
+      return this.$store.state.movie.movieList
     }
   }
 }
@@ -127,4 +139,15 @@ nav {
 /* .navbar-nav {
   align-items: center;
 } */
+#search-bar {
+  width: 250px
+}
+
+#search-bar-div {
+  /*  */
+}
+
+.deactive {
+  display: none;
+}
 </style>
