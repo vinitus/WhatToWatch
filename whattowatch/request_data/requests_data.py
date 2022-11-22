@@ -308,7 +308,7 @@ class RequestsData:
         with open("../api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
             movie_details = json.load(f)
             
-        for movie_id in tqdm(movies_ids['movie_ids']):
+        for movie_id in tqdm(movies_ids['movie_ids'][:30]):
             CREDIT_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={TMDB_API_KEY}&language=ko-KR'
             credit_res = requests.get(CREDIT_API_URL)
             credit_json = json.loads(credit_res.text)
@@ -358,10 +358,10 @@ class RequestsData:
                 'name' : director_name
             }
             directors.append(director_data)
-        movie_ids = set(movie_ids)
-        need_movie_ids = list(set(actor_movie_list + director_movie_list) - movie_ids)
+        need_movie_ids = list(set(actor_movie_list + director_movie_list))
         movie_ids |= set(actor_movie_list) | set(director_movie_list)
         # assert 1 == 0
+        print(need_movie_ids)
         for mv_id in tqdm(need_movie_ids):
             MOVIE_DETAIL_API_URL = f'https://api.themoviedb.org/3/movie/{mv_id}?api_key={TMDB_API_KEY}&language=ko-KR'
             movie_detail = requests.get(MOVIE_DETAIL_API_URL)
@@ -375,7 +375,7 @@ class RequestsData:
             country = movie_detail_json['production_countries'][0]['name']
             movie_detail_dict['fields'] = {
                 "adult": False,
-                "belongs_to_collection": movie_detail_json['belongs_to_collection'],
+                "belongs_to_collection": movie_detail_json['belongs_to_collection']['id'] if movie_detail_json['belongs_to_collection'] else None,
                 "id": movie_detail_json['id'],
                 "original_language": movie_detail_json['original_language'],
                 "overview": movie_detail_json['overview'],
