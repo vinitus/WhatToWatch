@@ -37,7 +37,11 @@ export default {
       }
       const headers = { Authorization: `Bearer ${this.token.access_token}` }
       const res = axiosCall(`feed/reviews/`, 'post', data, headers)
-      res
+      res.then(() => {
+        this.$emit('review-is-change')
+        console.log(1)
+      })
+      res.catch((err) => console.log(err))
     },
     checkLogin(event) {
       if (this.isLogin) {
