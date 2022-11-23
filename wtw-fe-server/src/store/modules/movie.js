@@ -7,7 +7,7 @@ const movie = {
   },
   mutations: {
     SAVE_MOVIE_LIST(state, data) {
-      state.movieList = data.movie_titles
+      state.movieList = data
     },
   },
   actions: {
