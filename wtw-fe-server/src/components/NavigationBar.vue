@@ -16,7 +16,7 @@
 <template>
   <div>
     <!-- <b-navbar toggleable="lg"> -->
-    <nav>
+    <nav style="display:flex; align-items:center;">
       <router-link class="text-danger" :to="{ name: 'Home' }">
         <img :src="logoURL" id="logo">
       </router-link>
@@ -24,19 +24,20 @@
       <router-link class="text-danger" :to="{ name: 'Series' }">시리즈</router-link>
 
       <!-- Right aligned nav items -->
-      <div @submit.prevent="navInputSubmit">
+      <form @submit.prevent="navInputSubmit" @focusin="makeDivShow" @focusout="makeDivHide">
         <input @input="autoComplete" size="sm" class="mr-sm-2" placeholder="Search" id="search-bar">
-        <button size="sm" class="my-2 my-sm-0 mr-2" type="submit"></button>
-        <div id="search-bar-div" style="width:250px; background-color: white;">
+        <button size="sm" class="my-2 my-sm-0 mr-2" type="submit">z</button>
+        <div :class="{ 'search-bar-div': divHide }"
+          style="width:250px; background-color: white; position:absolute; z-index: 10;">
           <ul style="list-style:none; padding:0px;">
             <li v-for="(autoCompleteEx, searchBarIndex) in autoCompleteArr" :key="searchBarIndex">
               {{
-                  autoCompleteEx
+              autoCompleteEx
               }}
             </li>
           </ul>
         </div>
-      </div>
+      </form>
 
       <!-- <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item href="#">EN</b-dropdown-item>
@@ -77,7 +78,9 @@ export default {
   data() {
     return {
       logoURL: require('@/assets/logo.png'),
-      autoCompleteArr: []
+      autoCompleteArr: [],
+      searchBarDiv: 'search-bar-div',
+      divHide: true
     }
   },
   methods: {
@@ -95,7 +98,6 @@ export default {
       this.$store.dispatch('logout', '', { root: true })
     },
     autoComplete(event) {
-      // const searchBarDiv = this.$el.querySelecter('#search-bar-div')
       // console.log(searchBarDiv)
       const query = event.target.value
       if (query.length > 0) {
@@ -108,10 +110,20 @@ export default {
           if (result.length === 10) break
         }
         this.autoCompleteArr = result
+        this.divHide = false
       } else {
         this.autoCompleteArr = []
+        this.divHide = true
       }
-    }
+    },
+    makeDivHide() {
+      this.divHide = true
+    },
+    makeDivShow() {
+      if (this.autoCompleteArr.length > 0) {
+        this.divHide = false
+      }
+    },
   },
   computed: {
     token() {
@@ -136,6 +148,10 @@ nav {
   background: black !important;
 }
 
+nav * {
+  margin: 0px 5px;
+}
+
 /* .navbar-nav {
   align-items: center;
 } */
@@ -143,8 +159,8 @@ nav {
   width: 250px
 }
 
-#search-bar-div {
-  /*  */
+.search-bar-div {
+  display: none !important;
 }
 
 .deactive {

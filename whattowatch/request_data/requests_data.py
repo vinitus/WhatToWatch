@@ -447,8 +447,64 @@ class RequestsData:
         with open("../api/fixtures/movie_detail.json", "w", encoding="UTF-8") as f:
             json.dump(movie_details, f, indent=4, ensure_ascii=False)
 
+    def get_provider(self):
+        with open("./whattowatch/api/fixtures/movie_ids.json", "r", encoding="UTF-8") as f:
+            movies_ids = json.load(f)
+        
+        cnt = 0
+        provider_json = []
+        for movie_id in tqdm(movies_ids['movie_ids']):
+            cnt += 1
+            if cnt == 1001:
+                break
+            API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key={self.API_KEY}'
+            provider_res = requests.get(API_URL)
+            provider_res_dict = json.loads(provider_res.text)
+            if provider_res_dict['results'].get('KR'):
+                provider_dict = {
+                    'id': provider_res_dict['id'],
+                    'results' : provider_res_dict['results']['KR']
+                }
+            else:
+                provider_dict = {
+                    'id': provider_res_dict['id'],
+                    'results' : []
+                }
+            provider_json.append(provider_dict)
 
+        with open("./whattowatch/api/fixtures/raw_provider.json", "w", encoding="UTF-8") as f:
+            json.dump(provider_json, f, indent=4, ensure_ascii=False)
+    
+    def transform_provider(self):
+        with open("./whattowatch/api/fixtures/raw_provider.json", "r", encoding="UTF-8") as f:
+            raw_provider_json = json.load(f)
+        
+        company_ids = {}
+        company_names = {}
+        company_logo = {}
+        provider_json = []
+        for movie in raw_provider_json:
+            if movie['results']:
+                movie['results'].pop('link')
+                for watch_type in movie['results'].values():
+                    for company in watch_type:
+                        if company_ids.get(company['provider_id']):
+                            company_ids[company['provider_id']].append(movie['id'])
+                        else:
+                            company_ids[company['provider_id']] = [movie['id']]
+                            company_names[company['provider_id']] = company['provider_name']
+                            company_logo[company['provider_id']] = company['logo_path']
+        
+        for company_id, movie_ids in company_ids.items():
+            provider_data = {"model": "api.provider"}
+            provider_data['pk'] = company_id
+            provider_data["fields"] = {'name':company_names[company_id],'logo_path':company_logo[company_id],"movies":movie_ids}
+            provider_json.append(provider_data)
 
+        with open("./whattowatch/api/fixtures/provider.json", "w", encoding="UTF-8") as f:
+            json.dump(provider_json, f, indent=4, ensure_ascii=False)
+
+# RequestsData().transform_provider()
 # movie_ids 리스트
 # movie_ids = RequestsData.movie_ids_to_json()
 

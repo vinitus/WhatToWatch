@@ -10,6 +10,7 @@ class User(AbstractUser):
     like_genres = models.ManyToManyField(Genre, through='UserLikeGenres')    
     like_actors = models.ManyToManyField(Actor, through='UserLikeActors')     
     watched = models.ManyToManyField(Movie)
+    wishes = models.ManyToManyField(Movie, related_name="who_wishes")
     user_similar = models.ManyToManyField('self', through='UserSimilar', symmetrical=True, default=0)
 
 class UserLikeGenres(models.Model):

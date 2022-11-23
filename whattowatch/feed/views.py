@@ -25,6 +25,7 @@ def review_list(request):
         return Response(serializer.data)
     elif request.method == 'POST':
         UserReviewScore.objects.create(review_user=request.user, review_movie=Movie.objects.get(id=request.data['movie_id']), score=request.data['score'])
+        # UserLikeGenres.objects.get()
         serializer = ReviewSerializer(data=request.data)
         movie = Movie.objects.get(id=request.data['movie_id'])
 
@@ -113,6 +114,7 @@ def review_detail(request, review_pk):
         serializer = ReviewSerializer(review, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
+            return Response(serializer.data)
 
             # 유저 유사도 계산 들어갈 자리
 
