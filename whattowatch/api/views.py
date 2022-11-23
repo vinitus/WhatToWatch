@@ -324,6 +324,21 @@ def user_interection(request):
                 # print(user_like_actor.score)
                 user_like_actor.save()
             # print(user)
+
+            directors = Director.objects.filter(movies=movie_id)
+            for director in directors:
+                # print(actor)
+                # print('#'*40)
+                user_like_director = UserLikeDirectors.objects.filter(director_like_user=request.user, director=director)
+                if len(user_like_director) == 0:
+                    user_like_director = UserLikeDirectors.objects.create(director_like_user=request.user, director=director)
+                    user_like_director.score = 1
+                else:
+                    user_like_director = user_like_director[0]
+                    # print(user_like_director)
+                    user_like_director.score += 1
+                # print(user_like_director.score)
+                user_like_director.save()
         user.save()
         
         return HttpResponse(status.HTTP_200_OK)
@@ -391,13 +406,16 @@ def recommend_based_actors(request):
 def recommend_based_directors(request):
     user = User.objects.get(id=request.user.id)
     like_director = UserLikeDirectors.objects.filter(director_like_user=user).order_by('-score')
+
     movies = Movie.objects.filter(director__in=[like_director[0].director_id])
     user_watched = []
     for movie in user.watched.all():
-        user_watched.append(movie.id) 
+        user_watched.append(movie.id)
     movies = movies.filter(~Q(id__in=user_watched))
-    movies = movies.filter(actor__in=[like_director[1].director_id])
-    movies = movies.filter(popularity__gte=50)
+    # movies = movies.filter(director__in=[like_director[1].director_id])
+    if len(movies) == 0:
+        return Response({'director':None, 'movies':[]})
+    
     movie_dict = {'director': Director.objects.get(id=like_director[0].director_id).name}
     movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
     movie_dict['movies'] = movies
