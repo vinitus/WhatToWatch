@@ -23,12 +23,12 @@ export default {
 </script>
 
 <style>
-body {
+/* body {
   background-color: black !important;
 }
 
 a {
   text-decoration: none;
   color: black;
-}
+} */
 </style>

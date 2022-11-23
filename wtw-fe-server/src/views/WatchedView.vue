@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style>
-.content-watched-selected {
+/* .content-watched-selected {
   border: 1px solid white;
 }
 
@@ -97,5 +97,5 @@ export default {
   border-radius: 15px;
   background: black;
   box-shadow: inset 0px 0px 15px 5px white;
-}
+} */
 </style>

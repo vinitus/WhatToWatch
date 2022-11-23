@@ -10,10 +10,10 @@
     <!-- <img :src="imgURL" alt=""> -->
     <div
       :style="{ backgroundImage: 'url(' + this.imgURL + ')', 'width': '300px', 'height': '450px', 'background- size': 'cover' }">
-      <img :style="{ 'width': '40px', 'height': '40px', 'margin-top': '400px', 'float': 'right' }" class="checked"
-        :src="seeIcon" alt="" @click="makeWatched">
+      <img :style="{ 'width': '40px', 'height': '40px', 'margin-top': '400px', 'float': 'right' }"
+        :class="{ 'checked': !watched }" :src="seeIcon" alt="" @click="makeWatched">
       <img :style="{ 'width': '40px', 'height': '40px', 'margin-top': '400px', 'float': 'right' }" :src="wishesIcon"
-        alt="" @click="makeWishes">
+        :class="{ 'checked': !wishes }" alt="" @click="makeWishes">
     </div>
     <div v-for="(logo, logoIndex) in logoList" :key="'logo' + logoIndex">
       <img :src="`https://image.tmdb.org/t/p/original/${logo.logo_path}`" style="width:50px; height:50px;" alt="">
@@ -40,7 +40,7 @@ export default {
       reviewList: [],
       seeIcon: require('@/assets/see.png'),
       wishesIcon: require('@/assets/wishes.png'),
-      logoList: []
+      logoList: [],
     }
   },
   methods: {
@@ -59,13 +59,13 @@ export default {
       const movieId = this.$route.params.movieId
       const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
       const res = axiosCall(`api/movies/${movieId}/`, 'post', '', headers)
-      res.then((data) => console.log(data))
+      res.then(this.$store.dispatch('requestWatched', '', { root: true }))
     },
     makeWishes() {
       const movieId = this.$route.params.movieId
       const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
       const res = axiosCall(`api/movies/${movieId}/wishes/`, 'post', '', headers)
-      res.then((data) => console.log(data))
+      res.then(res.then(this.$store.dispatch('requestWishes', '', { root: true })))
     },
     getLogo() {
       const res = axiosCall(`api/provider/${this.$route.params.movieId}`)
@@ -75,6 +75,22 @@ export default {
   computed: {
     imgURL() {
       return `https://image.tmdb.org/t/p/w300${this.movieInfo.poster_path}`
+    },
+    watched() {
+      for (const movie of this.$store.state.user.watchedMovies) {
+        if (movie.title === this.movieInfo.title) {
+          return true
+        }
+      }
+      return false
+    },
+    wishes() {
+      for (const movie of this.$store.state.user.wishesMovies) {
+        if (movie.title === this.movieInfo.title) {
+          return true
+        }
+      }
+      return false
     }
   },
   created() {
