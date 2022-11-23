@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue"
 import MovieView from "../views/MovieView.vue"
 import SeriesView from "../views/SeriesView.vue"
 import LoginView from "../views/LoginView.vue"
+import AuthView from "../views/AuthView.vue"
 import SignupView from "../views/SignupView.vue"
 import SearchView from "../views/SearchView.vue"
 import MovieDetailView from "../views/MovieDetailView.vue"
@@ -32,6 +33,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: LoginView,
+  },
+  {
+    path: "/auth",
+    name: "Auth",
+    component: AuthView,
   },
   {
     path: "/signup",

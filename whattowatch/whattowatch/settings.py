@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.kakao',
+
     'dj_rest_auth.registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +56,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+SITE_ID = 1
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None 
+ACCOUNT_EMAIL_REQUIRED = True           
+ACCOUNT_USERNAME_REQUIRED = False       
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [

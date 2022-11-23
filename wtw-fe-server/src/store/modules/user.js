@@ -22,11 +22,15 @@ const user = {
     SAVE_WISHES_MOVIES(state, data) {
       state.wishesMovies = data.movies
     },
+    CLEAR(state) {
+      state.watchedMovies = null
+      state.wishesMovies = null
+    },
   },
   actions: {
     signUp(context, payload) {
       const data = {
-        username: payload.username,
+        email: payload.email,
         password1: payload.password1,
         password2: payload.password2,
       }
@@ -37,7 +41,7 @@ const user = {
     },
     login({ commit, dispatch }, payload) {
       const data = {
-        username: payload.username,
+        email: payload.email,
         password: payload.password,
       }
       const res = axiosCall("accounts/login/", "post", data)
@@ -51,9 +55,11 @@ const user = {
       const res = axiosCall("accounts/logout/", "post")
       res.then(() => context.commit("DELETE_TOKEN"))
     },
-    appCreated({ state, dispatch }) {
+    appCreated({ state, dispatch, commit }) {
       if (state.token) {
         dispatch("requestWatched").then(dispatch("requestWishes"))
+      } else {
+        commit("CLEAR")
       }
     },
     requestWatched({ commit, state }) {

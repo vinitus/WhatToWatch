@@ -1,17 +1,40 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from api.models import Movie, Genre, Actor, Director
+from django.utils.translation import gettext_lazy
+from .managers import UserManager
 
 # Create your models here.
+# class User(AbstractUser):
+#     gender = models.TextField()
+#     like_genres = models.ManyToManyField(Genre, through='UserLikeGenres')    
+#     like_actors = models.ManyToManyField(Actor, through='UserLikeActors')     
+#     watched = models.ManyToManyField(Movie)
+#     wishes = models.ManyToManyField(Movie, related_name="who_wishes")
+#     user_similar = models.ManyToManyField('self', through='UserSimilar', symmetrical=True, default=0)
+#     kakao_id = models.CharField(max_length=100, null=True)
+
 class User(AbstractUser):
-    gender = models.TextField()
-    birthday = models.DateField(null=True)
-    phone_number = models.IntegerField(null=True)
+    username = None
+    email = models.EmailField(gettext_lazy('email address'), unique=True)
+    first_name = None
+    last_name = None
+    nickname = models.CharField(max_length=20, null=True)
     like_genres = models.ManyToManyField(Genre, through='UserLikeGenres')    
     like_actors = models.ManyToManyField(Actor, through='UserLikeActors')     
     watched = models.ManyToManyField(Movie)
     wishes = models.ManyToManyField(Movie, related_name="who_wishes")
     user_similar = models.ManyToManyField('self', through='UserSimilar', symmetrical=True, default=0)
+    kakao_id = models.CharField(max_length=100, null=True)
+
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
+
+    def __str__(self):
+        return self.email
 
 class UserLikeGenres(models.Model):
     genre_like_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
