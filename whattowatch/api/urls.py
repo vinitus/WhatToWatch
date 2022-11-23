@@ -23,4 +23,5 @@ urlpatterns = [
     path('movies/search/<str:keyword>/', views.search, name='search'),
     path('movie_add/', views.movie_add, name='movie_add'),
     path('movie_title/', views.movie_title, name='movie_title'),
+    path('provider/<int:movie_pk>/', views.provider, name='provider'),
 ]

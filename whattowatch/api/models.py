@@ -37,3 +37,8 @@ class Director(models.Model):
 class Actor(models.Model):
     movies = models.ManyToManyField(Movie)
     name = models.CharField(max_length=50)
+
+class Provider(models.Model):
+    name = models.CharField(max_length=100)
+    logo_path = models.TextField()
+    movies = models.ManyToManyField(Movie)

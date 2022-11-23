@@ -465,3 +465,17 @@ def wishes(request):
         data['movie_id'] = movie.pk
         data_to_res['movies'].append(data)
     return Response(data_to_res)
+
+@api_view(['GET'])
+def provider(request, movie_pk):
+    movie = Movie.objects.get(pk=movie_pk)
+    providers = movie.provider_set.all()
+    data = {'providers': []}
+    for provider in providers:
+        data_dict = {
+            'name':provider.name,
+            'logo_path':provider.logo_path,
+            'provider_pk':provider.pk
+        }
+        data['providers'].append(data_dict)
+    return Response(data)

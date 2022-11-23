@@ -80,15 +80,17 @@ export default {
 }
 
 .divout {
+  width: 300px;
+  height: 450px;
   flex: 1;
-  display: flex;
   background: black;
   box-shadow: 0px 0px 10px 5px white;
   border-radius: 15px;
 }
 
 .divin {
-  display: flex;
+  width: 300px;
+  height: 450px;
   flex: 1;
   overflow: auto;
   flex-direction: column;

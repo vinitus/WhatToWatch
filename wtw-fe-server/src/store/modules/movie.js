@@ -1,6 +1,7 @@
 import axiosCall from "@/axiosCall/axiosCall"
 
 const movie = {
+  namespaced: true,
   state: {
     movieList: [],
   },

@@ -4,6 +4,8 @@ import router from "@/router"
 const user = {
   state: {
     token: null,
+    watchedMovies: null,
+    wishesMovies: null,
   },
   mutations: {
     SAVE_TOKEN(state, token) {
@@ -13,6 +15,12 @@ const user = {
     DELETE_TOKEN(state) {
       state.token = null
       // router.push({ name: "Home" })
+    },
+    SAVE_WATCHED_MOVIES(state, data) {
+      state.watchedMovies = data.movies
+    },
+    SAVE_WISHES_MOVIES(state, data) {
+      state.wishesMovies = data.movies
     },
   },
   actions: {
@@ -27,20 +35,42 @@ const user = {
         context.commit("SAVE_TOKEN", res.key)
       })
     },
-    login(context, payload) {
+    login({ commit, dispatch }, payload) {
       const data = {
         username: payload.username,
         password: payload.password,
       }
       const res = axiosCall("accounts/login/", "post", data)
       res.then((res) => {
-        console.log(res)
-        context.commit("SAVE_TOKEN", res)
+        commit("SAVE_TOKEN", res)
+        dispatch("requestWatched")
+        dispatch("requestWishes")
       })
     },
     logout(context) {
       const res = axiosCall("accounts/logout/", "post")
       res.then(() => context.commit("DELETE_TOKEN"))
+    },
+    appCreated({ state, dispatch }) {
+      if (state.token) {
+        dispatch("requestWatched").then(dispatch("requestWishes"))
+      }
+    },
+    requestWatched({ commit, state }) {
+      const headers = {
+        Authorization: `Bearer ${state.token.access_token}`,
+      }
+      const res = axiosCall("api/watched/", "get", "", headers)
+      res.then((data) => commit("SAVE_WATCHED_MOVIES", data))
+      res.catch((err) => console.log(err))
+    },
+    requestWishes({ state, commit }) {
+      const headers = {
+        Authorization: `Bearer ${state.token.access_token}`,
+      }
+      const res = axiosCall("api/wishes/", "get", "", headers)
+      res.then((data) => commit("SAVE_WISHES_MOVIES", data))
+      res.catch((err) => console.log(err))
     },
   },
   getters: {

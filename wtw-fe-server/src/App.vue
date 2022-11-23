@@ -12,8 +12,12 @@ export default {
   components: {
     NavigationBar
   },
+  methods: {
+
+  },
   created() {
-    this.$store.dispatch('appCreated', '', { root: true })
+    this.$store.dispatch('movie/appCreated')
+    this.$store.dispatch('appCreated')
   }
 }
 </script>

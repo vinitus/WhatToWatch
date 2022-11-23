@@ -2,20 +2,19 @@
   <div id="profile">
     <div>PROFILE</div>
     <router-link :to="{ name: 'Watched' }">본 컨텐츠 설정하러가기</router-link>
+    <!-- <router-link :to="{ name: 'Flatform' }">구독중인 OTT 플랫폼 설정</router-link> -->
     <h1>봤던 컨텐츠</h1>
-    <div v-for="(watchedMovie, watchedMovieIndex) in watchedMovies" :key="watchedMovieIndex">
+    <div v-for="(watchedMovie, watchedMovieIndex) in watchedMovies" :key="'watch' + watchedMovieIndex">
       <div style="display:block;">{{ watchedMovie }}</div>
     </div>
     <h1>찜한 컨텐츠</h1>
-    <div v-for="(wishesMovie, wishesMovieIndex) in wishesMovies" :key="wishesMovieIndex">
+    <div v-for="(wishesMovie, wishesMovieIndex) in wishesMovies" :key="'wish' + wishesMovieIndex">
       <div style="display:block;">{{ wishesMovie }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import axiosCall from '@/axiosCall/axiosCall';
-
 export default {
   name: 'ProfileView',
   data() {
@@ -26,16 +25,10 @@ export default {
   },
   methods: {
     getWatchedMoviesData() {
-      const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
-      const res = axiosCall('api/watched/', 'get', '', headers)
-      res.then((data) => this.watchedMovies = data.movies)
-      res.catch((err) => console.log(err))
+      this.watchedMovies = this.$store.state.user.watchedMovies
     },
     getWishesMoviesData() {
-      const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
-      const res = axiosCall('api/wishes/', 'get', '', headers)
-      res.then((data) => this.wishesMovies = data.movies)
-      res.catch((err) => console.log(err))
+      this.wishesMovies = this.$store.state.user.wishesMovies
     },
   },
   created() {
