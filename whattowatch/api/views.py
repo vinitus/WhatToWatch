@@ -12,7 +12,11 @@ from collections import defaultdict
 from django.http.response import HttpResponse
 from django.core import serializers
 import json
-import random
+import pandas as pd
+import numpy as np
+import math
+
+
 
 
 @api_view(['GET'])
@@ -416,10 +420,69 @@ def recommend_based_directors(request):
         movie['poster_path'] = movie_field['poster_path']
     return Response(movie_dict)
 
+def cosim(name, dataframe):
+    movies = []
+    for i in dataframe.loc[name,:].index:
+
+        if math.isnan(dataframe.loc[name,i]) == False:
+            movies.append(i)
+    U_df = pd.DataFrame(dataframe.loc[name,movies] ).T
+    
+    other_df=dataframe.loc[:,movies].drop(name, axis=0)
+    
+    U_list= list(U_df.index)
+    
+    sim_dict={}
+    
+    
+    for user in other_df.index:
+        sm= [m for m in U_df.columns if math.isnan(other_df.loc[user,m])==False]
+        
+        main_n = np.linalg.norm(U_df.loc[name,sm])
+        user_n = np.linalg.norm(other_df.loc[user,sm])
+        prod = np.dot(U_df.loc[name,sm], other_df.loc[user,sm])
+        sim_dict[user]=prod/(main_n*user_n)
+        
+    
+    return sim_dict
+
+
 @api_view(['GET'])
 def recommend_based_users(request):
+    user_eval = defaultdict(dict)
+    # for reviewer in UserReviewScore.objects.all().distinct().values('review_user', 'score', 'review_movie'):
+    for user_id, movie_id, score in UserReviewScore.objects.all().distinct().values_list('review_user', 'review_movie', 'score'):
+        user_eval[user_id][movie_id] = score
     
-    return Response()
+    user_review_datas = pd.DataFrame(user_eval).T
+    # target_querys = UserReviewScore.objects.filter(~Q(review_user=request.user), review_movie__in=movie_id)
+    user_similar = cosim(request.user.id, user_review_datas)
+    user_sims = []
+    for k, v in user_similar.items():
+        if v < 0.94:
+            continue
+        user_sims.append(k)
+    recommend_movies = []
+    review_movies = []
+    for movie in User.objects.get(id=request.user.id).watched.all():
+        review_movies.append(movie.id)
+    if user_sims:
+        for user_sim in user_sims:
+            reco_movies = UserReviewScore.objects.filter(~Q(review_movie__in=review_movies), review_user=user_sim, score__gte=8).distinct().values('review_movie')
+            for reco_movie in reco_movies:
+                recommend_movies.append(reco_movie['review_movie'])
+    movies = Movie.objects.filter(id__in=recommend_movies)
+    movie_dict = {'user': '고객님과 취향이 비슷한 유저'}
+    movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
+    movie_dict['movies'] = movies
+    for movie in movie_dict['movies']:
+        movie['postter_path'] = Movie.objects.get(pk=movie['pk']).poster_path
+        movie['movie_id'] = movie.pop('pk')
+        movie_field = movie.pop('fields')
+        movie['title'] = movie_field['title']
+        movie['poster_path'] = movie_field['poster_path']
+    return Response(movie_dict)
+    
 
 
 @api_view(['GET'])
