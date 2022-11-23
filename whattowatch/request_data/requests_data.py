@@ -1,7 +1,7 @@
 import json
 import requests
 from time import sleep
-from secret import TMDB_API_KEY
+from .secret import TMDB_API_KEY
 from tqdm import tqdm
 import os
 
@@ -290,8 +290,8 @@ class RequestsData:
         with open("./whattowatch/api/fixtures/actor_based_movies.json", "w", encoding="UTF-8") as f:
             json.dump(movie_datas, f, indent=4, ensure_ascii=False)
 
-    def movie_ids_to_json(self):
-        with open("./whattowatch/api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
+    def movie_ids_to_json():
+        with open("../api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
             movie_json = json.load(f)
         
         movie_ids = []
@@ -300,8 +300,10 @@ class RequestsData:
         data = {
             'movie_ids': movie_ids
         }
-        with open("./whattowatch/api/fixtures/movie_ids.json", "w", encoding="UTF-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+        # with open("../api/fixtures/movie_ids.json", "w", encoding="UTF-8") as f:
+        #     json.dump(data, f, indent=4, ensure_ascii=False)
+
+        return data['movie_ids']
 
     def actor_ids():
         with open("../api/fixtures/actor.json", "r", encoding="UTF-8") as f:
@@ -339,8 +341,8 @@ class RequestsData:
             directors = json.load(f)
         with open("../api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
             movie_details = json.load(f)
-            
-        for movie_id in tqdm(movies_ids['movie_ids'][:30]):
+        actor_movie_list_for_add = []
+        for movie_id in tqdm(movies_ids['movie_ids']):
             CREDIT_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={TMDB_API_KEY}&language=ko-KR'
             credit_res = requests.get(CREDIT_API_URL)
             credit_json = json.loads(credit_res.text)
@@ -365,6 +367,8 @@ class RequestsData:
                         "name": actor['name']
                 }
                 actors.append(data)
+                actor_movie_list_for_add += actor_movie_list
+
             for crew in credit_json['crew']:
                 if crew['job'] == 'Director':
                     director_id = crew['id']
@@ -402,26 +406,30 @@ class RequestsData:
                 continue
             movie_detail_dict = {"model": "api.movie"}
             genre_lst = []
-            for mv_genre in movie_detail_json['genres']:
-                genre_lst.append(mv_genre['id'])
-            country = movie_detail_json['production_countries'][0]['name']
-            movie_detail_dict['fields'] = {
-                "adult": False,
-                "belongs_to_collection": movie_detail_json['belongs_to_collection']['id'] if movie_detail_json['belongs_to_collection'] else None,
-                "id": movie_detail_json['id'],
-                "original_language": movie_detail_json['original_language'],
-                "overview": movie_detail_json['overview'],
-                "popularity": movie_detail_json["popularity"],
-                "poster_path": movie_detail_json["poster_path"],
-                "release_date": movie_detail_json["release_date"],
-                "runtime": movie_detail_json[ "runtime"],
-                "title": movie_detail_json["title"],
-                "vote_average": movie_detail_json["vote_average"],
-                "vote_count": movie_detail_json["vote_count"],
-                "genres": genre_lst,
-                "country": country
-            }
-            movie_details.append(movie_detail_dict)
+            try:
+                for mv_genre in movie_detail_json['genres']:
+                    genre_lst.append(mv_genre['id'])
+                
+                country = movie_detail_json['production_countries'][0]['name'] if movie_detail_json['production_countries'] else None
+                movie_detail_dict['fields'] = {
+                    "adult": False,
+                    "belongs_to_collection": movie_detail_json['belongs_to_collection']['id'] if movie_detail_json['belongs_to_collection'] else None,
+                    "id": movie_detail_json['id'],
+                    "original_language": movie_detail_json['original_language'],
+                    "overview": movie_detail_json['overview'],
+                    "popularity": movie_detail_json["popularity"],
+                    "poster_path": movie_detail_json["poster_path"],
+                    "release_date": movie_detail_json["release_date"],
+                    "runtime": movie_detail_json[ "runtime"],
+                    "title": movie_detail_json["title"],
+                    "vote_average": movie_detail_json["vote_average"],
+                    "vote_count": movie_detail_json["vote_count"],
+                    "genres": genre_lst,
+                    "country": country
+                }
+                movie_details.append(movie_detail_dict)
+            except:
+                continue
 
         movie_ids_data = {'movie_ids': list(movie_ids)}
         print(movie_ids_data)
@@ -441,16 +449,142 @@ class RequestsData:
         with open("../api/fixtures/movie_detail.json", "w", encoding="UTF-8") as f:
             json.dump(movie_details, f, indent=4, ensure_ascii=False)
 
+    def get_provider(self):
+        with open("./whattowatch/api/fixtures/movie_ids.json", "r", encoding="UTF-8") as f:
+            movies_ids = json.load(f)
+        
+        cnt = 0
+        provider_json = []
+        for movie_id in tqdm(movies_ids['movie_ids']):
+            cnt += 1
+            if cnt == 1001:
+                break
+            API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key={self.API_KEY}'
+            provider_res = requests.get(API_URL)
+            provider_res_dict = json.loads(provider_res.text)
+            if provider_res_dict['results'].get('KR'):
+                provider_dict = {
+                    'id': provider_res_dict['id'],
+                    'results' : provider_res_dict['results']['KR']
+                }
+            else:
+                provider_dict = {
+                    'id': provider_res_dict['id'],
+                    'results' : []
+                }
+            provider_json.append(provider_dict)
+
+        with open("./whattowatch/api/fixtures/raw_provider.json", "w", encoding="UTF-8") as f:
+            json.dump(provider_json, f, indent=4, ensure_ascii=False)
+    
+    def transform_provider(self):
+        with open("./whattowatch/api/fixtures/raw_provider.json", "r", encoding="UTF-8") as f:
+            raw_provider_json = json.load(f)
+        
+        company_ids = {}
+        company_names = {}
+        company_logo = {}
+        provider_json = []
+        for movie in raw_provider_json:
+            if movie['results']:
+                movie['results'].pop('link')
+                for watch_type in movie['results'].values():
+                    for company in watch_type:
+                        if company_ids.get(company['provider_id']):
+                            company_ids[company['provider_id']].append(movie['id'])
+                        else:
+                            company_ids[company['provider_id']] = [movie['id']]
+                            company_names[company['provider_id']] = company['provider_name']
+                            company_logo[company['provider_id']] = company['logo_path']
+        
+        for company_id, movie_ids in company_ids.items():
+            provider_data = {"model": "api.provider"}
+            provider_data['pk'] = company_id
+            provider_data["fields"] = {'name':company_names[company_id],'logo_path':company_logo[company_id],"movies":movie_ids}
+            provider_json.append(provider_data)
+
+        with open("./whattowatch/api/fixtures/provider.json", "w", encoding="UTF-8") as f:
+            json.dump(provider_json, f, indent=4, ensure_ascii=False)
+
+# RequestsData().transform_provider()
+# movie_ids 리스트
+# movie_ids = RequestsData.movie_ids_to_json()
 
 
+# with open("../api/fixtures/movie_detail.json", "r", encoding="UTF-8") as f:
+#     movie_details = json.load(f)
+# with open("../api/fixtures/actor.json", "r", encoding="UTF-8") as f:
+#     actors = json.load(f)
+# with open("../api/fixtures/director.json", "r", encoding="UTF-8") as f:
+#     directors = json.load(f)
+
+# actor_ids = []
+# actor_movies = set()
+# for actor in actors:
+#     actor_ids.append(actor['fields']['id'])
+#     actor_movies |= set(actor['fields']['movies'])
 
 
+# director_ids = []
+# director_movies = set()
+# for director in directors:
+#     director_ids.append(director['fields']['id'])
+#     director_movies |= set(director['fields']['movies'])
+
+# need_movie_ids = list((actor_movies | director_movies) - set(movie_ids))
+# except_ids = []
+# datas = []
+# for movie_id in need_movie_ids:
+#     try:
+#         MOVIE_DETAIL_API_URL = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={TMDB_API_KEY}&language=ko-KR'
+#         movie_detail = requests.get(MOVIE_DETAIL_API_URL)
+#         movie_detail = json.loads(movie_detail.text)
+#         movie = {"model": "api.movie"}
+#         genres = []
+#         for genre in movie_detail['genres']:
+#             genres.append(genre['id'])
+
+#         movie['fields'] = {
+#             "adult": False,
+#             "belongs_to_collection": movie_detail['belongs_to_collection']['id'] if movie_detail.get('belongs_to_collection') else None,
+#             "id": movie_detail[""],
+#             "original_language": movie_detail["original_language"],
+#             "overview": movie_detail["overview"],
+#             "popularity": movie_detail["popularity"],
+#             "poster_path": movie_detail["poster_path"],
+#             "release_date": movie_detail["release_date"],
+#             "runtime": movie_detail["runtime"],
+#             "title": movie_detail["title"],
+#             "vote_average": movie_detail["vote_average"],
+#             "vote_count": movie_detail["vote_count"],
+#             "genres": genres,
+#             "country": movie_detail["production_countries"][0]['name'] if movie_detail.get('production_countries') else None
+#         }
+
+#         datas.append(movie)
 
 
+#     except:
+#         except_ids.append(movie_id)
 
+# except_ids_set = set(except_ids)
+# for i in range(len(actors)):
+#     actors[i]['fields']['movies'] = list(set(actors[i]['fields']['movies']) - except_ids_set)
 
+# for i in range(len(directors)):
+#     directors[i]['fields']['movies'] = list(set(directors[i]['fields']['movies']) - except_ids_set)
 
+# movie_ids += list(set(need_movie_ids) - except_ids_set)
+# movie_ids_json = {'movie_ids': movie_ids}
+# movie_details += datas
+# with open("../api/fixtures/movie_ids.json", "w", encoding="UTF-8") as f:
+#     json.dump(movie_ids_json, f, indent=4, ensure_ascii=False)
 
-# RequestsData.actor_conect_movie(TMDB_API_KEY)
+# with open("../api/fixtures/actor_new.json", "w", encoding="UTF-8") as f:
+#     json.dump(actors, f, indent=4, ensure_ascii=False)
 
-RequestsData.actor_director_add()
+# with open("../api/fixtures/director_new.json", "w", encoding="UTF-8") as f:
+#     json.dump(directors, f, indent=4, ensure_ascii=False)
+
+# with open("../api/fixtures/movie_detail_new.json", "w", encoding="UTF-8") as f:
+#     json.dump(movie_details, f, indent=4, ensure_ascii=False)

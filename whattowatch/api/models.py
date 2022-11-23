@@ -17,7 +17,7 @@ class Movie(models.Model):
     original_language = models.TextField()
     adult = models.BooleanField()
     genres = models.ManyToManyField(Genre)
-    country = models.CharField(max_length=30)
+    country = models.CharField(max_length=30, null=True)
     belongs_to_collection = models.IntegerField(null=True)
 
 class NetflixTop10(models.Model):
@@ -37,3 +37,8 @@ class Director(models.Model):
 class Actor(models.Model):
     movies = models.ManyToManyField(Movie)
     name = models.CharField(max_length=50)
+
+class Provider(models.Model):
+    name = models.CharField(max_length=100)
+    logo_path = models.TextField()
+    movies = models.ManyToManyField(Movie)
