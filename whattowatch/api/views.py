@@ -417,7 +417,6 @@ def recommend_based_actors(request):
 def recommend_based_directors(request):
     user = User.objects.get(id=request.user.id)
     like_director = UserLikeDirectors.objects.filter(director_like_user=user).order_by('-score')
-
     movies = Movie.objects.filter(director__in=[like_director[0].director_id])
     user_watched = []
     for movie in user.watched.all():
@@ -445,11 +444,7 @@ def cosim(name, dataframe):
         if math.isnan(dataframe.loc[name,i]) == False:
             movies.append(i)
     U_df = pd.DataFrame(dataframe.loc[name,movies] ).T
-    
     other_df=dataframe.loc[:,movies].drop(name, axis=0)
-    
-    U_list= list(U_df.index)
-    
     sim_dict={}
     
     
@@ -459,7 +454,7 @@ def cosim(name, dataframe):
         main_n = np.linalg.norm(U_df.loc[name,sm])
         user_n = np.linalg.norm(other_df.loc[user,sm])
         prod = np.dot(U_df.loc[name,sm], other_df.loc[user,sm])
-        sim_dict[user]=prod/(main_n*user_n)
+        sim_dict[prod/(main_n*user_n)]=user
         
     
     return sim_dict
@@ -469,36 +464,41 @@ def cosim(name, dataframe):
 def recommend_based_users(request):
     user_eval = defaultdict(dict)
     # for reviewer in UserReviewScore.objects.all().distinct().values('review_user', 'score', 'review_movie'):
+    for user in User.objects.all():
+        for watched in user.watched.all():
+            user_eval[user.id][watched.id] = 10
     for user_id, movie_id, score in UserReviewScore.objects.all().distinct().values_list('review_user', 'review_movie', 'score'):
-        user_eval[user_id][movie_id] = score
+        user_eval[user_id][movie_id] += score - 5
     
-    user_review_datas = pd.DataFrame(user_eval).T
+    user_review_datas = pd.DataFrame(user_eval)
+    user_review_datas = user_review_datas.fillna(0)
+    user_review_datas = user_review_datas.T
     # target_querys = UserReviewScore.objects.filter(~Q(review_user=request.user), review_movie__in=movie_id)
     user_similar = cosim(request.user.id, user_review_datas)
-    user_sims = []
-    for k, v in user_similar.items():
-        if v < 0.94:
-            continue
-        user_sims.append(k)
+    user_sim = user_similar[max(user_similar)]
+    
+    
     recommend_movies = []
-    review_movies = []
+    watched_movies = []
     for movie in User.objects.get(id=request.user.id).watched.all():
-        review_movies.append(movie.id)
-    if user_sims:
-        for user_sim in user_sims:
-            reco_movies = UserReviewScore.objects.filter(~Q(review_movie__in=review_movies), review_user=user_sim, score__gte=8).distinct().values('review_movie')
-            for reco_movie in reco_movies:
-                recommend_movies.append(reco_movie['review_movie'])
+        watched_movies.append(movie.id)
+    
+    reco_movies = User.objects.get(id=user_sim).watched.all().filter(~Q(id__in=User.objects.get(id=request.user.id).watched.all()))
+    print(reco_movies)
+    for reco_movie in reco_movies:
+        recommend_movies.append(reco_movie.id)
     movies = Movie.objects.filter(id__in=recommend_movies)
     movie_dict = {'user': '고객님과 취향이 비슷한 유저'}
     movies = json.loads(serializers.serialize('json', movies, ensure_ascii=False))
     movie_dict['movies'] = movies
+
     for movie in movie_dict['movies']:
         movie['postter_path'] = Movie.objects.get(pk=movie['pk']).poster_path
         movie['movie_id'] = movie.pop('pk')
         movie_field = movie.pop('fields')
         movie['title'] = movie_field['title']
         movie['poster_path'] = movie_field['poster_path']
+
     return Response(movie_dict)
     
 
