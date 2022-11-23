@@ -1,0 +1,6265 @@
+[
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1056121,
+            "movies": [
+                505642
+            ],
+            "name": "Ryan Coogler"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 59521,
+            "movies": [
+                436270
+            ],
+            "name": "Jaume Collet-Serra"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 933176,
+            "movies": [
+                663712
+            ],
+            "name": "Damien Leone"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 173847,
+            "movies": [
+                829280
+            ],
+            "name": "Harry Bradbeer"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 964826,
+            "movies": [
+                675054
+            ],
+            "name": "Chava Cartas"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2218465,
+            "movies": [
+                882598
+            ],
+            "name": "Parker Finn"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 221522,
+            "movies": [
+                49046
+            ],
+            "name": "Edward Berger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 61703,
+            "movies": [
+                732459
+            ],
+            "name": "Ron Yuan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3518356,
+            "movies": [
+                966220
+            ],
+            "name": "Marian Bushan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 90812,
+            "movies": [
+                985939
+            ],
+            "name": "Scott Mann"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 62768,
+            "movies": [
+                760161
+            ],
+            "name": "William Brent Bell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1564258,
+            "movies": [
+                979924
+            ],
+            "name": "Romuald Boulanger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 66212,
+            "movies": [
+                717728
+            ],
+            "name": "Timo Vuorensola"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3744992,
+            "movies": [
+                1033107
+            ],
+            "name": "Fabian Medea"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1282094,
+            "movies": [
+                944864
+            ],
+            "name": "Annemarie van de Mond"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1657527,
+            "movies": [
+                856245
+            ],
+            "name": "Agustina San Martín"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 29214,
+            "movies": [
+                642885
+            ],
+            "name": "Anne Fletcher"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 52342,
+            "movies": [
+                896485
+            ],
+            "name": "Olivier Marchal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1709460,
+            "movies": [
+                830788
+            ],
+            "name": "Jessica M. Thompson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55934,
+            "movies": [
+                616037
+            ],
+            "name": "Taika Waititi"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 24,
+            "movies": [
+                237353
+            ],
+            "name": "Robert Zemeckis"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 67813,
+            "movies": [
+                346658
+            ],
+            "name": "Baltasar Kormákur"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2710,
+            "movies": [
+                183392,
+                276909,
+                198901,
+                489493,
+                447829,
+                102041,
+                70844
+            ],
+            "name": "James Cameron"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7623,
+            "movies": [
+                470035
+            ],
+            "name": "Sam Raimi"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55499,
+            "movies": [
+                448383
+            ],
+            "name": "Scott Derrickson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 59315,
+            "movies": [
+                500904,
+                206821,
+                172533,
+                328869
+            ],
+            "name": "Olivia Wilde"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2009739,
+            "movies": [
+                940075
+            ],
+            "name": "Domee Shi"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 32278,
+            "movies": [
+                7191
+            ],
+            "name": "Matt Reeves"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 57646,
+            "movies": [
+                613234,
+                568100
+            ],
+            "name": "Henry Selick"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 84833,
+            "movies": [
+                19556
+            ],
+            "name": "Zach Cregger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 76595,
+            "movies": [
+                391711
+            ],
+            "name": "Byron Howard"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1333,
+            "movies": [
+                62728,
+                119450,
+                13849,
+                281338,
+                91551
+            ],
+            "name": "Andy Serkis"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1,
+            "movies": [
+                319600
+            ],
+            "name": "George Lucas"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 39,
+            "movies": [
+                686132
+            ],
+            "name": "Sam Mendes"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 40,
+            "movies": [
+                44026,
+                22376,
+                27883,
+                15,
+                35921,
+                47697,
+                22744,
+                986,
+                43003,
+                772733
+            ],
+            "name": "Orson Welles"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 42,
+            "movies": [
+                29445
+            ],
+            "name": "Lars von Trier"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 138,
+            "movies": [
+                10614,
+                631143
+            ],
+            "name": "Quentin Tarantino"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1776,
+            "movies": [
+                4539
+            ],
+            "name": "Francis Ford Coppola"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 190,
+            "movies": [
+                391,
+                17169,
+                87825,
+                1039896,
+                17689,
+                10648,
+                10649,
+                10650,
+                10651,
+                8348,
+                37917,
+                10015,
+                33,
+                31906,
+                14881,
+                15393,
+                20006,
+                13223,
+                938,
+                9386,
+                429,
+                5551,
+                688,
+                8879,
+                15417,
+                26170,
+                11707,
+                4929,
+                66,
+                6723,
+                11589,
+                16969,
+                984,
+                28761,
+                749274,
+                20187,
+                10724,
+                9573,
+                21866,
+                504172,
+                10734,
+                10354,
+                10747,
+                11901
+            ],
+            "name": "Clint Eastwood"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 223,
+            "movies": [
+                453543
+            ],
+            "name": "Alejandro González Iñárritu"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 280,
+            "movies": [
+                11949,
+                21189,
+                4543
+            ],
+            "name": "Terry Gilliam"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 488,
+            "movies": [
+                503210,
+                467062
+            ],
+            "name": "Steven Spielberg"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 564,
+            "movies": [
+                14022
+            ],
+            "name": "Richard Linklater"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 525,
+            "movies": [
+                529107
+            ],
+            "name": "Christopher Nolan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 608,
+            "movies": [
+                158483,
+                252511
+            ],
+            "name": "Hayao Miyazaki"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1032,
+            "movies": [
+                55676,
+                44345,
+                651724
+            ],
+            "name": "Martin Scorsese"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1150,
+            "movies": [
+                326745,
+                355254
+            ],
+            "name": "Brian De Palma"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1243,
+            "movies": [
+                512,
+                19200,
+                10440,
+                10569,
+                11337,
+                81167,
+                2639,
+                8916,
+                11030,
+                9689,
+                12762,
+                11610,
+                11485,
+                31774,
+                8288,
+                28384,
+                11302,
+                11686,
+                11624,
+                11561,
+                11562,
+                81836,
+                696,
+                1723,
+                11448,
+                703
+            ],
+            "name": "Woody Allen"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 41421,
+            "movies": [
+                12212
+            ],
+            "name": "Jennifer Morrison"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 9281,
+            "movies": [
+                579496,
+                187596,
+                244260,
+                121831
+            ],
+            "name": "Elizabeth Banks"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1749,
+            "movies": [
+                338544,
+                27260
+            ],
+            "name": "Leonard Nimoy"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1748,
+            "movies": [
+                168,
+                30315,
+                172,
+                174,
+                70703,
+                79827,
+                311539,
+                152,
+                154,
+                157
+            ],
+            "name": "William Shatner"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2461,
+            "movies": [
+                8834,
+                80389,
+                10502,
+                3595,
+                9355,
+                3981,
+                9359,
+                438674,
+                7443,
+                11541,
+                10264,
+                10396,
+                38557,
+                12201,
+                941,
+                942,
+                943,
+                944,
+                9659,
+                318,
+                1727,
+                2112,
+                197,
+                619592,
+                11856,
+                411728,
+                979924,
+                10326,
+                50780,
+                10590,
+                872542,
+                11646,
+                602211,
+                898789,
+                2024,
+                8810,
+                2669,
+                2675,
+                309886
+            ],
+            "name": "Mel Gibson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7467,
+            "movies": [
+                585240
+            ],
+            "name": "David Fincher"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2836,
+            "movies": [
+                16070
+            ],
+            "name": "Kimberly Peirce"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5292,
+            "movies": [
+                8963,
+                411012,
+                388,
+                9481,
+                10637,
+                44048,
+                8470,
+                20504,
+                9882,
+                602269,
+                345887,
+                10400,
+                21539,
+                9509,
+                333484,
+                413362,
+                591538,
+                18487,
+                9271,
+                59961,
+                926393,
+                10684,
+                41791,
+                8512,
+                9411,
+                2116,
+                9546,
+                87502,
+                136400,
+                1883,
+                14047,
+                41823,
+                393457,
+                2034,
+                156022,
+                9469,
+                14462,
+                7551
+            ],
+            "name": "Denzel Washington"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1152,
+            "movies": [
+                189215
+            ],
+            "name": "Oliver Stone"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 518,
+            "movies": [
+                31659,
+                25166,
+                9969,
+                11858,
+                28210,
+                14930,
+                12151,
+                11896,
+                6463
+            ],
+            "name": "Danny DeVito"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3451,
+            "movies": [
+                413393
+            ],
+            "name": "Mel Stuart"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 13312,
+            "movies": [
+                40221
+            ],
+            "name": "Rae Dawn Chong"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3556,
+            "movies": [
+                11482
+            ],
+            "name": "Roman Polanski"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 18897,
+            "movies": [
+                10753,
+                33542,
+                98567,
+                21519,
+                11537,
+                21521,
+                10771,
+                16407,
+                38425,
+                383785,
+                46122,
+                11563,
+                46124,
+                18741,
+                5175,
+                76349,
+                468285,
+                2109,
+                35138,
+                19267,
+                11847,
+                18760,
+                19274,
+                18763,
+                18764,
+                25676,
+                9056,
+                45408,
+                35170,
+                377447,
+                460648,
+                10348,
+                10610,
+                20083,
+                11636,
+                457332,
+                40829,
+                10622,
+                11134,
+                23172,
+                11653,
+                512901,
+                8584,
+                300168,
+                6038,
+                604822,
+                40863,
+                860578,
+                18857,
+                12207,
+                18867,
+                219572,
+                270774,
+                9404,
+                11198,
+                1729,
+                11205,
+                10951,
+                10204,
+                415965,
+                10974,
+                11230,
+                10975,
+                21733,
+                18666,
+                34800,
+                25074,
+                8697
+            ],
+            "name": "Jackie Chan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4027,
+            "movies": [
+                241829
+            ],
+            "name": "Frank Darabont"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4135,
+            "movies": [
+                11393,
+                87496,
+                11145,
+                9930,
+                33166,
+                21711,
+                464593,
+                2322,
+                429203,
+                9302,
+                1623,
+                11034,
+                1947,
+                19740,
+                42619,
+                606,
+                17887,
+                547,
+                433252,
+                11943,
+                152747,
+                384043,
+                22189,
+                46059,
+                2100,
+                10742,
+                11963,
+                232572,
+                4478,
+                1535
+            ],
+            "name": "Robert Redford"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3317,
+            "movies": [
+                4291,
+                45284,
+                121828,
+                12166,
+                327,
+                452323,
+                20617,
+                7500,
+                12622,
+                246,
+                5910
+            ],
+            "name": "Takeshi Kitano"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 18864,
+            "movies": [
+                10258,
+                306990,
+                270946
+            ],
+            "name": "Tom McGrath"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5602,
+            "movies": [
+                46624,
+                413765
+            ],
+            "name": "David Lynch"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2406,
+            "movies": [
+                76609,
+                300839
+            ],
+            "name": "Mathieu Kassovitz"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5713,
+            "movies": [
+                46247,
+                98857,
+                17963,
+                55692,
+                367326
+            ],
+            "name": "Chris Wedge"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 80602,
+            "movies": [
+                436288,
+                459202,
+                175555,
+                16710,
+                51017,
+                103370,
+                94348,
+                16781,
+                165649,
+                380124,
+                55389,
+                79325,
+                845404,
+                239650,
+                28003,
+                28004,
+                266405,
+                35688,
+                17202,
+                15670,
+                62008,
+                26367
+            ],
+            "name": "Tyler Perry"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 6159,
+            "movies": [
+                19731
+            ],
+            "name": "Ron Howard"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 931100,
+            "movies": [
+                197158
+            ],
+            "name": "David Cardoso"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1269,
+            "movies": [
+                12160,
+                9922,
+                10052,
+                11973,
+                581,
+                2055,
+                500682,
+                10187,
+                9804,
+                2323,
+                253331,
+                10390,
+                9559,
+                14040,
+                37534,
+                287,
+                10207,
+                4643,
+                10083,
+                192102,
+                3432,
+                14249,
+                228203,
+                10478,
+                8367,
+                820,
+                117,
+                200505,
+                20348
+            ],
+            "name": "Kevin Costner"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 12890,
+            "movies": [
+                355338,
+                897298
+            ],
+            "name": "Pete Docter"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 9032,
+            "movies": [
+                324249
+            ],
+            "name": "Bryan Singer"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4818,
+            "movies": [
+                10599,
+                12776,
+                22826,
+                59050,
+                46828,
+                56370,
+                883,
+                68540,
+                637,
+                10846
+            ],
+            "name": "Roberto Benigni"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 57492,
+            "movies": [
+                375848,
+                58492,
+                9372,
+                468996
+            ],
+            "name": "Morgan Spurlock"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 33192,
+            "movies": [
+                60270,
+                16367,
+                59440,
+                209269,
+                848791,
+                339419,
+                18557
+            ],
+            "name": "Joel Edgerton"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11523,
+            "movies": [
+                133063,
+                2963,
+                114108,
+                775
+            ],
+            "name": "Georges Méliès"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4786,
+            "movies": [
+                13385,
+                26234,
+                516058
+            ],
+            "name": "Richard Attenborough"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11649,
+            "movies": [
+                948212
+            ],
+            "name": "Cameron Crowe"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11770,
+            "movies": [
+                31578
+            ],
+            "name": "John Carpenter"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15217,
+            "movies": [
+                831982
+            ],
+            "name": "Zack Snyder"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7879,
+            "movies": [
+                711704
+            ],
+            "name": "John Lasseter"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 210355,
+            "movies": [
+                436973,
+                911348,
+                497269,
+                74328,
+                670426
+            ],
+            "name": "Brea Grant"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 13848,
+            "movies": [
+                962,
+                901,
+                30982,
+                3082,
+                13707,
+                914,
+                53403,
+                2077,
+                47650,
+                47653,
+                22885,
+                53416,
+                53417,
+                28971,
+                53420,
+                28973,
+                53424,
+                53425,
+                28978,
+                36208,
+                10098,
+                53429,
+                53430,
+                30588
+            ],
+            "name": "Charlie Chaplin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4600,
+            "movies": [
+                375317
+            ],
+            "name": "Joe Dante"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15344,
+            "movies": [
+                378386,
+                680382
+            ],
+            "name": "J.J. Abrams"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 14639,
+            "movies": [
+                10156,
+                22998,
+                12535,
+                10970,
+                6524
+            ],
+            "name": "Mel Brooks"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7132,
+            "movies": [
+                116979
+            ],
+            "name": "Vincent D'Onofrio"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15175,
+            "movies": [
+                457775
+            ],
+            "name": "William Friedkin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 82885,
+            "movies": [
+                333665,
+                426230,
+                776559
+            ],
+            "name": "Zoe Lister-Jones"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 26467,
+            "movies": [
+                58462
+            ],
+            "name": "Kyra Sedgwick"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16483,
+            "movies": [
+                7555,
+                28932,
+                76163,
+                9350,
+                10375,
+                9482,
+                9739,
+                9618,
+                9874,
+                9876,
+                440471,
+                4255,
+                1825,
+                16551,
+                480042,
+                70074,
+                522938,
+                27578,
+                421057,
+                208450,
+                13636,
+                107846,
+                2636,
+                17360,
+                1366,
+                1367,
+                1368,
+                1369,
+                1370,
+                1371,
+                11228,
+                10461,
+                2142,
+                1374,
+                1246,
+                1375,
+                9691,
+                251994,
+                21610,
+                23916,
+                10477,
+                11890,
+                9972,
+                138103,
+                13437
+            ],
+            "name": "Sylvester Stallone"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 380,
+            "movies": [
+                11778,
+                8195,
+                398978,
+                137093,
+                262,
+                52744,
+                524,
+                37774,
+                87567,
+                184341,
+                365717,
+                22423,
+                11416,
+                39451,
+                8092,
+                3870,
+                650783,
+                64807,
+                425001,
+                1578,
+                9013,
+                311,
+                26171,
+                257211,
+                2749,
+                1598,
+                9535,
+                10433,
+                1607,
+                11978,
+                203,
+                9932,
+                32077,
+                13389,
+                112205,
+                44113,
+                5971,
+                11096,
+                363992,
+                244186,
+                5851,
+                3036,
+                42589,
+                31582,
+                9566,
+                13536,
+                77663,
+                103,
+                11371,
+                39787,
+                78571,
+                8944,
+                369524,
+                11005
+            ],
+            "name": "Robert De Niro"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 10847,
+            "movies": [
+                1283,
+                892068,
+                1284,
+                1285,
+                668742,
+                57544,
+                587272,
+                59117,
+                975120,
+                254869,
+                800823,
+                95932
+            ],
+            "name": "Santiago Segura"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16847,
+            "movies": [
+                298584,
+                123103
+            ],
+            "name": "Eli Roth"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3274444,
+            "movies": [
+                886083
+            ],
+            "name": "Joseph Winter"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17114,
+            "movies": [
+                13403
+            ],
+            "name": "John Cameron Mitchell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 10828,
+            "movies": [
+                229979,
+                595643
+            ],
+            "name": "Guillermo del Toro"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17403,
+            "movies": [
+                3179,
+                828947
+            ],
+            "name": "Mike Judge"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 150,
+            "movies": [
+                97430,
+                321494
+            ],
+            "name": "RZA"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 36602,
+            "movies": [
+                23908
+            ],
+            "name": "Peter Berg"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 61632,
+            "movies": [
+                273238
+            ],
+            "name": "Dustin Nguyen"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 455,
+            "movies": [
+                318224
+            ],
+            "name": "Paul Haggis"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1650,
+            "movies": [
+                8070
+            ],
+            "name": "François Truffaut"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15277,
+            "movies": [
+                41288,
+                212778,
+                316067,
+                448341
+            ],
+            "name": "Jon Favreau"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 74091,
+            "movies": [
+                37910,
+                18143
+            ],
+            "name": "Makoto Shinkai"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17087,
+            "movies": [
+                1777,
+                22074,
+                1430,
+                2359
+            ],
+            "name": "Michael Moore"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 78021,
+            "movies": [
+                287982
+            ],
+            "name": "Lloyd Kaufman"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19303,
+            "movies": [
+                440762,
+                14348,
+                2294
+            ],
+            "name": "Kevin Smith"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1146,
+            "movies": [
+                341392,
+                84165,
+                8316,
+                1845
+            ],
+            "name": "Julie Delpy"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 8328,
+            "movies": [
+                173467
+            ],
+            "name": "John Milius"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 120615,
+            "movies": [
+                206289
+            ],
+            "name": "Tom Ford"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 38782,
+            "movies": [
+                722800
+            ],
+            "name": "Leah Purcell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 87742,
+            "movies": [
+                638453
+            ],
+            "name": "Marc Webb"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5367,
+            "movies": [
+                401,
+                13171,
+                7511,
+                231576,
+                9982
+            ],
+            "name": "Zach Braff"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7087,
+            "movies": [
+                546728
+            ],
+            "name": "Brad Bird"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7399,
+            "movies": [
+                25472,
+                80321,
+                25154,
+                116745,
+                5966,
+                9038,
+                7446,
+                10710,
+                2074,
+                181533,
+                10527,
+                9824,
+                252512,
+                80035,
+                14819,
+                59108,
+                4967,
+                9384,
+                329833,
+                425980,
+                22318,
+                693,
+                9398,
+                161143,
+                18360,
+                1593,
+                953,
+                7288,
+                1597,
+                27583
+            ],
+            "name": "Ben Stiller"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1461,
+            "movies": [
+                158852,
+                134,
+                10313,
+                10315,
+                4942,
+                6415,
+                4944,
+                2133,
+                4566,
+                415,
+                6623,
+                161,
+                65057,
+                163,
+                22947,
+                231,
+                298,
+                11775,
+                1389,
+                303858,
+                755,
+                182,
+                2103,
+                152760,
+                27579,
+                614911
+            ],
+            "name": "George Clooney"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2176,
+            "movies": [
+                10632,
+                6973,
+                29973,
+                13975,
+                31642,
+                607,
+                11808,
+                53157,
+                35432,
+                10479,
+                10357,
+                8053,
+                47095,
+                13498,
+                36349,
+                56831
+            ],
+            "name": "Tommy Lee Jones"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 6593,
+            "movies": [
+                160816,
+                49158,
+                299782
+            ],
+            "name": "John Huston"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 116431,
+            "movies": [
+                697064,
+                793285,
+                454286
+            ],
+            "name": "David A.R. White"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 56446,
+            "movies": [
+                411840,
+                554241,
+                653349,
+                17134,
+                8975,
+                882670,
+                364689,
+                122935
+            ],
+            "name": "John Cena"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 20899,
+            "movies": [
+                11235
+            ],
+            "name": "Peter Riegert"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 129894,
+            "movies": [
+                533721
+            ],
+            "name": "Gareth Edwards"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5469,
+            "movies": [
+                1985,
+                9613,
+                73358,
+                120467,
+                18840,
+                281,
+                409,
+                30237,
+                30628,
+                9320,
+                17771,
+                593643,
+                522927,
+                111473,
+                101173,
+                15414,
+                20024,
+                11450,
+                476669
+            ],
+            "name": "Ralph Fiennes"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4275,
+            "movies": [
+                605734,
+                451500,
+                179150,
+                735697,
+                19955,
+                36598,
+                547258,
+                183836,
+                102207
+            ],
+            "name": "Alain Chabat"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 57865,
+            "movies": [
+                508466
+            ],
+            "name": "Álex de la Iglesia"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 143593,
+            "movies": [
+                26280,
+                184352
+            ],
+            "name": "Xavier Dolan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11181,
+            "movies": [
+                505026,
+                12900,
+                10501,
+                51333,
+                12488,
+                11498,
+                392044,
+                11790,
+                558095,
+                10705,
+                10549,
+                9466,
+                13791
+            ],
+            "name": "Kenneth Branagh"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 880,
+            "movies": [
+                23168,
+                1537,
+                399361,
+                9541,
+                4614,
+                9480,
+                619979,
+                529485,
+                15566,
+                2255,
+                791373,
+                210577,
+                9620,
+                15256,
+                209112,
+                68734,
+                44129,
+                302946,
+                9827,
+                676,
+                1832,
+                2155,
+                10862,
+                8046,
+                16366,
+                259695,
+                9784,
+                60281,
+                141052,
+                146238
+            ],
+            "name": "Ben Affleck"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1302082,
+            "movies": [
+                620942
+            ],
+            "name": "David F. Sandberg"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55493,
+            "movies": [
+                84338,
+                14623
+            ],
+            "name": "Brady Corbet"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 47826,
+            "movies": [
+                577242
+            ],
+            "name": "Alexandre Astier"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2171677,
+            "movies": [
+                560504
+            ],
+            "name": "Juan Pablo Blanco"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 78040,
+            "movies": [
+                527776,
+                17345,
+                18925
+            ],
+            "name": "Alex Kendrick"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 543261,
+            "movies": [
+                157547,
+                574060,
+                698128,
+                203321,
+                765119
+            ],
+            "name": "Karen Gillan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 49855,
+            "movies": [
+                26933
+            ],
+            "name": "Gaël Morel"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 45400,
+            "movies": [
+                121986,
+                82533,
+                100529,
+                312669,
+                309245
+            ],
+            "name": "Greta Gerwig"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1267375,
+            "movies": [
+                732459
+            ],
+            "name": "Anna Akana"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 38673,
+            "movies": [
+                9762,
+                117251,
+                399170,
+                264999,
+                74536,
+                77930,
+                906221,
+                446894,
+                626735,
+                58547,
+                76757,
+                49494,
+                739542,
+                17336
+            ],
+            "name": "Channing Tatum"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 20030,
+            "movies": [
+                9305
+            ],
+            "name": "Jacques Perrin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 35689,
+            "movies": [
+                26352,
+                34309,
+                17006
+            ],
+            "name": "Keenen Ivory Wayans"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 583479,
+            "movies": [
+                430231
+            ],
+            "name": "Aaron Moorhead"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 98631,
+            "movies": [
+                159117
+            ],
+            "name": "Adam Wingard"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 68750,
+            "movies": [
+                29475,
+                11244,
+                34101
+            ],
+            "name": "Robert Townsend"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 41029,
+            "movies": [
+                19099,
+                757999,
+                13734,
+                215303
+            ],
+            "name": "Bernard Campan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 64856,
+            "movies": [
+                10336,
+                403232,
+                24804,
+                586347,
+                741067,
+                391757,
+                753232,
+                22164,
+                70006,
+                15255,
+                639832,
+                418585,
+                270938
+            ],
+            "name": "Michael Jai White"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 58021,
+            "movies": [
+                359241,
+                291860,
+                345466,
+                55580,
+                257854
+            ],
+            "name": "Tinto Brass"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 8010,
+            "movies": [
+                13042
+            ],
+            "name": "Doug Sweetland"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 84429,
+            "movies": [
+                430528
+            ],
+            "name": "Audrey Dana"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 99427,
+            "movies": [
+                70112
+            ],
+            "name": "Ford Austin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 24318,
+            "movies": [
+                20472,
+                26331
+            ],
+            "name": "Richard Benjamin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 159462,
+            "movies": [
+                27227
+            ],
+            "name": "Judson Pearce Morgan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 92730,
+            "movies": [
+                279968,
+                65599
+            ],
+            "name": "Pollyanna McIntosh"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 35896,
+            "movies": [
+                395762
+            ],
+            "name": "Richard Berry"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 51329,
+            "movies": [
+                18785,
+                51876,
+                82693,
+                83686,
+                10185,
+                190859,
+                222936,
+                332562,
+                597208,
+                45243,
+                295964,
+                109439
+            ],
+            "name": "Bradley Cooper"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 73931,
+            "movies": [
+                16323,
+                25221,
+                12710,
+                10439,
+                15592,
+                642885,
+                728203,
+                17912,
+                555032,
+                759418
+            ],
+            "name": "Bette Midler"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 36669,
+            "movies": [
+                50601,
+                249070
+            ],
+            "name": "Rupert Friend"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 64295,
+            "movies": [
+                288171
+            ],
+            "name": "Alan Ritchson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 52049,
+            "movies": [
+                39939,
+                50022
+            ],
+            "name": "Jay Chandrasekhar"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 12329,
+            "movies": [
+                57991,
+                56402,
+                43100,
+                56287
+            ],
+            "name": "Vittorio De Sica"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 35208,
+            "movies": [
+                25518
+            ],
+            "name": "Coline Serreau"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 42113,
+            "movies": [
+                40955
+            ],
+            "name": "Zalman King"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 66586,
+            "movies": [
+                10696,
+                474498,
+                766319
+            ],
+            "name": "Mariah Carey"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2228,
+            "movies": [
+                13633,
+                1282,
+                322,
+                10950,
+                842,
+                10126,
+                13715,
+                9684,
+                470,
+                38295,
+                13526,
+                10139,
+                266396,
+                13342,
+                8741,
+                10155,
+                53487,
+                1717,
+                662712,
+                1662,
+                47359
+            ],
+            "name": "Sean Penn"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 117642,
+            "movies": [
+                619297,
+                572802,
+                459910,
+                297802,
+                668461,
+                423377,
+                754452,
+                37430,
+                268060
+            ],
+            "name": "Jason Momoa"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1166720,
+            "movies": [
+                399300
+            ],
+            "name": "Yue Song"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 932524,
+            "movies": [
+                431937
+            ],
+            "name": "Nicolas Bedos"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 6818,
+            "movies": [
+                8672,
+                59490,
+                574082,
+                592710,
+                89704,
+                12172,
+                48463,
+                360029
+            ],
+            "name": "Werner Herzog"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2171,
+            "movies": [
+                10843
+            ],
+            "name": "Griffin Dunne"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 73249,
+            "movies": [
+                727340,
+                407887,
+                388757,
+                320150,
+                165213,
+                556509
+            ],
+            "name": "Lee Jung-jae"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 39847,
+            "movies": [
+                45745,
+                355651
+            ],
+            "name": "Halina Reijn"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 52139,
+            "movies": [
+                188161,
+                572204,
+                653528,
+                278427,
+                65215
+            ],
+            "name": "Seth MacFarlane"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 29327,
+            "movies": [
+                32688,
+                17352
+            ],
+            "name": "Rossano Brazzi"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 26183,
+            "movies": [
+                15244
+            ],
+            "name": "François Leterrier"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19942,
+            "movies": [
+                270403
+            ],
+            "name": "Ronit Elkabetz"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 44990,
+            "movies": [
+                32648,
+                10823
+            ],
+            "name": "Peter Horton"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 57607,
+            "movies": [
+                32517,
+                73414,
+                37702,
+                37703,
+                21835,
+                45452,
+                51730,
+                51731,
+                132183,
+                53658,
+                40346,
+                47647,
+                47648,
+                13345,
+                66657,
+                53163,
+                41387,
+                53165,
+                53168,
+                55156,
+                13688,
+                11770,
+                56124,
+                75197,
+                9470,
+                41343
+            ],
+            "name": "Stephen Chow"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 53177,
+            "movies": [
+                53150
+            ],
+            "name": "Brian Robbins"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 20239,
+            "movies": [
+                10546
+            ],
+            "name": "Vincent Perez"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17183,
+            "movies": [
+                23437
+            ],
+            "name": "Jackie Earle Haley"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 76242,
+            "movies": [
+                13058,
+                259453,
+                402334,
+                114958
+            ],
+            "name": "Noel Clarke"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3190496,
+            "movies": [
+                859041
+            ],
+            "name": "Qing Guo"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 26784,
+            "movies": [
+                88922
+            ],
+            "name": "Danny Lee Sau-Yin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 148884,
+            "movies": [
+                220579
+            ],
+            "name": "Chin Ka-Lok"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11701,
+            "movies": [
+                16643,
+                1988,
+                14533,
+                527400,
+                2057,
+                11081,
+                1995,
+                1996,
+                420809,
+                578701,
+                9839,
+                314385,
+                27576,
+                102651,
+                3580
+            ],
+            "name": "Angelina Jolie"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 35137,
+            "movies": [
+                593475,
+                13732,
+                19597,
+                21435,
+                723294
+            ],
+            "name": "Josiane Balasko"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 52763,
+            "movies": [
+                8453,
+                297222,
+                58128,
+                19666,
+                14752,
+                601635,
+                31524,
+                20453,
+                29988,
+                7913,
+                54890,
+                360814,
+                44977,
+                33202,
+                86004,
+                14070,
+                21566
+            ],
+            "name": "Aamir Khan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 38670,
+            "movies": [
+                50217,
+                10053,
+                64269
+            ],
+            "name": "Camilla Belle"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 24045,
+            "movies": [
+                302401,
+                19913,
+                138697,
+                8270,
+                509585,
+                334931,
+                285783,
+                11171,
+                44835,
+                296100,
+                40807,
+                28520,
+                9270,
+                49526,
+                9016,
+                15098,
+                59967
+            ],
+            "name": "Joseph Gordon-Levitt"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 78871,
+            "movies": [
+                335462,
+                504075,
+                452557,
+                601493,
+                779029,
+                26010,
+                928123
+            ],
+            "name": "Wu Jing"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1092548,
+            "movies": [
+                925539
+            ],
+            "name": "Shaofu Zhang"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 549469,
+            "movies": [
+                991247
+            ],
+            "name": "Stuart Brennan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 80999,
+            "movies": [
+                247849,
+                18122,
+                428398
+            ],
+            "name": "Fyodor Bondarchuk"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1077537,
+            "movies": [
+                434355,
+                528668,
+                928381,
+                277839
+            ],
+            "name": "Franck Gastambide"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2879,
+            "movies": [
+                134048,
+                41963,
+                11308,
+                93550,
+                34734,
+                30768,
+                322766,
+                532814,
+                531438,
+                877657,
+                17465
+            ],
+            "name": "Rob Lowe"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 139135,
+            "movies": [
+                47607
+            ],
+            "name": "Lena Dunham"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 39189,
+            "movies": [
+                303623
+            ],
+            "name": "Stephen Merchant"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 929825,
+            "movies": [
+                822100
+            ],
+            "name": "Ava DuVernay"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 39104,
+            "movies": [
+                13553
+            ],
+            "name": "Abel Ferrara"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 291263,
+            "movies": [
+                342521
+            ],
+            "name": "Jordan Peele"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1038,
+            "movies": [
+                11521,
+                19971,
+                4547,
+                9315,
+                406761,
+                32331,
+                686,
+                274,
+                16084,
+                1049,
+                1945,
+                4413,
+                1439
+            ],
+            "name": "Jodie Foster"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 27436,
+            "movies": [
+                87061
+            ],
+            "name": "Costa-Gavras"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 32,
+            "movies": [
+                598896,
+                4475,
+                18989,
+                152795
+            ],
+            "name": "Robin Wright"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55615,
+            "movies": [
+                68193,
+                554282,
+                516846,
+                888498,
+                524442,
+                317116
+            ],
+            "name": "Megan Park"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15111,
+            "movies": [
+                37632,
+                9091,
+                9349,
+                326284,
+                9594,
+                9103,
+                11667,
+                10134,
+                205724,
+                10908,
+                127521,
+                11690,
+                10413,
+                256687,
+                71677,
+                9399,
+                3513,
+                17466,
+                20411,
+                9405,
+                9924,
+                317512,
+                100683,
+                19277,
+                454615,
+                24411,
+                14172,
+                28510,
+                19167,
+                449503,
+                538207,
+                2019,
+                13672,
+                122857,
+                10861,
+                10222,
+                17774,
+                525554,
+                729720,
+                37498,
+                238589,
+                10366,
+                8831
+            ],
+            "name": "Jean-Claude Van Damme"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2128,
+            "movies": [
+                246355
+            ],
+            "name": "Leigh Whannell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 14386,
+            "movies": [
+                593691,
+                178850,
+                293187,
+                22309,
+                1125,
+                719643,
+                394269
+            ],
+            "name": "Beyoncé"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 449,
+            "movies": [
+                34016,
+                64320,
+                298115,
+                47626,
+                638507,
+                82702,
+                10191,
+                79379,
+                91417,
+                207516,
+                166428
+            ],
+            "name": "Jay Baruchel"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1906603,
+            "movies": [
+                926762
+            ],
+            "name": "Kyra Elise Gardner"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 57082,
+            "movies": [
+                18252
+            ],
+            "name": "John Stockwell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4489,
+            "movies": [
+                11891
+            ],
+            "name": "Steve Oedekerk"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 36811,
+            "movies": [
+                13497,
+                340275,
+                19803,
+                21542
+            ],
+            "name": "Nick Cannon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 54614,
+            "movies": [
+                8341
+            ],
+            "name": "Shawn Ku"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19429,
+            "movies": [
+                11713,
+                12481,
+                44645,
+                653733,
+                154183,
+                37588,
+                13333,
+                9461,
+                9462,
+                40572,
+                84383
+            ],
+            "name": "Bruce Lee"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 22461,
+            "movies": [
+                36800,
+                9464,
+                517253,
+                31017,
+                2191,
+                40723,
+                48243,
+                80659,
+                11928,
+                12703
+            ],
+            "name": "Vincent Gallo"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15347,
+            "movies": [
+                1036996
+            ],
+            "name": "Michael Giacchino"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 34517,
+            "movies": [
+                9473,
+                1012290,
+                8675,
+                993729,
+                974691,
+                13063,
+                76360,
+                16023,
+                874299,
+                874300,
+                14013
+            ],
+            "name": "Trey Parker"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4391,
+            "movies": [
+                1037763
+            ],
+            "name": "Charles Dance"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 31,
+            "movies": [
+                2565,
+                516486,
+                5255,
+                13448,
+                6538,
+                5516,
+                13,
+                29968,
+                9489,
+                12309,
+                11287,
+                10905,
+                35866,
+                363676,
+                296098,
+                522402,
+                8358,
+                6951,
+                581032,
+                64685,
+                4147,
+                170039,
+                568,
+                270010,
+                2619,
+                19259,
+                207932,
+                937278,
+                77887,
+                11974,
+                9800,
+                414792,
+                591,
+                10193,
+                594,
+                27348,
+                59861,
+                83542,
+                301528,
+                857,
+                858,
+                862,
+                863,
+                10466,
+                2280,
+                109424,
+                497,
+                9586,
+                9591,
+                82424
+            ],
+            "name": "Tom Hanks"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 33,
+            "movies": [
+                2067,
+                4965
+            ],
+            "name": "Gary Sinise"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 23880,
+            "movies": [
+                412678,
+                8845,
+                306325,
+                18070,
+                46103,
+                9624,
+                9625,
+                14362,
+                13722,
+                118683,
+                416149,
+                227359,
+                650272,
+                24351,
+                17314,
+                17317,
+                18472,
+                6058,
+                298667,
+                36272,
+                28465,
+                332976,
+                9395,
+                389425,
+                10167,
+                3512,
+                9914,
+                10173,
+                8382,
+                15039,
+                10049,
+                18248,
+                397003,
+                286668,
+                423627,
+                14289,
+                30806,
+                26583,
+                585311,
+                9569,
+                24546,
+                14180,
+                394223,
+                411632,
+                14452,
+                550134,
+                10877,
+                12542
+            ],
+            "name": "Steven Seagal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2178,
+            "movies": [
+                18529,
+                34563,
+                24679,
+                622855,
+                32007,
+                132363,
+                450766,
+                4816,
+                1523,
+                41780,
+                15124,
+                254772,
+                175541,
+                80920
+            ],
+            "name": "Forest Whitaker"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1250945,
+            "movies": [
+                271954
+            ],
+            "name": "Özcan Deniz"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 189230,
+            "movies": [
+                641483,
+                276844,
+                91101
+            ],
+            "name": "Josh Lawson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 544655,
+            "movies": [
+                730769
+            ],
+            "name": "Fabrice Eboué"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 224870,
+            "movies": [
+                504345,
+                939899,
+                423093
+            ],
+            "name": "Paco León"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 39012,
+            "movies": [
+                539199
+            ],
+            "name": "Peter Bogdanovich"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 556721,
+            "movies": [
+                666624,
+                599845
+            ],
+            "name": "Marco D'Amore"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 62410,
+            "movies": [
+                25539,
+                59843,
+                39881,
+                15724,
+                68942,
+                600014,
+                18707,
+                315669,
+                18812,
+                88889,
+                10044
+            ],
+            "name": "Sammo Hung"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16808,
+            "movies": [
+                373889,
+                73770,
+                35217,
+                796499,
+                160085,
+                8349,
+                253370,
+                308187,
+                80125
+            ],
+            "name": "Matthias Schweighöfer"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 77921,
+            "movies": [
+                149870
+            ],
+            "name": "Hideaki Anno"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 66193,
+            "movies": [
+                20760,
+                353998
+            ],
+            "name": "Chris Sanders"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5763,
+            "movies": [
+                778,
+                427,
+                11378,
+                10227
+            ],
+            "name": "Jacques Tati"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 64796,
+            "movies": [
+                706545
+            ],
+            "name": "Tom Holland"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3092,
+            "movies": [
+                441728,
+                574241,
+                48259,
+                55657,
+                1257,
+                89325,
+                11215,
+                12085,
+                37749,
+                808087,
+                502682,
+                16699
+            ],
+            "name": "Diane Keaton"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 57207,
+            "movies": [
+                16353,
+                449985,
+                9316,
+                43209,
+                8982,
+                110552,
+                331576
+            ],
+            "name": "Tony Jaa"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2021651,
+            "movies": [
+                529414,
+                960713,
+                595723,
+                707533,
+                1039026,
+                903571,
+                517817
+            ],
+            "name": "Franco Escamilla"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1957,
+            "movies": [
+                289153,
+                8266,
+                50512,
+                18897,
+                51090,
+                256913,
+                5144,
+                38621,
+                402910,
+                846238,
+                21861,
+                10732,
+                735726,
+                98927,
+                490422,
+                35831,
+                49979,
+                52286
+            ],
+            "name": "Sophie Marceau"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1989568,
+            "movies": [
+                893338
+            ],
+            "name": "Jim Mahoney"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 10697,
+            "movies": [
+                26475,
+                538002,
+                105526,
+                14522,
+                302429
+            ],
+            "name": "Alan Cumming"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 66496,
+            "movies": [
+                38545,
+                37291,
+                887171
+            ],
+            "name": "Adrienne Shelly"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 95136,
+            "movies": [
+                268245
+            ],
+            "name": "David Henrie"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 6384,
+            "movies": [
+                1921,
+                245891,
+                730629,
+                300681,
+                619022,
+                110354,
+                1813,
+                1689,
+                10393,
+                600987,
+                600990,
+                9886,
+                600991,
+                438689,
+                124972,
+                458156,
+                64686,
+                603692,
+                263472,
+                561,
+                53172,
+                3509,
+                38966,
+                651445,
+                570678,
+                331962,
+                331583,
+                324552,
+                14543,
+                413782,
+                9560,
+                10200,
+                12123,
+                603,
+                604,
+                605,
+                501979,
+                624860,
+                1637,
+                321769,
+                1648,
+                1649,
+                1266,
+                12656,
+                20857,
+                55931,
+                2044
+            ],
+            "name": "Keanu Reeves"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1462,
+            "movies": [
+                537996,
+                785663
+            ],
+            "name": "Tim Blake Nelson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19274,
+            "movies": [
+                53985,
+                4964,
+                195589,
+                40805,
+                10189,
+                325133,
+                516525,
+                16991,
+                614930,
+                628917,
+                10358,
+                223702,
+                39513,
+                82687
+            ],
+            "name": "Seth Rogen"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1893,
+            "movies": [
+                428449,
+                583903,
+                4771,
+                1956,
+                37414,
+                334541,
+                803923,
+                441183
+            ],
+            "name": "Casey Affleck"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17051,
+            "movies": [
+                9664,
+                262338,
+                274504,
+                300302,
+                44115,
+                287636,
+                9044,
+                416153,
+                291867,
+                13275,
+                291869,
+                2141,
+                61791,
+                416160,
+                122081,
+                416166,
+                109414,
+                38568,
+                152745,
+                228967,
+                246127,
+                122928,
+                337844,
+                371638,
+                68728,
+                28028,
+                411135
+            ],
+            "name": "James Franco"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 23393,
+            "movies": [
+                81399
+            ],
+            "name": "Barbet Schroeder"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 21007,
+            "movies": [
+                187017,
+                245706,
+                8363,
+                799375,
+                64688,
+                32823,
+                57431
+            ],
+            "name": "Jonah Hill"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3905,
+            "movies": [
+                23592,
+                9260,
+                15213,
+                18191,
+                10744,
+                20637,
+                16511
+            ],
+            "name": "William H. Macy"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3416,
+            "movies": [
+                20096,
+                9623,
+                10533,
+                4421,
+                11082,
+                13195,
+                9879,
+                18169,
+                530076,
+                9756,
+                354110,
+                30815
+            ],
+            "name": "Demi Moore"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 18702,
+            "movies": [
+                25571,
+                2436,
+                648043,
+                721452,
+                9501,
+                34862,
+                19279,
+                40661,
+                15797,
+                30778,
+                31101,
+                289535
+            ],
+            "name": "Mark Dacascos"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 77277,
+            "movies": [
+                339408
+            ],
+            "name": "Nate Parker"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4955,
+            "movies": [
+                807070
+            ],
+            "name": "Dario Argento"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 9306,
+            "movies": [
+                44351
+            ],
+            "name": "Scott Coffey"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2053,
+            "movies": [
+                21128,
+                31465,
+                10223,
+                22004,
+                12149,
+                24982,
+                9822
+            ],
+            "name": "Bill Paxton"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 85809,
+            "movies": [
+                44918
+            ],
+            "name": "Shane van Dyke"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 14409,
+            "movies": [
+                23570,
+                9843,
+                19850
+            ],
+            "name": "David Schwimmer"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 43426,
+            "movies": [
+                5458,
+                8460,
+                881853,
+                9711
+            ],
+            "name": "Robin Dunne"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 26854,
+            "movies": [
+                35945
+            ],
+            "name": "Phil Davis"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 524,
+            "movies": [
+                374464,
+                376866,
+                10564,
+                448360,
+                340104,
+                752,
+                429202,
+                454291,
+                44214,
+                12184,
+                52505,
+                300668,
+                336029,
+                41630,
+                174751
+            ],
+            "name": "Natalie Portman"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 50583,
+            "movies": [
+                14641
+            ],
+            "name": "Adam Rifkin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 228,
+            "movies": [
+                26337,
+                152259,
+                2756,
+                240745,
+                419635,
+                218836,
+                1590,
+                22167,
+                259611,
+                12509
+            ],
+            "name": "Ed Harris"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 212,
+            "movies": [
+                14923
+            ],
+            "name": "David Cross"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 58795,
+            "movies": [
+                543025,
+                75074,
+                13548,
+                766431
+            ],
+            "name": "Brian Presley"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1245726,
+            "movies": [
+                672588
+            ],
+            "name": "Rebecca Sugar"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1179651,
+            "movies": [
+                449406,
+                556574
+            ],
+            "name": "Lin-Manuel Miranda"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 819,
+            "movies": [
+                12834,
+                550,
+                73,
+                13150,
+                504562,
+                1491,
+                1429,
+                14202,
+                1724,
+                7870
+            ],
+            "name": "Edward Norton"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 43643,
+            "movies": [
+                717192,
+                277154
+            ],
+            "name": "Frank Lammers"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11012,
+            "movies": [
+                644977
+            ],
+            "name": "Michael Dougherty"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 154,
+            "movies": [
+                595841
+            ],
+            "name": "Walter Murch"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 60949,
+            "movies": [
+                10402,
+                9957,
+                13161,
+                276905,
+                11852,
+                156268,
+                23470,
+                11090,
+                136793,
+                44219,
+                11453
+            ],
+            "name": "Rob Schneider"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 27763,
+            "movies": [
+                618433,
+                42185,
+                1037644,
+                15056,
+                344147,
+                10838,
+                31003,
+                7837,
+                70110,
+                172767,
+                752354,
+                1028324,
+                563,
+                353267,
+                460790,
+                11127
+            ],
+            "name": "Casper Van Dien"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 9994,
+            "movies": [
+                330115,
+                13196,
+                15184,
+                664,
+                524251
+            ],
+            "name": "Helen Hunt"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 587,
+            "movies": [
+                29154,
+                38722,
+                13199,
+                105077,
+                47260
+            ],
+            "name": "Edward James Olmos"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16214,
+            "movies": [
+                97632,
+                36233,
+                29621,
+                242166
+            ],
+            "name": "Mario Van Peebles"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 101377,
+            "movies": [
+                28940
+            ],
+            "name": "Paul Bartel"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1159650,
+            "movies": [
+                586595,
+                177221
+            ],
+            "name": "Jeremy Gardner"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 58646,
+            "movies": [
+                30113,
+                101251,
+                9702,
+                270985,
+                79026
+            ],
+            "name": "Damian Chapa"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55983,
+            "movies": [
+                11176,
+                14900,
+                11639,
+                11899,
+                13247
+            ],
+            "name": "Jim Henson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1276759,
+            "movies": [
+                747803,
+                844547,
+                865686
+            ],
+            "name": "Machine Gun Kelly"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 13524,
+            "movies": [
+                16448,
+                11031
+            ],
+            "name": "Christopher Guest"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1642,
+            "movies": [
+                9065,
+                175
+            ],
+            "name": "Jean-Marc Barr"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1241,
+            "movies": [
+                37696,
+                290,
+                429416,
+                31146,
+                214030
+            ],
+            "name": "John Turturro"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 21561,
+            "movies": [
+                27769,
+                28692,
+                37865,
+                2102
+            ],
+            "name": "Tim Matheson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19536,
+            "movies": [
+                373314,
+                9796,
+                13477,
+                38408,
+                360203,
+                172847,
+                139567,
+                472815,
+                858064,
+                759507,
+                300666,
+                375098,
+                842942
+            ],
+            "name": "Josh Duhamel"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 39213,
+            "movies": [
+                13803,
+                586044
+            ],
+            "name": "Keir O'Donnell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55785,
+            "movies": [
+                39056
+            ],
+            "name": "Shunji Iwai"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 258,
+            "movies": [
+                140,
+                477654,
+                351065,
+                542,
+                351454,
+                264418,
+                631843,
+                18538,
+                300,
+                1391,
+                258363,
+                4786,
+                1653,
+                33974,
+                55,
+                222649,
+                267579,
+                894205,
+                110398
+            ],
+            "name": "Gael García Bernal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 76624,
+            "movies": [
+                14337
+            ],
+            "name": "Shane Carruth"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17525,
+            "movies": [
+                1699,
+                11628
+            ],
+            "name": "Barnaby Metschurat"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 54789,
+            "movies": [
+                22821,
+                646150,
+                100493,
+                797294,
+                766931,
+                310043
+            ],
+            "name": "Sean Patrick Flanery"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 84021,
+            "movies": [
+                316042,
+                14582
+            ],
+            "name": "Paul Gross"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 172874,
+            "movies": [
+                768449
+            ],
+            "name": "Kirk Caouette"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2778,
+            "movies": [
+                10690,
+                12228,
+                71115,
+                12719,
+                11222,
+                38775,
+                32924
+            ],
+            "name": "Dennis Hopper"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 126932,
+            "movies": [
+                81332,
+                464733,
+                729269
+            ],
+            "name": "Elisabeth Röhm"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 12824,
+            "movies": [
+                47813
+            ],
+            "name": "Don Hahn"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 20006,
+            "movies": [
+                11603,
+                11411,
+                60631,
+                16633,
+                12122,
+                9531,
+                624479
+            ],
+            "name": "Christopher Reeve"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 239574,
+            "movies": [
+                211954,
+                810171,
+                425134,
+                64694
+            ],
+            "name": "Eugenio Derbez"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 56322,
+            "movies": [
+                1022789,
+                18826,
+                150540,
+                266294,
+                345914,
+                513083
+            ],
+            "name": "Amy Poehler"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11147,
+            "movies": [
+                79319
+            ],
+            "name": "John Cassavetes"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 52023,
+            "movies": [
+                42160,
+                11954,
+                39899,
+                55888
+            ],
+            "name": "Steve Railsback"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 29433,
+            "movies": [
+                30870
+            ],
+            "name": "Lucio Fulci"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 18355,
+            "movies": [
+                17796
+            ],
+            "name": "Alex Winter"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19242,
+            "movies": [
+                1022100
+            ],
+            "name": "Tony Gilroy"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 54014,
+            "movies": [
+                997669
+            ],
+            "name": "David Hayman"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5503,
+            "movies": [
+                23438,
+                442495
+            ],
+            "name": "Gabrielle Anwar"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 105648,
+            "movies": [
+                637395,
+                768509
+            ],
+            "name": "Nat Faxon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7929,
+            "movies": [
+                979163,
+                13413
+            ],
+            "name": "Angus MacLane"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 31268,
+            "movies": [
+                323366
+            ],
+            "name": "Larry Fessenden"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16860,
+            "movies": [
+                1382,
+                54662,
+                913823
+            ],
+            "name": "Miranda July"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 15556,
+            "movies": [
+                207936,
+                214081,
+                390059,
+                339405,
+                547565,
+                84305,
+                872497,
+                77949
+            ],
+            "name": "Rebecca Hall"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1270,
+            "movies": [
+                14280
+            ],
+            "name": "Charles Martin Smith"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 59261,
+            "movies": [
+                493058
+            ],
+            "name": "Hannah Marks"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 45645,
+            "movies": [
+                34814
+            ],
+            "name": "Deran Sarafian"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 81916,
+            "movies": [
+                17473,
+                497796
+            ],
+            "name": "Tommy Wiseau"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1060543,
+            "movies": [
+                616904
+            ],
+            "name": "Kouzou Morishita"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 67737,
+            "movies": [
+                285191
+            ],
+            "name": "Tuva Novotny"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 886,
+            "movies": [
+                415311
+            ],
+            "name": "William Fichtner"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 87295,
+            "movies": [
+                22434,
+                844636
+            ],
+            "name": "Richard Grieco"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 34021,
+            "movies": [
+                516355,
+                86541,
+                508018,
+                735129,
+                236735
+            ],
+            "name": "Raúl Arévalo"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 232245,
+            "movies": [
+                567452
+            ],
+            "name": "Frank Perozo"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 142403,
+            "movies": [
+                474433
+            ],
+            "name": "Jon Alpert"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 22686,
+            "movies": [
+                2211
+            ],
+            "name": "Maria Schrader"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 77301,
+            "movies": [
+                14797,
+                51533,
+                25838
+            ],
+            "name": "Jiang Wen"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 134235,
+            "movies": [
+                844404
+            ],
+            "name": "Jake Hoffman"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 40863,
+            "movies": [
+                211067
+            ],
+            "name": "Joe Swanberg"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1518,
+            "movies": [
+                10399
+            ],
+            "name": "Frances O'Connor"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 429728,
+            "movies": [
+                422128
+            ],
+            "name": "Quinn Shephard"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11161,
+            "movies": [
+                34004
+            ],
+            "name": "Tom Savini"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19138,
+            "movies": [
+                26881,
+                26883,
+                19593,
+                65294,
+                79989
+            ],
+            "name": "Bill Bixby"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 21171,
+            "movies": [
+                15457,
+                2594,
+                50211,
+                671043,
+                50213,
+                193261,
+                5528,
+                42394
+            ],
+            "name": "Gérard Jugnot"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 12708,
+            "movies": [
+                33321,
+                929340
+            ],
+            "name": "Peter Billingsley"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 95024,
+            "movies": [
+                30690,
+                26291
+            ],
+            "name": "Bobcat Goldthwait"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3038126,
+            "movies": [
+                1036028
+            ],
+            "name": "Johanna Nordström"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17380,
+            "movies": [
+                83706,
+                16411,
+                17108,
+                20342
+            ],
+            "name": "Jay Chou"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 124747,
+            "movies": [
+                579524,
+                438148,
+                375186,
+                54551,
+                229405,
+                229407,
+                229408,
+                646176,
+                54559,
+                403052,
+                553903,
+                764079,
+                326396,
+                366141,
+                366142,
+                1029119
+            ],
+            "name": "Pierre Coffin"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 12833,
+            "movies": [
+                31016,
+                45072,
+                14963,
+                10743
+            ],
+            "name": "Edward Burns"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1061663,
+            "movies": [
+                807200
+            ],
+            "name": "Alfonso Sánchez"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 8691,
+            "movies": [
+                360389,
+                17097,
+                62835,
+                45013
+            ],
+            "name": "Zoe Saldaña"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4808,
+            "movies": [
+                450594,
+                346709
+            ],
+            "name": "Giancarlo Esposito"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16828,
+            "movies": [
+                400928,
+                13505,
+                718789,
+                271110,
+                1771,
+                277547,
+                465003,
+                448366,
+                13455,
+                72432,
+                110415,
+                100402,
+                283350,
+                7515,
+                9759
+            ],
+            "name": "Chris Evans"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17697,
+            "movies": [
+                523777,
+                325346,
+                355277,
+                19255,
+                84317,
+                300671
+            ],
+            "name": "John Krasinski"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19119,
+            "movies": [
+                471498,
+                352187,
+                1254
+            ],
+            "name": "Mélanie Laurent"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 65225,
+            "movies": [
+                432942,
+                310001,
+                286709,
+                644089
+            ],
+            "name": "Justin Chon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 583126,
+            "movies": [
+                840780
+            ],
+            "name": "Julio Chávez"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5620,
+            "movies": [
+                185474,
+                13948
+            ],
+            "name": "Kevin Farley"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 56198,
+            "movies": [
+                8885
+            ],
+            "name": "Ari Folman"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 135651,
+            "movies": [
+                522212,
+                157354,
+                401905,
+                480530,
+                567189,
+                677179,
+                312221
+            ],
+            "name": "Michael B. Jordan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 51965,
+            "movies": [
+                42950,
+                9990,
+                17832,
+                321068,
+                75822,
+                241742,
+                480881,
+                75826,
+                778552,
+                15066,
+                75834,
+                70811,
+                249660,
+                37404
+            ],
+            "name": "Kevin Sorbo"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2632,
+            "movies": [
+                12610,
+                14434,
+                14244,
+                505159,
+                284296,
+                16300,
+                15278,
+                602734,
+                9776,
+                34803
+            ],
+            "name": "Chris Rock"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5090,
+            "movies": [
+                362409
+            ],
+            "name": "Adrian Grenier"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1364908,
+            "movies": [
+                809065
+            ],
+            "name": "Caroline Vigneaux"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 9575,
+            "movies": [
+                9400
+            ],
+            "name": "Jada Pinkett Smith"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1844,
+            "movies": [
+                75969,
+                7298,
+                170759,
+                348748,
+                6733,
+                429977,
+                130747,
+                158,
+                9510,
+                6183,
+                9511,
+                496872,
+                7916,
+                53174,
+                1915,
+                6076
+            ],
+            "name": "Til Schweiger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17835,
+            "movies": [
+                355008,
+                145220,
+                508933,
+                23082,
+                973164,
+                339792,
+                12797
+            ],
+            "name": "Ricky Gervais"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 7904,
+            "movies": [
+                62211,
+                258152,
+                47881,
+                88042,
+                13931,
+                11310,
+                711475,
+                10525,
+                1406,
+                639
+            ],
+            "name": "Billy Crystal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 934,
+            "movies": [
+                453,
+                43539,
+                256917,
+                26393,
+                921,
+                15198,
+                625568,
+                98,
+                16995,
+                9726,
+                8619,
+                10412,
+                86834,
+                20662,
+                37431,
+                5176,
+                842934,
+                4982,
+                22398
+            ],
+            "name": "Russell Crowe"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 35962,
+            "movies": [
+                18607,
+                462979,
+                613583
+            ],
+            "name": "Michèle Laroque"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1352022,
+            "movies": [
+                81185
+            ],
+            "name": "Nadine Crocker"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 33054,
+            "movies": [
+                8769
+            ],
+            "name": "Keith Gordon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 16666,
+            "movies": [
+                188222
+            ],
+            "name": "Kevin Connolly"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 42175,
+            "movies": [
+                279992
+            ],
+            "name": "Richard Stanley"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 51298,
+            "movies": [
+                9809
+            ],
+            "name": "Dax Shepard"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17178,
+            "movies": [
+                300706,
+                91586,
+                227300,
+                353378,
+                262982,
+                423108,
+                259693,
+                614479,
+                44594,
+                305943,
+                1038392,
+                138843,
+                309503
+            ],
+            "name": "Patrick Wilson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 72343,
+            "movies": [
+                57436
+            ],
+            "name": "Jørgen Leth"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2455571,
+            "movies": [
+                647302
+            ],
+            "name": "Karl Holt"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 54170,
+            "movies": [
+                745608
+            ],
+            "name": "Jérôme Commandeur"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 10400,
+            "movies": [
+                25189,
+                6949,
+                42597,
+                19610,
+                38222,
+                14030,
+                39282,
+                16085,
+                40634,
+                10236,
+                10269
+            ],
+            "name": "Barbra Streisand"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 18072,
+            "movies": [
+                11651,
+                393575,
+                9805,
+                754158,
+                8366,
+                4398,
+                10927
+            ],
+            "name": "Michael Herbig"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 6162,
+            "movies": [
+                22894,
+                25935,
+                634544,
+                38321,
+                136278,
+                10394,
+                30431
+            ],
+            "name": "Paul Bettany"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1186076,
+            "movies": [
+                398929,
+                262551,
+                469274,
+                331836,
+                746333
+            ],
+            "name": "Philippe Lacheau"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4724,
+            "movies": [
+                9729,
+                257345,
+                46094,
+                11601,
+                9362,
+                21332,
+                9692,
+                109404,
+                15006,
+                514593,
+                17956,
+                9383,
+                21032,
+                45225,
+                12714,
+                617,
+                57585,
+                819,
+                310133,
+                11835,
+                1788,
+                25405
+            ],
+            "name": "Kevin Bacon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1895,
+            "movies": [
+                31918
+            ],
+            "name": "Carl Reiner"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3872,
+            "movies": [
+                681349,
+                254024,
+                338,
+                276,
+                58166,
+                77561
+            ],
+            "name": "Daniel Brühl"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1220763,
+            "movies": [
+                1031460,
+                489567
+            ],
+            "name": "Brittany Underwood"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 93419,
+            "movies": [
+                25241
+            ],
+            "name": "Don Scardino"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2245,
+            "movies": [
+                536506,
+                16242,
+                393407
+            ],
+            "name": "Yvan Attal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 77775,
+            "movies": [
+                14758
+            ],
+            "name": "Marianna Palka"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 53431,
+            "movies": [
+                7973
+            ],
+            "name": "Nadine Labaki"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3124,
+            "movies": [
+                12544,
+                468204,
+                433150
+            ],
+            "name": "Valeria Golino"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 18514,
+            "movies": [
+                39434,
+                14735,
+                2002,
+                26579,
+                23990
+            ],
+            "name": "Asia Argento"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3764784,
+            "movies": [
+                1042458
+            ],
+            "name": "Roger Arthur"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2364949,
+            "movies": [
+                616584,
+                974682
+            ],
+            "name": "Melanie Martinez"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 26076,
+            "movies": [
+                16236
+            ],
+            "name": "Billie Piper"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 19866,
+            "movies": [
+                20200,
+                8424,
+                85546,
+                8648,
+                33996,
+                172106,
+                643215,
+                471856,
+                612368,
+                298459,
+                510460,
+                382589,
+                451646
+            ],
+            "name": "Guillaume Canet"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 222169,
+            "movies": [
+                354857
+            ],
+            "name": "J.G. Quintel"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2141051,
+            "movies": [
+                681459
+            ],
+            "name": "Derek DelGaudio"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 137262,
+            "movies": [
+                72962
+            ],
+            "name": "Steve Purcell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 93366,
+            "movies": [
+                584598
+            ],
+            "name": "Jessica Drake"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 8170,
+            "movies": [
+                82618,
+                25218
+            ],
+            "name": "Eva Mendes"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 13275,
+            "movies": [
+                9696,
+                16133,
+                12246,
+                40886,
+                11606,
+                392795
+            ],
+            "name": "Tadanobu Asano"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11207,
+            "movies": [
+                359305,
+                21450,
+                9306,
+                291270
+            ],
+            "name": "David Thewlis"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2425997,
+            "movies": [
+                814340,
+                637053
+            ],
+            "name": "Cooper Raiff"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 107770,
+            "movies": [
+                683340
+            ],
+            "name": "B. J. Novak"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 126597,
+            "movies": [
+                40623
+            ],
+            "name": "Stéphane Aubier"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 539,
+            "movies": [
+                396321,
+                899599
+            ],
+            "name": "Thomas Lennon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 8256,
+            "movies": [
+                718400,
+                300187,
+                421622
+            ],
+            "name": "Anne Heche"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 10995,
+            "movies": [
+                11795
+            ],
+            "name": "David Hayter"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 14405,
+            "movies": [
+                934433
+            ],
+            "name": "Courteney Cox"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1121,
+            "movies": [
+                160768,
+                7978,
+                255343,
+                8880,
+                8881,
+                1619,
+                321751,
+                400535
+            ],
+            "name": "Benicio del Toro"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1416383,
+            "movies": [
+                652004,
+                749645,
+                502422
+            ],
+            "name": "Jim Cummings"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 884,
+            "movies": [
+                27845,
+                9071,
+                402897,
+                13650,
+                2266
+            ],
+            "name": "Steve Buscemi"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 17067,
+            "movies": [
+                393569,
+                750466,
+                425194,
+                52587,
+                982804
+            ],
+            "name": "Karoline Herfurth"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5077,
+            "movies": [
+                244088,
+                380225,
+                511404,
+                4974
+            ],
+            "name": "Valeria Bruni-Tedeschi"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1579,
+            "movies": [
+                75802,
+                13075,
+                11013,
+                489927
+            ],
+            "name": "Maggie Gyllenhaal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 81012,
+            "movies": [
+                389995,
+                661677,
+                134096,
+                467634,
+                16916,
+                882040
+            ],
+            "name": "Adrián Suar"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 11665,
+            "movies": [
+                11459,
+                403068,
+                22820
+            ],
+            "name": "Michael Angarano"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 54697,
+            "movies": [
+                274862
+            ],
+            "name": "Dave Franco"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 4587,
+            "movies": [
+                447105,
+                54982,
+                293768,
+                447117,
+                7183,
+                55061,
+                3877,
+                406759,
+                408873,
+                4970,
+                718633,
+                44465,
+                18423,
+                59963,
+                314,
+                158011,
+                447102
+            ],
+            "name": "Halle Berry"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 207800,
+            "movies": [
+                1013572
+            ],
+            "name": "Elvis Mitchell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1852,
+            "movies": [
+                366568
+            ],
+            "name": "Jan Josef Liefers"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2207591,
+            "movies": [
+                948340
+            ],
+            "name": "Zaida Carmona"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 6979,
+            "movies": [
+                17920,
+                35939,
+                714099,
+                11801,
+                19103
+            ],
+            "name": "Romola Garai"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 115128,
+            "movies": [
+                400608,
+                244001,
+                1005159,
+                47911,
+                823754
+            ],
+            "name": "Bo Burnham"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 138076,
+            "movies": [
+                31383
+            ],
+            "name": "Ray Dennis Steckler"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 37627,
+            "movies": [
+                27936,
+                456165,
+                785516,
+                382511,
+                589970,
+                248507,
+                15709
+            ],
+            "name": "Dany Boon"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 77089,
+            "movies": [
+                172828
+            ],
+            "name": "Ken Marino"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 86626,
+            "movies": [
+                326665,
+                230158
+            ],
+            "name": "Aziz Ansari"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 562730,
+            "movies": [
+                589761,
+                40709,
+                380111
+            ],
+            "name": "Danila Kozlovsky"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 5294,
+            "movies": [
+                541572,
+                76203,
+                430446,
+                3472,
+                12400,
+                420818,
+                146198,
+                290751
+            ],
+            "name": "Chiwetel Ejiofor"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 59521,
+            "movies": [
+                436270
+            ],
+            "name": "Jaume Collet-Serra"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 933176,
+            "movies": [
+                663712
+            ],
+            "name": "Damien Leone"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 173847,
+            "movies": [
+                829280
+            ],
+            "name": "Harry Bradbeer"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 964826,
+            "movies": [
+                675054
+            ],
+            "name": "Chava Cartas"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 2218465,
+            "movies": [
+                882598
+            ],
+            "name": "Parker Finn"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 221522,
+            "movies": [
+                49046
+            ],
+            "name": "Edward Berger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 61703,
+            "movies": [
+                732459
+            ],
+            "name": "Ron Yuan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3518356,
+            "movies": [
+                966220
+            ],
+            "name": "Marian Bushan"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 90812,
+            "movies": [
+                985939
+            ],
+            "name": "Scott Mann"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 62768,
+            "movies": [
+                760161
+            ],
+            "name": "William Brent Bell"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1564258,
+            "movies": [
+                979924
+            ],
+            "name": "Romuald Boulanger"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 66212,
+            "movies": [
+                717728
+            ],
+            "name": "Timo Vuorensola"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 3744992,
+            "movies": [
+                1033107
+            ],
+            "name": "Fabian Medea"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1282094,
+            "movies": [
+                944864
+            ],
+            "name": "Annemarie van de Mond"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1657527,
+            "movies": [
+                856245
+            ],
+            "name": "Agustina San Martín"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 29214,
+            "movies": [
+                642885
+            ],
+            "name": "Anne Fletcher"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 52342,
+            "movies": [
+                896485
+            ],
+            "name": "Olivier Marchal"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 1709460,
+            "movies": [
+                830788
+            ],
+            "name": "Jessica M. Thompson"
+        }
+    },
+    {
+        "model": "api.director",
+        "fields": {
+            "id": 55934,
+            "movies": [
+                616037
+            ],
+            "name": "Taika Waititi"
+        }
+    }
+]

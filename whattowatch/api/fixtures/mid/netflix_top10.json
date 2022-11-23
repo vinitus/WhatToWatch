@@ -1,0 +1,82 @@
+[
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 1,
+            "title": "에놀라 홈즈 2",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 2,
+            "title": "폴링 포 크리스마스",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 3,
+            "title": "더 원더",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 4,
+            "title": "사라진 탄환 2",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.netflixtop10",
+        "fields": {
+            "rank": 5,
+            "title": "에놀라 홈즈",
+            "release_date": "2020"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 6,
+            "title": "배드 가이즈",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 7,
+            "title": "투사부일체",
+            "release_date": "2006"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 8,
+            "title": "20세기 소녀",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 9,
+            "title": "슬럼버랜드",
+            "release_date": "2022"
+        }
+    },
+    {
+        "model": "api.NetflixTop10",
+        "fields": {
+            "rank": 10,
+            "title": "빠삐용",
+            "release_date": "2017"
+        }
+    }
+]
