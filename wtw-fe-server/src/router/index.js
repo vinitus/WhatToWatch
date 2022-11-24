@@ -10,6 +10,7 @@ import SearchView from "../views/SearchView.vue"
 import MovieDetailView from "../views/MovieDetailView.vue"
 import ProfileView from "../views/ProfileView.vue"
 import WatchedView from "../views/WatchedView.vue"
+import PasswordResetView from "../views/PasswordResetView.vue"
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: LoginView,
+  },
+  {
+    path: "/passwordreset",
+    name: "PasswordReset",
+    component: PasswordResetView,
   },
   {
     path: "/auth",

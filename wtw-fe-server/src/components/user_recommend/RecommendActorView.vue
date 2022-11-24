@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ actor }}</h1>
+  <div id="recommendactor">
+    <h1 v-if="movieList.length > 0">{{ actor }}가 출연한 영화</h1>
     <div v-if="movieList.length != 0" class="horizontal_scroll">
       <b-row>
         <movie-item class="child" v-for="(movieItem, index) in movieList" :key="index" :movieItem="movieItem">
@@ -32,6 +32,7 @@ export default {
       res.then((data) => {
         this.actor = data.actor
         this.movieList = data.movies
+        console.log(data)
       })
     }
   },
@@ -42,5 +43,8 @@ export default {
 </script>
 
 <style>
-
+#recommendactor {
+  color: white !important;
+  margin: 20px;
+}
 </style>

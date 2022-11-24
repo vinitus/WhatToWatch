@@ -36,7 +36,5 @@ export default {
 </script>
 
 <style>
-h1 {
-  color: rgb(229, 9, 20);
-}
+
 </style>

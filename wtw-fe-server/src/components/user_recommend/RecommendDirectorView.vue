@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ director }}</h1>
+  <div id="recommenddirector">
+    <h1 v-if="movieList.length > 0">{{ director }}감독의 작품</h1>
     <div v-if="movieList.length != 0" class="horizontal_scroll">
       <b-row>
         <movie-item class="child" v-for="(movieItem, index) in movieList" :key="index" :movieItem="movieItem">
@@ -42,5 +42,8 @@ export default {
 </script>
 
 <style>
-
+#recommenddirector {
+  color: white !important;
+  margin: 20px;
+}
 </style>

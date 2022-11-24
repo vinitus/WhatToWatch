@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ genre }}</h1>
+  <div id="recommendgenre">
+    <h1 v-if="movieList.length > 0">{{ genre }} 추천 영화</h1>
     <div v-if="movieList.length != 0" class="horizontal_scroll">
       <b-row>
         <movie-item class="child" v-for="(movieItem, index) in movieList" :key="index" :movieItem="movieItem">
@@ -43,5 +43,8 @@ export default {
 </script>
 
 <style>
-
+#recommendgenre {
+  color: white !important;
+  margin: 20px;
+}
 </style>
