@@ -1,35 +1,31 @@
 <template>
   <div id="watchedView">
-    <button @click="submitWatchedList" style="margin-left:30px;">제출 버튼</button>
-    <!-- <div style="margin-right:50px;"> -->
-    <!-- <b-row v-for="(contentRow, i) in contentRows" :key="i">
-          <b-col v-for="(contentItem, j) in contentRow" :key="j">
-            <div class="" style="margin: 30px;">
-              <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
-                @click="selectIMG" class="" style="height:450px; width:300px;">
-            </div>
-          </b-col>
-        </b-row> -->
-    <!-- </div> -->
+    <button @click="submitWatchedList" class="btn btn-primary"
+      style="margin-left:30px; position: fixed; right:3vw; bottom: 3vw">DONE!</button>
+
     <div style="text-align:left;">
-      <div v-for="(contentItem, watchedMovieIndex) in contentsList" :key="'watch' + watchedMovieIndex"
+      <div v-for="(contentItem, watchedMovieIndex) in expression" :key="'watch' + watchedMovieIndex"
         style="display:inline-block; margin-left: 30px; margin-top: 10px;">
         <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
           @click="selectIMG" class="" style="height:450px; width:300px;">
       </div>
     </div>
+    <my-observer @triggerIntersected="loadMore"></my-observer>
   </div>
 </template>
 
 <script>
 import axiosCall from '@/axiosCall/axiosCall';
+import MyObserver from '../components/MyObserver.vue';
 
 export default {
+  components: { MyObserver },
   name: 'WatchedView',
   data() {
     return {
       contentsList: [],
-      watchedList: []
+      watchedList: [],
+      expression: [],
     }
   },
   methods: {
@@ -38,8 +34,31 @@ export default {
       const res = axiosCall('api/user_interection/', 'get', '', headers)
       res.then((data) => {
         this.contentsList = data
+        if (data.length > 21) {
+          this.expression = this.contentsList.slice(0, 21)
+          this.index = 21
+        } else {
+          this.expression = data
+          this.index = false
+        }
       })
-      res.catch((error) => console.log(error))
+    },
+    loadMore() {
+      if (this.index) {
+        if (this.contentsList.length - this.index > 21) {
+          const fetchArr = this.contentsList.slice(this.index, this.index + 21)
+          console.log(fetchArr)
+          this.expression.push(...fetchArr)
+          this.index += 21
+        } else {
+          const fetchArr = this.contentsList.slice(this.index)
+          console.log(fetchArr)
+          this.expression.push(...fetchArr)
+          this.index = false
+        }
+      } else {
+        return
+      }
     },
     selectIMG(event) {
       const contentId = event.target.dataset.contentId

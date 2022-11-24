@@ -14,13 +14,10 @@ export default {
   props: {
     review: Object
   },
-  data() {
-    return {
-      score: 0
+  computed: {
+    score() {
+      return this.review.score / 2
     }
-  },
-  created() {
-    this.score = this.review.score
   }
 }
 

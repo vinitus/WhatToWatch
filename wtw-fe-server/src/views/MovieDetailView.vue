@@ -73,14 +73,20 @@ export default {
       const movieId = this.$route.params.movieId
       const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
       const res = axiosCall(`api/movies/${movieId}/`, 'post', '', headers)
-      res.then(this.$store.dispatch('requestWatched', '', { root: true }))
+      res.then(() => {
+        this.$store.dispatch('requestWatched', '', { root: true })
+        this.watched
+      })
       res.catch((err) => console.log(err))
     },
     makeWishes() {
       const movieId = this.$route.params.movieId
       const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
       const res = axiosCall(`api/movies/${movieId}/wishes/`, 'post', '', headers)
-      res.then(res.then(this.$store.dispatch('requestWishes', '', { root: true })))
+      res.then(() => {
+        res.then(this.$store.dispatch('requestWishes', '', { root: true }))
+        this.wishes
+      })
       res.catch((err) => console.log(err))
     },
     getLogo() {

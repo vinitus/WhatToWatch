@@ -41,9 +41,11 @@ export default {
       const res = axiosCall(`feed/reviews/`, 'post', data, headers)
       res.then(() => {
         this.$emit('review-is-change')
-        console.log(1)
+        this.content = ''
       })
-      res.catch((err) => console.log(err))
+      res.catch((err) => {
+        console.log(err)
+      })
     },
     checkLogin(event) {
       if (this.isLogin) {

@@ -31,7 +31,15 @@ export default {
     isLogin() {
       return this.$store.getters["isLogin"]
     }
-  }
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log(this.$store.state.user.moving)
+    if ((this.$store.state.user.moving <= 50) && (this.$store.state.user.moving >= -50)) {
+      next()
+    } else {
+      next(false)
+    }
+  },
 }
 </script>
 

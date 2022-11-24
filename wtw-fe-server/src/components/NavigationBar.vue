@@ -26,7 +26,7 @@
                     position:absolute;
                     z-index: 10;
                     top: 47px;
-                    right: 247px;">
+                    right: 211px;">
               <ul style="list-style:none; padding:0px;">
                 <li v-for="(autoCompleteEx, searchBarIndex) in autoCompleteArr" :key="searchBarIndex">{{ autoCompleteEx
                 }}</li>
