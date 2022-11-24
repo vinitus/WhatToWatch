@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const kakaoHeader = {
-  Authorization: "cb807e086b62ee4f422b02a65e4017ed",
+  // Authorization: "cb807e086b62ee4f422b02a65e4017ed",
   "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
 }
 
@@ -17,15 +17,16 @@ const getKakaoToken = async (code) => {
     const queryString = Object.keys(data)
       .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
       .join("&")
-    const result = await axios.post(
-      "https://kauth.kakao.com/oauth/token",
-      queryString,
-      { headers: kakaoHeader }
+    console.log(queryString)
+    const result = await axios.get(
+      `https://kauth.kakao.com/oauth/token?${queryString}`,
+      {
+        headers: kakaoHeader,
+      }
     )
-    console.log(1)
-    console.log("카카오 토큰", queryString)
     return result
   } catch (e) {
+    console.log(e)
     return e
   }
 }
