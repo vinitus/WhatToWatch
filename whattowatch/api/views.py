@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import NetflixTop10, WatchaTop10, Movie, Genre, Actor, Director
 from accounts.models import User, UserLikeActors, UserLikeGenres, UserLikeDirectors, UserReviewScore
-from request_data.requests_data import RequestsData as R
+# from request_data.requests_data import RequestsData as R
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -21,51 +21,51 @@ import math
 
 @api_view(['GET'])
 def netflix(request):
-    netflix_contents = NetflixTop10.objects.all()
+    # netflix_contents = NetflixTop10.objects.all()
 
-    for i in range(10):
-        netflix_title = netflix_contents[i].title
+    # for i in range(10):
+    #     netflix_title = netflix_contents[i].title
 
-        # print('OTT', i+1, '위')
-        # print('Netflix: ', end='')
-        try:
-            net_title = Movie.objects.get(title=netflix_title).title
-            # print(net_title)
+    #     # print('OTT', i+1, '위')
+    #     # print('Netflix: ', end='')
+    #     try:
+    #         net_title = Movie.objects.get(title=netflix_title).title
+    #         # print(net_title)
 
-        except:
+    #     except:
 
-            try:
-                tmdb_id = R.find_id(title=netflix_title)
-                tmdb_movie = Movie.objects.get(id=tmdb_id)
-                tmdb_movie.title = netflix_title
-                tmdb_movie.save()
-                # print(tmdb_movie.title, end='')
-                # print('(이름 달라서 db 수정)')
-            except:
-                tmdb_id = R.find_id(title=netflix_title)
-                tmdb_movie = R.request_movie_data(tmdb_id)
-                tmdb_genres = []
-                for i in range(len(tmdb_movie['genres'])):
-                    tmdb_genres.append(tmdb_movie['genres'][i]['id'])
-                movie = Movie.objects.create(
-                    title = netflix_title,
-                    overview = tmdb_movie['overview'],
-                    poster_path = tmdb_movie['poster_path'],
-                    popularity = tmdb_movie['popularity'],
-                    release_date = tmdb_movie['release_date'],
-                    runtime = tmdb_movie['runtime'],
-                    vote_average = tmdb_movie['vote_average'],
-                    vote_count = tmdb_movie['vote_count'],
-                    backdrop_path = tmdb_movie['backdrop_path'],
-                    original_language = tmdb_movie['original_language'],
-                    adult = tmdb_movie['adult'],
-                    country = tmdb_movie['production_countries'][0]['name'],
-                    belongs_to_collection = tmdb_movie['belongs_to_collection']['id'] if tmdb_movie['belongs_to_collection'] else None,
-                )
-                movie.genres.set(tmdb_genres)
-                movie.save()
-                # print(movie.title, end='')
-                # print('(db에 없어서 TMDB에서 가져와 추가)')
+    #         try:
+    #             tmdb_id = R.find_id(title=netflix_title)
+    #             tmdb_movie = Movie.objects.get(id=tmdb_id)
+    #             tmdb_movie.title = netflix_title
+    #             tmdb_movie.save()
+    #             # print(tmdb_movie.title, end='')
+    #             # print('(이름 달라서 db 수정)')
+    #         except:
+    #             tmdb_id = R.find_id(title=netflix_title)
+    #             tmdb_movie = R.request_movie_data(tmdb_id)
+    #             tmdb_genres = []
+    #             for i in range(len(tmdb_movie['genres'])):
+    #                 tmdb_genres.append(tmdb_movie['genres'][i]['id'])
+    #             movie = Movie.objects.create(
+    #                 title = netflix_title,
+    #                 overview = tmdb_movie['overview'],
+    #                 poster_path = tmdb_movie['poster_path'],
+    #                 popularity = tmdb_movie['popularity'],
+    #                 release_date = tmdb_movie['release_date'],
+    #                 runtime = tmdb_movie['runtime'],
+    #                 vote_average = tmdb_movie['vote_average'],
+    #                 vote_count = tmdb_movie['vote_count'],
+    #                 backdrop_path = tmdb_movie['backdrop_path'],
+    #                 original_language = tmdb_movie['original_language'],
+    #                 adult = tmdb_movie['adult'],
+    #                 country = tmdb_movie['production_countries'][0]['name'],
+    #                 belongs_to_collection = tmdb_movie['belongs_to_collection']['id'] if tmdb_movie['belongs_to_collection'] else None,
+    #             )
+    #             movie.genres.set(tmdb_genres)
+    #             movie.save()
+    #             # print(movie.title, end='')
+    #             # print('(db에 없어서 TMDB에서 가져와 추가)')
 
     netflix = get_list_or_404(NetflixTop10)
     data = []
@@ -90,47 +90,47 @@ def netflix(request):
 
 @api_view(['GET'])
 def watcha(request):
-    watcha_contents = WatchaTop10.objects.all()
+    # watcha_contents = WatchaTop10.objects.all()
 
-    for i in range(10):
-        watcha_title = watcha_contents[i].title
-        try:
-            wat_title = Movie.objects.get(title=watcha_title).title
-            # print(wat_title)
+    # for i in range(10):
+    #     watcha_title = watcha_contents[i].title
+    #     try:
+    #         wat_title = Movie.objects.get(title=watcha_title).title
+    #         # print(wat_title)
 
-        except:
-            try:
-                tmdb_id = R.find_id(title=watcha_title)       
-                tmdb_movie = Movie.objects.get(id=tmdb_id)
-                tmdb_movie.title = watcha_title
-                tmdb_movie.save()
-                # print(tmdb_movie.title, end='')
-                # print('(이름 달라서 db 수정)')
+    #     except:
+    #         try:
+    #             tmdb_id = R.find_id(title=watcha_title)       
+    #             tmdb_movie = Movie.objects.get(id=tmdb_id)
+    #             tmdb_movie.title = watcha_title
+    #             tmdb_movie.save()
+    #             # print(tmdb_movie.title, end='')
+    #             # print('(이름 달라서 db 수정)')
             
-            except:
-                tmdb_movie = R.request_movie_data(tmdb_id)
-                tmdb_genres = []
-                for i in range(len(tmdb_movie['genres'])):
-                    tmdb_genres.append(tmdb_movie['genres'][i]['id'])
-                movie = Movie.objects.create(
-                    title = watcha_title,
-                    overview = tmdb_movie['overview'],
-                    poster_path = tmdb_movie['poster_path'],
-                    popularity = tmdb_movie['popularity'],
-                    release_date = tmdb_movie['release_date'],
-                    runtime = tmdb_movie['runtime'],
-                    vote_average = tmdb_movie['vote_average'],
-                    vote_count = tmdb_movie['vote_count'],
-                    backdrop_path = tmdb_movie['backdrop_path'],
-                    original_language = tmdb_movie['original_language'],
-                    adult = tmdb_movie['adult'],
-                    country = tmdb_movie['production_countries'][0]['name'],
-                    belongs_to_collection = tmdb_movie['belongs_to_collection']['id'] if tmdb_movie['belongs_to_collection'] else None,
-                )
-                movie.genres.set(tmdb_genres)
-                movie.save()
-                # print(movie.title, end='')
-                # print('(db에 없어서 TMDB에서 가져와 추가)')             
+    #         except:
+    #             tmdb_movie = R.request_movie_data(tmdb_id)
+    #             tmdb_genres = []
+    #             for i in range(len(tmdb_movie['genres'])):
+    #                 tmdb_genres.append(tmdb_movie['genres'][i]['id'])
+    #             movie = Movie.objects.create(
+    #                 title = watcha_title,
+    #                 overview = tmdb_movie['overview'],
+    #                 poster_path = tmdb_movie['poster_path'],
+    #                 popularity = tmdb_movie['popularity'],
+    #                 release_date = tmdb_movie['release_date'],
+    #                 runtime = tmdb_movie['runtime'],
+    #                 vote_average = tmdb_movie['vote_average'],
+    #                 vote_count = tmdb_movie['vote_count'],
+    #                 backdrop_path = tmdb_movie['backdrop_path'],
+    #                 original_language = tmdb_movie['original_language'],
+    #                 adult = tmdb_movie['adult'],
+    #                 country = tmdb_movie['production_countries'][0]['name'],
+    #                 belongs_to_collection = tmdb_movie['belongs_to_collection']['id'] if tmdb_movie['belongs_to_collection'] else None,
+    #             )
+    #             movie.genres.set(tmdb_genres)
+    #             movie.save()
+    #             # print(movie.title, end='')
+    #             # print('(db에 없어서 TMDB에서 가져와 추가)')             
 
     watcha = get_list_or_404(WatchaTop10)
     data = []
@@ -382,6 +382,8 @@ def recommend_based_genres(request):
         movie_field = movie.pop('fields')
         movie['title'] = movie_field['title']
         movie['poster_path'] = movie_field['poster_path']
+        movie['year'] = movie_field['release_date'][:4]
+        movie['country'] = movie_field['country']
     return Response(movie_dict)
 
 
@@ -411,6 +413,8 @@ def recommend_based_actors(request):
         movie_field = movie.pop('fields')
         movie['title'] = movie_field['title']
         movie['poster_path'] = movie_field['poster_path']
+        movie['year'] = movie_field['release_date'][:4]
+        movie['country'] = movie_field['country']
     return Response(movie_dict)
 
 @api_view(['GET'])
@@ -435,6 +439,8 @@ def recommend_based_directors(request):
         movie_field = movie.pop('fields')
         movie['title'] = movie_field['title']
         movie['poster_path'] = movie_field['poster_path']
+        movie['year'] = movie_field['release_date'][:4]
+        movie['country'] = movie_field['country']
     return Response(movie_dict)
 
 def cosim(name, dataframe):
@@ -498,6 +504,8 @@ def recommend_based_users(request):
         movie_field = movie.pop('fields')
         movie['title'] = movie_field['title']
         movie['poster_path'] = movie_field['poster_path']
+        movie['year'] = movie_field['release_date'][:4]
+        movie['country'] = movie_field['country']
 
     return Response(movie_dict)
     
