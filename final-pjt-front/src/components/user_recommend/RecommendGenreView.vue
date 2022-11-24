@@ -1,7 +1,8 @@
 <template>
   <div id="recommendgenre">
     <h1 v-if="movieList.length > 0">{{ genre }} 추천 영화</h1>
-    <div v-if="movieList.length != 0" class="horizontal_scroll">
+    <div v-if="movieList.length != 0" class="horizontal_scroll slider4" @mousedown="scrollmousedown"
+      @mouseleave="scrollmouseleave" @mouseup="scrollmouseup" @mousemove="scrollmousemove" @click="justClick">
       <b-row>
         <movie-item class="child" v-for="(movieItem, index) in movieList" :key="index" :movieItem="movieItem">
         </movie-item>
@@ -22,7 +23,10 @@ export default {
   data() {
     return {
       genre: '',
-      movieList: []
+      movieList: [],
+      bMove: false,
+      startX: 0,
+      scrollLeft: 0,
     }
   },
   methods: {
@@ -34,6 +38,34 @@ export default {
         this.genre = data.genre
         this.movieList = data.movies
       })
+    },
+    scrollmousedown(e) {
+      const slider = document.querySelector(".slider4")
+      e.preventDefault()
+      this.bMove = true;
+      this.startX = e.pageX - slider.offsetLeft;
+      this.scrollLeft = slider.scrollLeft;
+    },
+    scrollmouseleave() {
+      this.bMove = false;
+    },
+
+    scrollmouseup() {
+      this.bMove = false;
+    },
+
+    scrollmousemove(e) {
+      const slider = document.querySelector(".slider4")
+
+      if (this.bMove) {
+        const x = e.pageX - slider.offsetLeft;
+        const walk = x - this.startX;
+        slider.scrollLeft = this.scrollLeft - walk;
+        this.$store.commit('SAVE_MOVING', walk)
+      }
+    },
+    justClick() {
+      this.$store.commit('SAVE_MOVING', 0)
     }
   },
   created() {
