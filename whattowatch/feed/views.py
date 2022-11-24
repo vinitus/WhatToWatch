@@ -44,6 +44,8 @@ def review_list(request):
         if serializer.is_valid(raise_exception=True):
             movie_id = request.data.get('movie_id')
             movie = Movie.objects.get(pk=movie_id)
+            user = User.objects.get(id=request.user.id)
+            user.watched.add(movie)
             serializer.save(user=request.user, movie=movie)
 
             # # 유저 유사도 계산 들어갈 자리

@@ -25,8 +25,6 @@ class RequestsData:
                 movie_list_json.append(popular_movie)
 
             sleep(1.2)
-            print(page)
-        print('end call')
         with open("./whattowatch/api/fixtures/raw_movie_list.json", "w", encoding="UTF-8") as outfile:
             json.dump(movie_list_json, outfile, indent=4, ensure_ascii=False)
 
