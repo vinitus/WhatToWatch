@@ -8,7 +8,8 @@
       <br>
       <input type="submit" value="로그인" id="login-button">
     </form>
-    <router-link :to="{name:'PasswordReset'}">비밀번호가 기억이 안나요</router-link>
+    <router-link :to="{ name: 'PasswordReset' }">비밀번호가 기억이 안나요</router-link>
+    <br>
     <a id="kakao-login-btn" @click.prevent="kakaoLogin">
       <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
     </a>
@@ -58,19 +59,19 @@ export default {
 
 #email {
   color: black !important;
-  width:300px;
-  padding:5px;
+  width: 300px;
+  padding: 5px;
 }
 
 #password {
   color: black !important;
-  width:300px;
-  padding:5px;
+  width: 300px;
+  padding: 5px;
 }
 
 #login-button {
   color: black !important;
-  width:300px;
-  padding:5px;
+  width: 300px;
+  padding: 5px;
 }
 </style>

@@ -4,8 +4,8 @@ import router from "@/router"
 const user = {
   state: {
     token: null,
-    watchedMovies: null,
-    wishesMovies: null,
+    watchedMovies: [],
+    wishesMovies: [],
   },
   mutations: {
     SAVE_TOKEN(state, token) {

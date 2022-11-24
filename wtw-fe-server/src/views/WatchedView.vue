@@ -1,8 +1,8 @@
 <template>
   <div id="watchedView">
     <button @click="submitWatchedList" style="margin-left:30px;">제출 버튼</button>
-      <!-- <div style="margin-right:50px;"> -->
-        <!-- <b-row v-for="(contentRow, i) in contentRows" :key="i">
+    <!-- <div style="margin-right:50px;"> -->
+    <!-- <b-row v-for="(contentRow, i) in contentRows" :key="i">
           <b-col v-for="(contentItem, j) in contentRow" :key="j">
             <div class="" style="margin: 30px;">
               <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
@@ -10,11 +10,12 @@
             </div>
           </b-col>
         </b-row> -->
-      <!-- </div> -->
+    <!-- </div> -->
     <div style="text-align:left;">
-      <div v-for="(contentItem, watchedMovieIndex) in contentsList" :key="'watch' + watchedMovieIndex" style="display:inline-block; margin-left: 30px; margin-top: 10px;">
+      <div v-for="(contentItem, watchedMovieIndex) in contentsList" :key="'watch' + watchedMovieIndex"
+        style="display:inline-block; margin-left: 30px; margin-top: 10px;">
         <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
-        @click="selectIMG" class="" style="height:450px; width:300px;">
+          @click="selectIMG" class="" style="height:450px; width:300px;">
       </div>
     </div>
   </div>

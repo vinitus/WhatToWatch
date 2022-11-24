@@ -15,17 +15,21 @@
 
         <b-navbar-nav class="ml-auto">
           <b-nav-form @submit.prevent="navInputSubmit" @focusin="makeDivShow" @focusout="makeDivHide">
-            <b-form-input @input="autoComplete" size="sm" class="mr-sm-2" placeholder="Search" id="search-bar"></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0 mr-2" type="submit"><b-icon icon="search"></b-icon></b-button>
-              <div :class="{ 'search-bar-div': divHide }"
-                    style="width:250px;
+            <b-form-input v-model="searchKeyword" @keyup.up="keyupUp" @keydown.down="keydownDown" @input="autoComplete"
+              size="sm" class="mr-sm-2" placeholder="Search" id="search-bar" autocomplete="off">
+            </b-form-input>
+            <b-button size="sm" class="my-2 my-sm-0 mr-2" type="submit">
+              <b-icon icon="search"></b-icon>
+            </b-button>
+            <div :class="{ 'search-bar-div': divHide }" style="font-size:0.875rem; width:250px;
                     background-color: white;
                     position:absolute;
                     z-index: 10;
-                    top: 51px;
-                    right: 305px;">
+                    top: 47px;
+                    right: 247px;">
               <ul style="list-style:none; padding:0px;">
-                <li v-for="(autoCompleteEx, searchBarIndex) in autoCompleteArr" :key="searchBarIndex">{{ autoCompleteEx }}</li>
+                <li v-for="(autoCompleteEx, searchBarIndex) in autoCompleteArr" :key="searchBarIndex">{{ autoCompleteEx
+                }}</li>
               </ul>
             </div>
           </b-nav-form>
@@ -66,7 +70,9 @@ export default {
       logoURL: require('@/assets/logo.png'),
       autoCompleteArr: [],
       searchBarDiv: 'search-bar-div',
-      divHide: true
+      divHide: true,
+      searchKeyword: '',
+      autoCompleteIndex: -1,
     }
   },
   methods: {
@@ -79,6 +85,9 @@ export default {
           this.$router.push({ name: 'Search', params: { keyword: keyword } })
         }
       }
+      this.searchKeyword = ''
+      this.autoCompleteArr = []
+      this.divHide = true
     },
     logout() {
       this.$store.dispatch('logout', '', { root: true })
@@ -107,6 +116,24 @@ export default {
     makeDivShow() {
       if (this.autoCompleteArr.length > 0) {
         this.divHide = false
+      }
+    },
+    keyupUp() {
+      this.autoCompleteIndex -= 1
+      if ((this.autoCompleteIndex >= 0) && (this.autoCompleteIndex < this.autoCompleteArr.length)) {
+        this.searchKeyword = this.autoCompleteArr[this.autoCompleteIndex]
+      } else {
+        this.autoCompleteIndex += 1
+        return
+      }
+    },
+    keydownDown() {
+      this.autoCompleteIndex += 1
+      if ((this.autoCompleteIndex >= 0) && (this.autoCompleteIndex < this.autoCompleteArr.length)) {
+        this.searchKeyword = this.autoCompleteArr[this.autoCompleteIndex]
+      } else {
+        this.autoCompleteIndex -= 1
+        return
       }
     },
   },
