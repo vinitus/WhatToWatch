@@ -1,15 +1,14 @@
 <template>
-  <div>
-    <h1>로그인</h1>
+  <div id="login-form">
+    <h1>Login</h1>
     <form @submit.prevent="login">
-      <label for="email">email</label>
-      <input type="text" id="email" v-model="email">
+      <input type="text" id="email" v-model="email" placeholder="email">
       <br>
-      <label for="password">password</label>
-      <input type="password" id="password" v-model="password">
+      <input type="password" id="password" v-model="password" placeholder="password">
       <br>
-      <input type="submit" value="login">
+      <input type="submit" value="로그인" id="login-button">
     </form>
+    <router-link :to="{name:'PasswordReset'}">비밀번호가 기억이 안나요</router-link>
     <a id="kakao-login-btn" @click.prevent="kakaoLogin">
       <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
     </a>
@@ -44,9 +43,34 @@ export default {
     }
   }
 }
-
 </script>
 
 <style>
+#login-form {
+  text-align: center;
+  padding-top: 100px;
+}
 
+#login-form * {
+  color: white !important;
+  margin: 10px;
+}
+
+#email {
+  color: black !important;
+  width:300px;
+  padding:5px;
+}
+
+#password {
+  color: black !important;
+  width:300px;
+  padding:5px;
+}
+
+#login-button {
+  color: black !important;
+  width:300px;
+  padding:5px;
+}
 </style>

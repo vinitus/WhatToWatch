@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-#search-item a {
+/*#search-item a {
   text-decoration: none;
   color: black !important;
 }
@@ -36,5 +36,5 @@ export default {
 
 .search-card {
   flex-direction: row !important;
-}
+}*/
 </style>

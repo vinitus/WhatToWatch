@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ genre }}</h1>
+  <div id="recommenduser">
+    <h1 v-if="movieList.length > 0">취향 저격 영화</h1>
     <div v-if="movieList.length != 0" class="horizontal_scroll">
       <b-row>
         <movie-item class="child" v-for="(movieItem, index) in movieList" :key="index" :movieItem="movieItem">
@@ -21,7 +21,6 @@ export default {
   },
   data() {
     return {
-      genre: '',
       movieList: []
     }
   },
@@ -31,7 +30,6 @@ export default {
       const res = axiosCall('api/recommend_based_users/', 'get', '', headers)
       res.then((data) => {
         console.log(data)
-        this.genre = data.genre
         this.movieList = data.movies
       })
     }
@@ -43,5 +41,8 @@ export default {
 </script>
 
 <style>
-
+#recommenduser {
+  color: white !important;
+  margin: 20px;
+}
 </style>

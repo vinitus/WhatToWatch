@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>watcha</h1>
+  <div id="watchatop10">
+    <h1>WATCHA TOP 10</h1>
     <div v-if="watchaList.length != 0" class="horizontal_scroll">
       <b-row>
         <movie-item class="child" v-for="(movieItem, index) in watchaList" :key="index" :movieItem="movieItem">
@@ -41,15 +41,22 @@ export default {
 
 <style>
 .horizontal_scroll {
-  scroll-snap-type: x mandatory;
+  
+  overflow-x: scroll;
+
   display: flex;
   flex-wrap: nowrap;
-  width: 100vw;
-  overflow: auto;
+  width: auto;
+  height:590px;
 }
 
 .row {
   flex-wrap: nowrap !important;
+}
+
+#watchatop10 {
+  color: white !important;
+  margin: 20px;
 }
 
 /* .container { */
