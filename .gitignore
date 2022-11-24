@@ -4,6 +4,7 @@
 ### HIDE_API_KEY ###
 secret.py
 secret.js
+secrets.json
 
 ### Django ###
 *.log
