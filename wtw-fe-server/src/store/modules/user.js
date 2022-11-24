@@ -6,8 +6,12 @@ const user = {
     token: null,
     watchedMovies: [],
     wishesMovies: [],
+    moving: 0,
   },
   mutations: {
+    SAVE_MOVING(state, data) {
+      state.moving = data
+    },
     SAVE_TOKEN(state, token) {
       state.token = token
       router.push({ name: "Home" })
@@ -36,7 +40,8 @@ const user = {
       }
       const res = axiosCall("accounts/signup/", "post", data)
       res.then((res) => {
-        context.commit("SAVE_TOKEN", res.key)
+        console.log(res)
+        context.commit("SAVE_TOKEN", res)
       })
     },
     login({ commit, dispatch }, payload) {
