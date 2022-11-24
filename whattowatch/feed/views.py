@@ -85,9 +85,12 @@ def review_list(request):
 
 @api_view(['GET'])
 def movie_review_list(request, movie_pk):
-    reviews = get_list_or_404(Review, movie=movie_pk)
-    serializer = ReviewListSerializer(reviews, many=True)
-    return Response(serializer.data)
+    reviews = Review.objects.filter(movie=movie_pk)
+    if reviews:
+        serializer = ReviewListSerializer(reviews, many=True)
+        return Response(serializer.data)
+    else:
+        return Response([{'content':'아직 리뷰가 없어요'}])
             
 @api_view(['GET', 'DELETE', 'PUT'])
 def review_detail(request, review_pk):
@@ -95,7 +98,6 @@ def review_detail(request, review_pk):
     review = get_object_or_404(Review, pk=review_pk)
     if request.method == 'GET':
         serializer = ReviewSerializer(review)
-        print(serializer.data)
         return Response(serializer.data)
     
     elif request.method == 'DELETE':

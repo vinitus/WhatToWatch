@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-SITE_ID = 3
+SITE_ID = 7
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None 
 ACCOUNT_EMAIL_REQUIRED = True           
 ACCOUNT_USERNAME_REQUIRED = False       
