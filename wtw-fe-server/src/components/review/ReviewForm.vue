@@ -1,13 +1,15 @@
 <template>
   <div>
     <form @focusin="checkLogin" @submit.prevent="createReview">
-      <input type="text" v-model="content">
+      <input type="text" v-model="content"
+        style="background-color:black; border:none; border-bottom:1px solid white; color:white;" placeholder="리뷰">
       <br>
-      <input type="text" v-model="score">
-      <br>
-      <input type="checkbox" name="watched" id="watched" v-model="watched">
-      <br>
-      <button type="submit">제출</button>
+      <div style="width:220px; display: flex; align-items: center; margin-top:20px">
+        <input type="text" style="width:25px; background-color:black; border:none; color:white;" v-model="score">
+        <b-form-rating v-model="score" variant="warning" class="" style="background-color:black; border:none;">
+        </b-form-rating>
+        <button type="submit" class="btn btn-light" style="width: 60px; padding:1px">쓰기</button>
+      </div>
     </form>
   </div>
 </template>
@@ -20,14 +22,14 @@ export default {
   data() {
     return {
       content: '',
-      score: 10,
+      score: 5,
       watched: true,
     }
   },
   methods: {
     createReview() {
       const content = this.content
-      const score = this.score
+      const score = this.score * 2
       const watched = this.watched
       const data = {
         content,
@@ -58,8 +60,8 @@ export default {
     },
     isLogin() {
       return this.$store.getters["isLogin"]
-    }
-  }
+    },
+  },
 }
 </script>
 

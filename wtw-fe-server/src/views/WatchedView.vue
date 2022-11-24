@@ -1,15 +1,23 @@
 <template>
-  <div>
-    <button @click="submitWatchedList">제출 버튼</button>
-    <b-row v-for="(contentRow, i) in contentRows" :key="i">
-      <b-col v-for="(contentItem, j) in contentRow" :key="j">
-        <div class="" style="margin: 10px;">
-          <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
-            @click="selectIMG" class="" style="height:450px; width:300px;">
-          <!-- <div @click="selectIMG" :data-content-id="contentItem.id">{{ contentItem.title }}</div> -->
-        </div>
-      </b-col>
-    </b-row>
+  <div id="watchedView">
+    <button @click="submitWatchedList" style="margin-left:30px;">제출 버튼</button>
+    <!-- <div style="margin-right:50px;"> -->
+    <!-- <b-row v-for="(contentRow, i) in contentRows" :key="i">
+          <b-col v-for="(contentItem, j) in contentRow" :key="j">
+            <div class="" style="margin: 30px;">
+              <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
+                @click="selectIMG" class="" style="height:450px; width:300px;">
+            </div>
+          </b-col>
+        </b-row> -->
+    <!-- </div> -->
+    <div style="text-align:left;">
+      <div v-for="(contentItem, watchedMovieIndex) in contentsList" :key="'watch' + watchedMovieIndex"
+        style="display:inline-block; margin-left: 30px; margin-top: 10px;">
+        <img :data-content-id="contentItem.id" :src="`https://image.tmdb.org/t/p/w300/${contentItem.poster_path}`"
+          @click="selectIMG" class="" style="height:450px; width:300px;">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,6 +53,7 @@ export default {
         event.target.classList.remove('divin')
         event.target.parentElement.classList.remove('divout')
       }
+
     },
     submitWatchedList() {
       const headers = { Authorization: `Bearer ${this.$store.state.user.token.access_token}` }
@@ -59,7 +68,7 @@ export default {
   computed: {
     contentRows() {
       return this.contentsList.reduce((acc, n, i) => {
-        i % 3 ? acc[acc.length - 1].push(n) : acc.push([n])
+        i % 5 ? acc[acc.length - 1].push(n) : acc.push([n])
         return acc
       }, [])
     }
@@ -71,7 +80,7 @@ export default {
 </script>
 
 <style>
-/* .content-watched-selected {
+.content-watched-selected {
   border: 1px solid white;
 }
 
@@ -97,5 +106,5 @@ export default {
   border-radius: 15px;
   background: black;
   box-shadow: inset 0px 0px 15px 5px white;
-} */
+}
 </style>
