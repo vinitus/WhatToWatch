@@ -3,6 +3,7 @@
 
 ### HIDE_API_KEY ###
 secret.py
+secret.js
 
 ### Django ###
 *.log

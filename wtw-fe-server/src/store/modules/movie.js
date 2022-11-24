@@ -20,12 +20,6 @@ const movie = {
       res.then((data) => context.commit("SAVE_MOVIE_LIST", data))
       const genre_res = axiosCall("api/genres/", "get")
       genre_res.then((data) => {
-        // const genre_arr = {}
-        // data.forEach((element) => {
-        //   const id = element.id
-        //   const name = element.name
-        //   genre_arr[id] = name
-        // })
         context.commit("SAVE_GENRE_LIST", data)
       })
     },

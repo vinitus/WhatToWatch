@@ -22,8 +22,6 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('accounts/', include('dj_rest_auth.urls')),
     path('accounts/signup/', include('dj_rest_auth.registration.urls')),
-    path('accounts/kakao/login/', accounts_views.kakao_login, name='kakao_login'),
-    path('accounts/kakao/callback/', accounts_views.kakao_callback, name='kakao_callback'),
     path('accounts/kakao/login/finish/', accounts_views.KakaoLogin.as_view(), name='kakao_login_todjango'),
     path('feed/', include('feed.urls')),
 ]
