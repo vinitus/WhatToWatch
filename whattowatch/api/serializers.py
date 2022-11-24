@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Movie, Genre, Actor, Director, NetflixTop10, WatchaTop10
-
+from accounts.models import User
 
 class GenreListSerializer(serializers.ModelSerializer):
 

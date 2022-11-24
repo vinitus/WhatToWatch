@@ -37,11 +37,15 @@ export default {
       }
       const headers = { Authorization: `Bearer ${this.token.access_token}` }
       const res = axiosCall(`feed/reviews/`, 'post', data, headers)
-      res
+      res.then(() => {
+        this.$emit('review-is-change')
+        console.log(1)
+      })
+      res.catch((err) => console.log(err))
     },
     checkLogin(event) {
       if (this.isLogin) {
-        event.target.dispatch(new Event('focusin'))
+        console.log('keepgoing')
       } else {
         alert("리뷰는 로그인 후 작성 가능합니다!")
         event.target.blur()

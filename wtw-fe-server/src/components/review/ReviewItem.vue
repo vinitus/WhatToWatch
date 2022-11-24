@@ -1,6 +1,6 @@
 <template>
-  <div>
-    hi zz
+  <div style="color:red;">
+    {{ review.content }}
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="search-item">
     <router-link :to="{ name: 'MovieDetail', params: { movieId: searchItem.id } }">
       <b-card no-body class="overflow-hidden search-card" style="max-width: 540px;">
         <b-card-img :src="`https://image.tmdb.org/t/p/w300/${searchItem.poster_path}`" alt="Image" class="rounded-0">
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-a {
+#search-item a {
   text-decoration: none;
   color: black !important;
 }

@@ -12,6 +12,8 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
+window.Kakao.init("ea6b7340c3047bd44235c5bb07f152aa")
+
 new Vue({
   store,
   router,
